@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -30,7 +29,7 @@ public class PlayerCamera : MonoBehaviour
         xRotation -= mouseY;
 
         //the objket cant look up or down more then 90deg 
-        xRotation = math.clamp(xRotation, -90f, 90f); // ( |xRotation| < 90 )
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // ( |xRotation| < 90 )
 
         // rotate camera and oriantaion
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0); // camera X and Y rotation
