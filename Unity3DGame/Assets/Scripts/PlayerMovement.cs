@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,12 +11,20 @@ public class PlayerMovement : MonoBehaviour
 
     public float groundDrag;
 
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    bool readyToJump = true;
+
+    [Header("Keybinds")]
+    public KeyCode jumpKey = KeyCode.Space;
+
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGrund;
     bool grounded;
 
-    public Transform orientation;
+    public Transform orientation; //Players curent oriantion
 
     float horizontalInput;
     float verticalInput;
@@ -59,6 +68,15 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        {
+            readyToJump = false;
+
+            Jump(); // jump, apply force in y
+
+            Invoke(nameof(ResetJump), jumpCooldown); //Invokes ResetJump after "jumCooldwon" sec
+        }
     }
 
     private void MovePlayer()
@@ -66,7 +84,14 @@ public class PlayerMovement : MonoBehaviour
         // calculate movement direction
         moveDirection = ( orientation.forward * verticalInput ) + ( orientation.right * horizontalInput );
 
-        rB.AddForce(10 * moveSpeed * moveDirection.normalized, ForceMode.Force);
+        // in ground
+        if(grounded)
+            rB.AddForce(10 * moveSpeed * moveDirection.normalized, ForceMode.Force);
+
+        // in air: cange total force apliade in move
+        else if(!grounded)
+            rB.AddForce(10 * airMultiplier * moveSpeed * moveDirection.normalized, ForceMode.Force);
+
     }
 
     // Manualy cotrol of speed
@@ -76,8 +101,20 @@ public class PlayerMovement : MonoBehaviour
 
         if(flatVel.magnitude > moveSpeed)
         {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            Vector3 limitedVel = flatVel.normalized * moveSpeed; // maxspeed will alwas be value "moveSpeed"
             rB.velocity = new Vector3(limitedVel.x, rB.velocity.y, limitedVel.z); // limit velocity on x and z
         }
+    }
+
+    private void Jump()
+    {
+        // reset y velocity: This will make every jump the same hight
+        rB.velocity = new Vector3(rB.velocity.x, 0, rB.velocity.z);
+
+        rB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+    private void ResetJump()
+    {
+        readyToJump = true;
     }
 }
