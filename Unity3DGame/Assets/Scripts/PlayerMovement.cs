@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
 
     [Header("Ground Check")]
-    public float playerHeight;
+    public float playerHeight; // To chek distance from ground, for raycast
     public LayerMask whatIsGrund;
     bool grounded;
 
@@ -41,24 +41,39 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
+        MyInput(); // Get imput from player
+
+        SpeedControl(); // Contorl PlayerObj speed
+
+        HandleDrag(); // Contraol playerObj drag
+
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer(); // Move PlayerObj based input
+
+        CheckIfGrounded(); // Check if playerObj i on ground
+    }
+
+
+
+
+    private void CheckIfGrounded()
+    {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight);
+    }
 
-        MyInput();
-        SpeedControl();
-
+    private void HandleDrag()
+    {
         // handle drag
         if (grounded)
             rB.drag = groundDrag;
         else
             rB.drag = 0;
     }
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
 
 
 
