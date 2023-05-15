@@ -955,6 +955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1658950444119173338, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1060,6 +1064,10 @@ PrefabInstance:
       propertyPath: cameraPosition
       value: 
       objectReference: {fileID: 1856987107}
+    - target: {fileID: 3395436494143286074, guid: 06dc1edb8d697974fb32d67de168853c, type: 3}
+      propertyPath: cameraRotation
+      value: 
+      objectReference: {fileID: 1946206600}
     - target: {fileID: 3395436494143286075, guid: 06dc1edb8d697974fb32d67de168853c, type: 3}
       propertyPath: m_Name
       value: CameraHolder
