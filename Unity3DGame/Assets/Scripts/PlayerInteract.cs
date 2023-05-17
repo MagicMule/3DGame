@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.AssetImporters;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -7,6 +8,7 @@ public class PlayerInteract : MonoBehaviour
     public KeyCode interactKey = KeyCode.E;
 
     private bool interatonHasHappend = false;
+
     void Update()
     {
         Interact();
