@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump = true;
 
-    [Header("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
+    //[Header("Keybinds")]
+    //public KeyCode jumpKey = KeyCode.Space;
 
     [Header("Ground Check")]
     public float playerHeight; // To chek distance from ground, for raycast
@@ -26,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform orientation; //Players curent oriantion
 
-    float horizontalInput;
-    float verticalInput;
 
     Vector3 moveDirection;
 
@@ -87,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         //horizontalInput = Input.GetAxisRaw("Horizontal");
         //verticalInput = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if(Input.GetKey(InputManager.Instance.jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
 

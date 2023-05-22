@@ -14,7 +14,7 @@ public class ActivateInteraction : MonoBehaviour
     public bool interactReady = true;
     public float interactDeley = 0.5f; // time befor next interaction bekoms avialable
     public float interactDuration = 0.2f; // active time of iteractor objekt
-    public KeyCode interactKey = KeyCode.Mouse0;
+    //public KeyCode interactKey = KeyCode.Mouse0;
 
     private void Update()
     {
@@ -23,7 +23,7 @@ public class ActivateInteraction : MonoBehaviour
 
     void StartInteraction()
     {
-        if (Input.GetKey(interactKey) && interactReady)
+        if (Input.GetKey(InputManager.Instance.interactKey) && interactReady)
         {
             interactor.SetActive(true);
             StartCoroutine(DoInteraction());
