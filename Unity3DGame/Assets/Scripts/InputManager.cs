@@ -4,31 +4,33 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public KeyCode jumpKey = KeyCode.Space;
-
-    public KeyCode interactKey = KeyCode.Mouse0;
-
-    public float moveHorizontalInput;
-
-    public float moveVerticalInput;
-
     public static InputManager Instance { get; private set; }
 
+
+    public KeyCode jumpKey = KeyCode.Space;
     public KeyCode JumpKey => jumpKey;
 
+
+    public KeyCode interactKey = KeyCode.Mouse0;
     public KeyCode InteractKey => interactKey;
 
+
+    public float moveHorizontalInput;
     public float MoveHorizontalInput
     {
-        get { return moveHorizontalInput; }
+        get => moveHorizontalInput;
         set { moveHorizontalInput = value; }
     }
 
+
+    public float moveVerticalInput;
     public float MoveVerticalInput
     {
-        get { return moveVerticalInput; }
+        get => moveVerticalInput;
         set { moveVerticalInput = value; }
     }
+
+
     private void Awake()
     {
         if (Instance == null)
