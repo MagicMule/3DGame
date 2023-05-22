@@ -81,8 +81,11 @@ public class PlayerMovement : MonoBehaviour
     //Get input
     private void MyInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        InputManager.Instance.moveHorizontalInput = Input.GetAxisRaw("Horizontal");
+        InputManager.Instance.MoveVerticalInput = Input.GetAxisRaw("Vertical");
+
+        //horizontalInput = Input.GetAxisRaw("Horizontal");
+        //verticalInput = Input.GetAxisRaw("Vertical");
 
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
@@ -97,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         // calculate movement direction
-        moveDirection = ( orientation.forward * verticalInput ) + ( orientation.right * horizontalInput );
+        moveDirection = ( orientation.forward * InputManager.Instance.MoveVerticalInput) + ( orientation.right * InputManager.Instance.moveHorizontalInput);
 
         // in ground
         if(grounded)
