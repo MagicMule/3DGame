@@ -8,8 +8,7 @@ public class ActivateInteraction : MonoBehaviour
     [Header("GameObjekt used to initaite interaction")]
     public GameObject interactor;
 
-    [Header("UI and general Objekt to cange by interaction")]
-    public GameObject InteractUI;
+
 
     [Header("Interaction")]
     public bool interactReady = true;

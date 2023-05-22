@@ -18,8 +18,15 @@ public class InteractCollider : MonoBehaviour
         }
         else if (other.gameObject && !InteractUiIsClosed)
         {
+            Debug.Log("Interakting with" + other.gameObject.name);
             InteractUI.SetActive(false); // Close Ui when player activates InteractUI agin (Must hit a gameObjekt)
             InteractUiIsClosed = true;
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Interacting with" + other.gameObject.name);
+            Debug.Log("HIT AND ENEMY!");
         }
     }
 }
