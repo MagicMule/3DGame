@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
-{
+{/// <summary>
+/// All player input values are stored here
+/// </summary>
     public static InputManager Instance { get; private set; }
 
 

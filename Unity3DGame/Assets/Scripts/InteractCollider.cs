@@ -12,22 +12,21 @@ public class InteractCollider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC") && InteractUiIsClosed)
         {
-            Debug.Log("Interating with" + other.gameObject.name);
-            InteractUI.SetActive(true); // Open UI when colltion with npc
-            InteractUiIsClosed = false;
+            InteractUI.SetActive(true); // Open UI when colion with npc
+            InteractUiIsClosed = false; // UI is open -> set InteractUiclosed to false
         }
         else if (other.gameObject && !InteractUiIsClosed)
         {
-            Debug.Log("Interakting with" + other.gameObject.name);
             InteractUI.SetActive(false); // Close Ui when player activates InteractUI agin (Must hit a gameObjekt)
             InteractUiIsClosed = true;
         }
 
+        // Player hit enemy
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Interacting with" + other.gameObject.name);
             Debug.Log("HIT AND ENEMY!");
         }
+        Debug.Log("Interakting with " + other.gameObject.name);
     }
 }
 

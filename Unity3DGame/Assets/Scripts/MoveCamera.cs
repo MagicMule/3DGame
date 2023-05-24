@@ -7,9 +7,9 @@ public class MoveCamera : MonoBehaviour
     public Transform cameraPosition;
     public Transform cameraRotation;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        // update the camera posto applied objekts transform 
+        // update the camera positon to applied objekts transform 
         transform.position = cameraPosition.position;
         transform.rotation = cameraRotation.localRotation;
     }

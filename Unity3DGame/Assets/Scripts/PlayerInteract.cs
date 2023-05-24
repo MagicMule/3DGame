@@ -5,13 +5,23 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+    /// <summary>
+    /// General interation, not tide to objekt or colidor
+    /// </summary>
+    
+    
     public KeyCode interactKey = KeyCode.E;
 
+    public KeyCode quitMenuKey = KeyCode.Escape;
+
     private bool interatonHasHappend = false;
+
+    public GameObject popUpUI;
 
     void Update()
     {
         Interact();
+        QuitMenu();
     }
     void Interact()
     {
@@ -28,6 +38,15 @@ public class PlayerInteract : MonoBehaviour
         if (Input.GetKeyUp(interactKey))
         {
             interatonHasHappend = false;
+        }
+    }
+
+    void QuitMenu()
+    {
+        // exsit interationMenu
+        if (Input.GetKeyDown(quitMenuKey))
+        {
+            popUpUI.SetActive(false);
         }
     }
 }

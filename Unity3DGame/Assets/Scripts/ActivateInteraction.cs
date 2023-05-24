@@ -5,13 +5,18 @@ using UnityEngine;
 
 public class ActivateInteraction : MonoBehaviour
 {
+    /// <summary>
+    /// Here a gameobjekts, interactor, colider is used to initait an interaktion. 
+    /// This script activates a objekt, making its colidor available for interaction with other gameobjekts.
+    /// </summary>
+    /// 
     [Header("GameObjekt used to initaite interaction")]
     public GameObject interactor;
 
 
 
     [Header("Interaction")]
-    public bool interactReady = true;
+    public bool interactReady = true; // A bool to chek if a interaktin is ready
     public float interactDeley = 0.5f; // time befor next interaction bekoms avialable
     public float interactDuration = 0.2f; // active time of iteractor objekt
     //public KeyCode interactKey = KeyCode.Mouse0;
@@ -21,6 +26,7 @@ public class ActivateInteraction : MonoBehaviour
         StartInteraction();
     }
 
+    //Activate interactor
     void StartInteraction()
     {
         if (Input.GetKey(InputManager.Instance.interactKey) && interactReady)
@@ -30,6 +36,7 @@ public class ActivateInteraction : MonoBehaviour
         }
     }
 
+    //Set time the interactor colidor is to be active
     IEnumerator DoInteraction()
     {
         interactReady = false;
@@ -41,6 +48,7 @@ public class ActivateInteraction : MonoBehaviour
         StartCoroutine(DelayInteraction()); // Start deley
     }
 
+    // Set deley befor player can make another interaction
     IEnumerator DelayInteraction()
     {
         yield return new WaitForSeconds(interactDeley);
