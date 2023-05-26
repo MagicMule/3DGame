@@ -8,25 +8,30 @@ public class PlayerInteract : MonoBehaviour
     /// <summary>
     /// General interation, not tide to objekt or colidor
     /// </summary>
-    
-    
-    public KeyCode interactKey = KeyCode.E;
 
-    public KeyCode quitMenuKey = KeyCode.Escape;
+    
+    //public KeyCode interactKey = KeyCode.E;
 
-    private bool interatonHasHappend = false;
+    //public KeyCode quitMenuKey = KeyCode.Escape;
+
+
 
     public GameObject popUpUI;
+    private bool interatonHasHappend = false;
+
+    public GameObject playerCameraMoveScript;
+    private bool cameraActive = true;
 
     void Update()
     {
         Interact();
         QuitMenu();
+        StopPlayerCameraMovment();
     }
     void Interact()
     {
         // when push E down, intreakt
-        if (Input.GetKeyDown(interactKey) && !interatonHasHappend)
+        if (Input.GetKeyDown(InputManager.Instance.interactKeyNoColider) && !interatonHasHappend)
         {
             Debug.Log("Interact");
 
@@ -35,7 +40,7 @@ public class PlayerInteract : MonoBehaviour
         }
 
         // when E kay up, make new interaction ready
-        if (Input.GetKeyUp(interactKey))
+        if (Input.GetKeyUp(InputManager.Instance.interactKeyNoColider))
         {
             interatonHasHappend = false;
         }
@@ -44,9 +49,26 @@ public class PlayerInteract : MonoBehaviour
     void QuitMenu()
     {
         // exsit interationMenu
-        if (Input.GetKeyDown(quitMenuKey))
+        if (Input.GetKeyDown(InputManager.Instance.quitMenuKey))
         {
             popUpUI.SetActive(false);
+        }
+    }
+
+    //Start and stop player camera control
+    void StopPlayerCameraMovment()
+    {
+        if (Input.GetKeyDown(InputManager.Instance.frezeCamera) && cameraActive)
+        {
+            Debug.Log("Stop player camera control");
+            playerCameraMoveScript.GetComponent<PlayerCamera>().enabled = false;
+            cameraActive = false;
+        }
+        else if (Input.GetKeyDown(InputManager.Instance.frezeCamera))
+        {
+            Debug.Log("Start player camera control");
+            playerCameraMoveScript.GetComponent<PlayerCamera>().enabled = true;
+            cameraActive = true;
         }
     }
 }
