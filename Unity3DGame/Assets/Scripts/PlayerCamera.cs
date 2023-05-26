@@ -35,4 +35,5 @@ public class PlayerCamera : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, orientation.rotation.z); // camera X and Y rotation
         orientation.rotation = Quaternion.Euler(orientation.rotation.x, yRotation, orientation.rotation.z); // objekt Y rotation 
     }
+
 }
