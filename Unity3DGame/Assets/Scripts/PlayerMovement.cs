@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGrund;
     bool grounded;
 
-    public Transform orientation; //Players curent oriantion
+    public Transform orientation; //Players curent oriantion, player should move forward when oriantaion forward
 
 
     Vector3 moveDirection; // direction player is to move
