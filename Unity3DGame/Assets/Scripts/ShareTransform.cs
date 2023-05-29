@@ -11,6 +11,7 @@ public class ShareTransform : MonoBehaviour
     {
         if (collision.gameObject)
         {
+            Debug.Log(collision.gameObject + " is colliding");
             collision.gameObject.transform.parent = transform; // get colliding object transform to be the same as this objekts transform
         }
     }

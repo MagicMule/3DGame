@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         // calculate movement direction
         moveDirection = ( orientation.forward * InputManager.Instance.MoveVerticalInput) + ( orientation.right * InputManager.Instance.moveHorizontalInput);
 
-        // in ground
+        // on ground
         if(grounded)
             rB.AddForce(10 * moveSpeed * moveDirection.normalized, ForceMode.Force);
 
