@@ -6,7 +6,7 @@ public class RotateObjekt : MonoBehaviour
 {
     public Transform ObjektToRotate;
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.Rotate(0, 0, 1);
     }

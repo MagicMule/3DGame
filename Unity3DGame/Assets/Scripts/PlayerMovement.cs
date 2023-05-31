@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight; // To chek distance from ground, for raycast
     public LayerMask whatIsGrund;
-    bool grounded;
+    public bool grounded;
 
     public Transform orientation; //Players curent oriantion, player should move forward when oriantaion forward
 
@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     private void CheckIfGrounded()
     {
         // ground check
+        // shoot raycast down from player localPos
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight);
     }
 
@@ -132,4 +133,15 @@ public class PlayerMovement : MonoBehaviour
     {
         readyToJump = true;
     }
+
+    // Set grounded to true if playerobjekt tuches any other objekt
+    /*
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject)
+        {
+            grounded = true;
+        }
+    }
+    */
 }
