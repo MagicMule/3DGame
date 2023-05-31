@@ -32,8 +32,12 @@ public class PlayerCamera : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // ( |xRotation| < 90 )
 
         // rotate camera and oriantaion
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, orientation.rotation.z); // camera X and Y rotation
-        orientation.rotation = Quaternion.Euler(orientation.rotation.x, yRotation, orientation.rotation.z); // objekt Y rotation 
+        //Cange this gameObjekts, playerCamera, rotation
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, orientation.localRotation.z); // camera X and Y rotation
+
+        // controls the orientaion objekt on player, becomes the forward direktion
+        // cange the oriantion objekts rotation
+        orientation.localRotation = Quaternion.Euler(orientation.localRotation.x, yRotation, orientation.localRotation.z);
     }
 
 }

@@ -96,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         // calculate movement direction
+        // player forwoard movement is were the charkater is looking
         moveDirection = ( orientation.forward * InputManager.Instance.MoveVerticalInput) + ( orientation.right * InputManager.Instance.moveHorizontalInput);
 
         // on ground

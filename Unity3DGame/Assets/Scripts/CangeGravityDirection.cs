@@ -6,7 +6,6 @@ public class CangeGravityDirection : MonoBehaviour
 {
     public Vector3 customGravity = new Vector3(0f, 0f, 0f);
 
-    public Transform playerOriantation;
     private void Start()
     {
         Physics.gravity = Vector3.zero;

@@ -11,6 +11,5 @@ public class MoveCamera : MonoBehaviour
     {
         // update the camera positon to applied objekts transform 
         transform.position = cameraPosition.position;
-        transform.rotation = cameraRotation.rotation;
     }
 }
