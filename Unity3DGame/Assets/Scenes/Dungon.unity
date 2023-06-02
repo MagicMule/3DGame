@@ -387,6 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScale: {x: 10, y: 1, z: 1}
   scaleSpeed: 0.2
+  expand: 0
 --- !u!1 &309157786 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2145306676, guid: 06dc1edb8d697974fb32d67de168853c, type: 3}
@@ -1438,15 +1439,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.92
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.252
+      value: 25.8
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -72.36
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1494,7 +1495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173348, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: airMultiplier
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173348, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: whatIsGrund.m_Bits
@@ -2440,6 +2441,10 @@ PrefabInstance:
     - target: {fileID: 3209639766714054515, guid: 1ea877fd1a090c448a0d8e7e33ad1150, type: 3}
       propertyPath: m_Name
       value: Big Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209639767024892416, guid: 1ea877fd1a090c448a0d8e7e33ad1150, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ea877fd1a090c448a0d8e7e33ad1150, type: 3}
