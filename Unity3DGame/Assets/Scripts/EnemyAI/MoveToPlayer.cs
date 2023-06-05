@@ -19,13 +19,16 @@ public class MoveToPlayer : MonoBehaviour
 
     float savedMoveSpeed = 1f; // Saved movesped aplide StopMove, When enemy is to move
 
-    float distanceToPlayer;
+    public float distanceToPlayer;
+
+    public bool isInStopPos = false; //This gb is in possition to stop
 
     public float stopDistance = 3f ;
 
     private void Start()
     {
         savedMoveSpeed = enemyMoveSpeed;
+
     }
     void Update()
     {
@@ -53,10 +56,12 @@ public class MoveToPlayer : MonoBehaviour
 
         if( distanceToPlayer < stopDistance )
         {
+            isInStopPos = true;
             enemyMoveSpeed = 0;
         }
         else
         {
+            isInStopPos = false;
             enemyMoveSpeed = savedMoveSpeed;
         }
 
@@ -65,7 +70,9 @@ public class MoveToPlayer : MonoBehaviour
     // Distance to playerPos and this gobjekt
     void GetDistanceToPlayer()
     {
-        distanceToPlayer = Mathf.Sqrt( Mathf.Pow(vectorToPlayer.x, 2) + Mathf.Pow(vectorToPlayer.z, 2) ); 
+        distanceToPlayer = Vector3.Distance(transform.position, playerPos.position);
     }
+
+
 
 }

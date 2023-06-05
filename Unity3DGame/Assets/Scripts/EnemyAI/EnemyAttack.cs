@@ -11,6 +11,12 @@ public class EnemyAttack : MonoBehaviour
     public Transform playerPos;
 
 
+    private bool isAttackInRange = false;
+
+    float stopDistance;
+
+    private MoveToPlayer moveToPlayerScript;
+
     [Header("GameObjekt used to initaite interaction")]
     public GameObject interactor;
 
@@ -21,8 +27,14 @@ public class EnemyAttack : MonoBehaviour
     public float interactDeley = 0.5f; // time befor next interaction bekoms avialable
     public float interactDuration = 0.2f; // active time of iteractor objekt
 
+    private void Start()
+    {
+        moveToPlayerScript = GetComponentInParent<MoveToPlayer>();
+    }
+
     private void Update()
     {
+        isAttackInRange = moveToPlayerScript.isInStopPos; // Update the bool and chek if the enemy has stoped
         StartInteraction();
         transform.LookAt(playerPos); // Look at player, z point to playerPos 
     }
@@ -30,7 +42,7 @@ public class EnemyAttack : MonoBehaviour
     //Activate interactor
     void StartInteraction()
     {
-        if (interactReady)
+        if (interactReady && isAttackInRange)
         {
             interactor.SetActive(true);
             StartCoroutine(DoInteraction());
@@ -55,5 +67,21 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(interactDeley);
         interactReady = true;
     }
+
+    // If player is coles enotu the attack happen
+    
+    /*
+    void ChekIfPlayerIsInRange()
+    {
+        if( Vector3.Distance(transform.position, playerPos.position) > stopDistance)
+        {
+            isAttackInRange = true;
+        }
+        else
+        {
+            isAttackInRange = false;
+        }
+    }
+    */
 
 }
