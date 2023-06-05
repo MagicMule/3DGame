@@ -19,7 +19,9 @@ public class MoveToPlayer : MonoBehaviour
 
     float savedMoveSpeed = 1f; // Saved movesped aplide StopMove, When enemy is to move
 
-    float stopDistance = 1f ;
+    float distanceToPlayer;
+
+    public float stopDistance = 3f ;
 
     private void Start()
     {
@@ -27,17 +29,18 @@ public class MoveToPlayer : MonoBehaviour
     }
     void Update()
     {
+        GetDistanceToPlayer();
         GetPlayerPos();
         MoveToPlayerPos();
         StopMove();
-        Debug.Log("vectorToPlayer: " + vectorToPlayer);
+        //Debug.Log( gameObject.name + " distance from " + playerPos.name + " is: " + distanceToPlayer);
     }
     void GetPlayerPos()
     {
         vectorToPlayer = new Vector3(playerPos.position.x - transform.position.x, 0f, playerPos.position.z - transform.position.z);
         
     }
-
+     
     void MoveToPlayerPos()
     {
         vectorToPlayer.Normalize();
@@ -48,7 +51,7 @@ public class MoveToPlayer : MonoBehaviour
     {
         GetPlayerPos();
 
-        if( (Mathf.Abs(vectorToPlayer.x) < stopDistance || Mathf.Abs(vectorToPlayer.z) < stopDistance))
+        if( distanceToPlayer < stopDistance )
         {
             enemyMoveSpeed = 0;
         }
@@ -57,6 +60,12 @@ public class MoveToPlayer : MonoBehaviour
             enemyMoveSpeed = savedMoveSpeed;
         }
 
+    }
+    
+    // Distance to playerPos and this gobjekt
+    void GetDistanceToPlayer()
+    {
+        distanceToPlayer = Mathf.Sqrt( Mathf.Pow(vectorToPlayer.x, 2) + Mathf.Pow(vectorToPlayer.z, 2) ); 
     }
 
 }
