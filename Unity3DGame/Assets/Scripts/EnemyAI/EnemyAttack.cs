@@ -13,12 +13,12 @@ public class EnemyAttack : MonoBehaviour
 
     private bool isAttackInRange = false;
 
-    float stopDistance;
 
     private MoveToPlayer moveToPlayerScript;
 
-    [Header("GameObjekt used to initaite interaction")]
-    public GameObject interactor;
+    [Header("GameObjekts used to initaite interaction")]
+    public GameObject indecate; // Objekt that indecate incoming attack
+    public GameObject attack; // attack Objekt that damge player
 
 
 
@@ -32,31 +32,45 @@ public class EnemyAttack : MonoBehaviour
         moveToPlayerScript = GetComponentInParent<MoveToPlayer>();
     }
 
+
+
     private void Update()
     {
         isAttackInRange = moveToPlayerScript.isInStopPos; // Update the bool and chek if the enemy has stoped
-        StartInteraction();
+
+
+
+        StartInteraction(indecate); // Start Indecating attack
+
+        StartInteraction(attack);
+
+
+
         transform.LookAt(playerPos); // Look at player, z point to playerPos 
     }
 
+
+
+
+
     //Activate interactor
-    void StartInteraction()
+    void StartInteraction(GameObject indecator)
     {
         if (interactReady && isAttackInRange)
         {
-            interactor.SetActive(true);
-            StartCoroutine(DoInteraction());
+            indecator.SetActive(true);
+            StartCoroutine(DoInteraction(indecator));
         }
     }
 
     //Set time the interactor colidor is to be active
-    IEnumerator DoInteraction()
+    IEnumerator DoInteraction(GameObject indecator)
     {
         interactReady = false;
 
         yield return new WaitForSeconds(interactDuration);
 
-        interactor.SetActive(false);
+        indecator.SetActive(false);
 
         StartCoroutine(DelayInteraction()); // Start deley
     }
@@ -65,23 +79,8 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator DelayInteraction()
     {
         yield return new WaitForSeconds(interactDeley);
+
         interactReady = true;
     }
-
-    // If player is coles enotu the attack happen
-    
-    /*
-    void ChekIfPlayerIsInRange()
-    {
-        if( Vector3.Distance(transform.position, playerPos.position) > stopDistance)
-        {
-            isAttackInRange = true;
-        }
-        else
-        {
-            isAttackInRange = false;
-        }
-    }
-    */
 
 }
