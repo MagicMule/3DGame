@@ -15,6 +15,7 @@ public class EnemyAttack : MonoBehaviour
 
 
     private MoveToPlayer moveToPlayerScript;
+    private LookAtPlayer lookAtPlayerScript;
 
     [Header("GameObjekts used to initaite interaction")]
     public GameObject indecate; // Objekt that indecate incoming attack
@@ -30,24 +31,19 @@ public class EnemyAttack : MonoBehaviour
     private void Start()
     {
         moveToPlayerScript = GetComponentInParent<MoveToPlayer>();
+        lookAtPlayerScript = GetComponentInParent<LookAtPlayer>();
     }
 
 
 
     private void Update()
     {
+
         isAttackInRange = moveToPlayerScript.isInStopPos; // Update the bool and chek if the enemy has stoped
-
-
 
         StartInteraction(); // Start Indecating attack
 
-
-
-
-        transform.LookAt(playerPos); // Look at player, z point to playerPos 
     }
-
 
 
 
@@ -55,10 +51,14 @@ public class EnemyAttack : MonoBehaviour
     //Activate interacton
     void StartInteraction()
     {
+
         // If Enemy in range and interaction is ready, start to indekate that attack is comming
         if (interactReady && isAttackInRange)
         {
+            lookAtPlayerScript.enabled = false; // Stop following player when making attack
+
             indecate.SetActive(true); // activet indecator objekt
+
             StartCoroutine(DoInteraction());
         }
     }
@@ -66,6 +66,7 @@ public class EnemyAttack : MonoBehaviour
     //Set time the interactor colidor is to be active
     IEnumerator DoInteraction()
     {
+
         interactReady = false;
 
         yield return new WaitForSeconds(interactDuration);
@@ -78,6 +79,7 @@ public class EnemyAttack : MonoBehaviour
 
         attack.SetActive(false);
 
+        lookAtPlayerScript.enabled = true; // enemy follow player again
 
         StartCoroutine(DelayInteraction()); // Start deley
     }
@@ -85,9 +87,16 @@ public class EnemyAttack : MonoBehaviour
     // Set deley befor player can make another interaction
     IEnumerator DelayInteraction()
     {
+
+
         yield return new WaitForSeconds(interactDeley);
 
+        
+        
         interactReady = true;
+
+
     }
+
 
 }

@@ -50,6 +50,7 @@ public class MoveToPlayer : MonoBehaviour
         transform.Translate(vectorToPlayer * Time.deltaTime * enemyMoveSpeed);
     }
 
+    // Stop movement when player is close/ in range
     void StopMove()
     {
         GetPlayerPos();
