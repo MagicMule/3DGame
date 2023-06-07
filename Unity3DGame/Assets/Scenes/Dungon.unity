@@ -571,8 +571,8 @@ MonoBehaviour:
   indecate: {fileID: 1883405757}
   attack: {fileID: 567735903}
   interactReady: 1
-  interactDeley: 0.5
-  interactDuration: 0.2
+  interactDeley: 2
+  interactDuration: 1
 --- !u!1001 &469646512
 PrefabInstance:
   m_ObjectHideFlags: 0

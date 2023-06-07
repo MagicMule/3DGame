@@ -40,9 +40,8 @@ public class EnemyAttack : MonoBehaviour
 
 
 
-        StartInteraction(indecate); // Start Indecating attack
+        StartInteraction(); // Start Indecating attack
 
-        StartInteraction(attack);
 
 
 
@@ -53,24 +52,32 @@ public class EnemyAttack : MonoBehaviour
 
 
 
-    //Activate interactor
-    void StartInteraction(GameObject indecator)
+    //Activate interacton
+    void StartInteraction()
     {
+        // If Enemy in range and interaction is ready, start to indekate that attack is comming
         if (interactReady && isAttackInRange)
         {
-            indecator.SetActive(true);
-            StartCoroutine(DoInteraction(indecator));
+            indecate.SetActive(true); // activet indecator objekt
+            StartCoroutine(DoInteraction());
         }
     }
 
     //Set time the interactor colidor is to be active
-    IEnumerator DoInteraction(GameObject indecator)
+    IEnumerator DoInteraction()
     {
         interactReady = false;
 
         yield return new WaitForSeconds(interactDuration);
 
-        indecator.SetActive(false);
+        indecate.SetActive(false); // Stop indecator
+        attack.SetActive(true); // Start attack
+        attack.SetActive(true); // Start attack
+
+        yield return new WaitForSeconds(interactDuration);
+
+        attack.SetActive(false);
+
 
         StartCoroutine(DelayInteraction()); // Start deley
     }

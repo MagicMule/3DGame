@@ -10,9 +10,6 @@ public class RelativeObjektManager : MonoBehaviour
     /// </summary>
     /// 
     public static RelativeObjektManager Instance { get; private set; }
-
-    public float DectanceOfTwo;
-
     
 
 
