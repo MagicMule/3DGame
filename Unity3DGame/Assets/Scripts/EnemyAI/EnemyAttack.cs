@@ -55,7 +55,8 @@ public class EnemyAttack : MonoBehaviour
         // If Enemy in range and interaction is ready, start to indekate that attack is comming
         if (interactReady && isAttackInRange)
         {
-            lookAtPlayerScript.enabled = false; // Stop following player when making attack
+            lookAtPlayerScript.enabled = false; // Stop looking player when making attack
+            moveToPlayerScript.enabled = false; // Stop follwing player when makaing attack
 
             indecate.SetActive(true); // activet indecator objekt
 
@@ -79,7 +80,8 @@ public class EnemyAttack : MonoBehaviour
 
         attack.SetActive(false);
 
-        lookAtPlayerScript.enabled = true; // enemy follow player again
+        lookAtPlayerScript.enabled = true; // enemy look at player again
+        moveToPlayerScript.enabled = true; // enemy follow player again
 
         StartCoroutine(DelayInteraction()); // Start deley
     }
