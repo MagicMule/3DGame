@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenCloseDoor : MonoBehaviour
 {
     /// <summary>
-    /// This Open or closeds dor based on player interactCollider
+    /// This Open or closeds door based on player interactCollider
     /// </summary>
 
     public float rotationSpeed = 50f;  // Speed at which the object rotates
@@ -43,7 +43,7 @@ public class OpenCloseDoor : MonoBehaviour
         {
             doorIsClosed = false;
 
-            currentRotation = 0; // reset current rotation
+            currentRotation = 0; // reset current rotation calculation
 
             enabled = false; // Disable this script to stop further rotation
         }

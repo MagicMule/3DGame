@@ -387,7 +387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScale: {x: 10, y: 1, z: 1}
   scaleSpeed: 0.2
-  expand: 0
+  tilingIncreseRate: 4
+  expand: 1
 --- !u!1 &309157786 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2145306676, guid: 06dc1edb8d697974fb32d67de168853c, type: 3}
@@ -1314,7 +1315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.68
+      value: 76.6
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1322,7 +1323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.73
+      value: -73.3
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2479,7 +2480,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2613,25 +2614,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e23dde9a9bcd71e4e86aa309b6069020, type: 3}
---- !u!1 &2003871645 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 35766022585573760, guid: 7117c8e63a924b441a6b5c880ebe257c, type: 3}
-  m_PrefabInstance: {fileID: 35766024348190237}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2003871650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003871645}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05e94b2f39075f340babe751b983bb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 50
-  targetDegrees: 90
 --- !u!1 &2058562917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1658950444119173337, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
@@ -2758,10 +2740,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorHinge
       objectReference: {fileID: 0}
-    - target: {fileID: 35766022585573760, guid: 7117c8e63a924b441a6b5c880ebe257c, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 35766022585573820, guid: 7117c8e63a924b441a6b5c880ebe257c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2806,16 +2784,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 35766022585573823, guid: 7117c8e63a924b441a6b5c880ebe257c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 35766023360310040, guid: 7117c8e63a924b441a6b5c880ebe257c, type: 3}
-      propertyPath: m_TagString
-      value: Door
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 35766022585573823, guid: 7117c8e63a924b441a6b5c880ebe257c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7117c8e63a924b441a6b5c880ebe257c, type: 3}
 --- !u!1001 &3209639766808942801
 PrefabInstance:
