@@ -36,8 +36,7 @@ public class InteractCollider : MonoBehaviour
 
         if (other.gameObject.CompareTag("Door"))
         {
-            other.gameObject.GetComponentInParent<RotateDeg>().enabled = true;
-            Debug.Log("Open Door");
+            other.gameObject.GetComponentInParent<OpenCloseDoor>().enabled = true;
         }
 
 

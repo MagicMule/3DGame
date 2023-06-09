@@ -2,20 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateDeg : MonoBehaviour
+public class OpenCloseDoor : MonoBehaviour
 {
+    /// <summary>
+    /// This Open or closeds dor based on player interactCollider
+    /// </summary>
+
     public float rotationSpeed = 50f;  // Speed at which the object rotates
     public float targetDegrees = 90f; // Number of degrees to rotate
 
     private float currentRotation; // Current rotation in degrees
 
+    private bool doorIsClosed = true;
+
     private void Update()
     {
-        OpenDoor();
+        if (doorIsClosed)
+        {
+            OpenDoor();
+        }
+        else if (!doorIsClosed)
+        {
+            CloseDoor();
+        }
     }
 
     void OpenDoor()
     {
+
         // Rotate the object by rotationSpeed degrees per second
         // Rotates the y axses
         transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
@@ -27,7 +41,31 @@ public class RotateDeg : MonoBehaviour
         // Check if the current rotation has reached the target degrees
         if (currentRotation >= targetDegrees)
         {
+            doorIsClosed = false;
+
+            currentRotation = 0; // reset current rotation
+
             enabled = false; // Disable this script to stop further rotation
+        }
+    }
+
+    void CloseDoor()
+    {
+
+
+        Debug.Log("Close Door");
+
+        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime * (-1)); // Rotate other direction
+
+        currentRotation += rotationSpeed * Time.deltaTime;
+
+        if (currentRotation >= targetDegrees)
+        {
+            doorIsClosed = true;
+
+            currentRotation = 0;
+
+            enabled = false;
         }
     }
 }
