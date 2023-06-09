@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHPManager : MonoBehaviour
 {
+    /// <summary>
+    /// This holds the value for player HP
+    /// </summary>
     public static PlayerHPManager Instance;
 
     public bool gameOver = false;
 
     public int playerHP = 10;
 
+    // The text were playerHP valus sould be desplayed in UI
+    public TextMeshProUGUI playerHPText;
     private void Awake()
     {
         if (Instance == null)
@@ -22,11 +29,17 @@ public class PlayerHPManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        playerHPText.text = $"{playerHP}";
+    }
+
     public void PlayerDecreaseHP(int damgeToPlayer)
     {
         playerHP -= damgeToPlayer;
     }
 
+    //Player game over event is to be put here
     public void PlayerGameOver()
     {
         gameOver = true;
