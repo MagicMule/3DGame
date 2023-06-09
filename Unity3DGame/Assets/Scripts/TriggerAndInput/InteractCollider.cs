@@ -33,7 +33,15 @@ public class InteractCollider : MonoBehaviour
             Debug.Log("HIT AND ENEMY!");
             Destroy(other.gameObject);
         }
-        Debug.Log("Interakting with " + other.gameObject.name);
+
+        if (other.gameObject.CompareTag("Door"))
+        {
+            other.gameObject.GetComponentInParent<RotateDeg>().enabled = true;
+            Debug.Log("Open Door");
+        }
+
+
     }
+
 }
 

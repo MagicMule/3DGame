@@ -11,12 +11,16 @@ public class PlayerHPManager : MonoBehaviour
     /// </summary>
     public static PlayerHPManager Instance;
 
+
     public bool gameOver = false;
 
     public int playerHP = 10;
 
     // The text were playerHP valus sould be desplayed in UI
     public TextMeshProUGUI playerHPText;
+
+    // game over screan
+    public TextMeshProUGUI gameOverText;
     private void Awake()
     {
         if (Instance == null)
@@ -31,7 +35,7 @@ public class PlayerHPManager : MonoBehaviour
 
     private void Update()
     {
-        playerHPText.text = $"{playerHP}";
+        playerHPText.text = $"HP: {playerHP}";
     }
 
     public void PlayerDecreaseHP(int damgeToPlayer)
@@ -43,6 +47,12 @@ public class PlayerHPManager : MonoBehaviour
     public void PlayerGameOver()
     {
         gameOver = true;
+
+        Destroy(playerHPText);
+
+        gameOverText.text = "GAME OVER";
+        
         Debug.Log("Game over");
+
     }
 }
