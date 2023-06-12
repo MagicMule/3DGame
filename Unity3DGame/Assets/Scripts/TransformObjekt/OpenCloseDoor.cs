@@ -41,7 +41,8 @@ public class OpenCloseDoor : MonoBehaviour
         // Check if the current rotation has reached the target degrees
         if (currentRotation >= targetDegrees)
         {
-            doorIsClosed = false;
+            doorIsClosed = false; // The door has reched the target
+
 
             currentRotation = 0; // reset current rotation calculation
 
