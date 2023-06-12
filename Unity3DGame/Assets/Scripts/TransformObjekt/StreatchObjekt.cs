@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -95,6 +96,10 @@ public class StreatchObjekt : MonoBehaviour
     // return the scale to orignal value
     private void OnApplicationQuit()
     {
-        objectRenderer.sharedMaterial.mainTextureScale = new Vector2(5, 2);
+        if (enabled)
+        {
+            objectRenderer.sharedMaterial.mainTextureScale = new Vector2(5, 2);
+        }
+
     }
 }

@@ -1315,15 +1315,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.6
+      value: 12.134
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.26
+      value: 29.24
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -73.3
+      value: -2.609
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2736,6 +2736,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2003871650, guid: 7117c8e63a924b441a6b5c880ebe257c, type: 3}
+      propertyPath: rotationSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 35766022585573760, guid: 7117c8e63a924b441a6b5c880ebe257c, type: 3}
       propertyPath: m_Name
       value: DoorHinge
