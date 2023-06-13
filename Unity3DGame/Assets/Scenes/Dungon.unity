@@ -626,7 +626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4737663544639577534, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
@@ -1414,15 +1414,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.53
+      value: 42.22
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.11
+      value: 26.35
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.93
+      value: -4.19
       objectReference: {fileID: 0}
     - target: {fileID: 1658950444119173339, guid: 2d49d5782b017f54494a032d857808c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2479,10 +2479,6 @@ PrefabInstance:
     - target: {fileID: 1494700643363547148, guid: fe746659916c3714c8e5afafa217f7af, type: 3}
       propertyPath: m_Name
       value: PlayerHud
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494700643363547151, guid: fe746659916c3714c8e5afafa217f7af, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1494700643363547152, guid: fe746659916c3714c8e5afafa217f7af, type: 3}
       propertyPath: m_Pivot.x
