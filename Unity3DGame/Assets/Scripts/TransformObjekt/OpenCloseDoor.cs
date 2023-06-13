@@ -53,10 +53,6 @@ public class OpenCloseDoor : MonoBehaviour
 
     void CloseDoor()
     {
-
-
-        Debug.Log("Close Door");
-
         transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime * (-1)); // Rotate other direction
 
         currentRotation += rotationSpeed * Time.deltaTime;
