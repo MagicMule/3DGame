@@ -34,6 +34,7 @@ public class InteractCollider : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        // Hit door objekt and the activet openCloseDoor, script on "doorHinge"
         if (other.gameObject.CompareTag("Door"))
         {
             other.gameObject.GetComponentInParent<OpenCloseDoor>().enabled = true;

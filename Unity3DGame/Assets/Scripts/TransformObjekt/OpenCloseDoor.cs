@@ -5,7 +5,8 @@ using UnityEngine;
 public class OpenCloseDoor : MonoBehaviour
 {
     /// <summary>
-    /// This Open or closeds door based on player interactCollider
+    /// This Open or closeds door
+    /// AORN objekts alterde by this svripts funtons porly as player platform
     /// </summary>
 
     public float rotationSpeed = 50f;  // Speed at which the object rotates
