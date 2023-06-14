@@ -8,6 +8,9 @@ public class OpenCloseDoor : MonoBehaviour
     /// This Open or closeds door
     /// AORN objekts alterde by this svripts funtons porly as player platform
     /// </summary>
+    /// 
+
+
 
     public float rotationSpeed = 50f;  // Speed at which the object rotates
     public float targetDegrees = 90f; // Number of degrees to rotate
@@ -16,11 +19,20 @@ public class OpenCloseDoor : MonoBehaviour
 
     private bool doorIsClosed = true;
 
+    private AudioSource doorAudio;
+    public AudioClip closeDoorSound;
+
+    private void OnEnable()
+    {
+        doorAudio = GetComponent<AudioSource>();
+        doorAudio.PlayOneShot(closeDoorSound);// play sound
+    }
+
     private void Update()
     {
         if (doorIsClosed)
         {
-            OpenDoor();
+            OpenDoor(); 
         }
         else if (!doorIsClosed)
         {
@@ -53,9 +65,11 @@ public class OpenCloseDoor : MonoBehaviour
 
     void CloseDoor()
     {
+
         transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime * (-1)); // Rotate other direction
 
         currentRotation += rotationSpeed * Time.deltaTime;
+
 
         if (currentRotation >= targetDegrees)
         {
