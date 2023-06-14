@@ -11,19 +11,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float groundDrag;
 
-    public float jumpForce;
-
-    public float jumpCooldown;
-
-    public float airMultiplier;
-
-    bool readyToJump = true;
-
-    [Header("Ground Check")]
-    public float playerHeight; // To chek distance from ground, for raycast
-    public LayerMask whatIsGrund;
-    public bool grounded;
-
     public Transform orientation; //Players curent oriantion, player should move forward when oriantaion forward
 
 
@@ -51,27 +38,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer(); // Move PlayerObj based input
-
-        CheckIfGrounded(); // Check if playerObj i on ground
-    }
-
-
-
-
-    private void CheckIfGrounded()
-    {
-        // ground check
-        // shoot raycast down from player localPos
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight);
     }
 
     private void HandleDrag()
     {
-        // handle drag
-        if (grounded)
-            rB.drag = groundDrag;
-        else
-            rB.drag = 0;
+        rB.drag = groundDrag;
     }
 
 
@@ -82,16 +53,6 @@ public class PlayerMovement : MonoBehaviour
     {
         InputManager.Instance.moveHorizontalInput = Input.GetAxisRaw("Horizontal");
         InputManager.Instance.MoveVerticalInput = Input.GetAxisRaw("Vertical");
-
-
-        if(Input.GetKey(InputManager.Instance.jumpKey) && readyToJump && grounded)
-        {
-            readyToJump = false;
-
-            Jump(); // jump, apply force in y
-
-            Invoke(nameof(ResetJump), jumpCooldown); //Invokes ResetJump after "jumCooldwon" sec
-        }
     }
 
     private void MovePlayer()
@@ -100,13 +61,7 @@ public class PlayerMovement : MonoBehaviour
         // player forwoard movement is were the charkater is looking
         moveDirection = ( orientation.forward * InputManager.Instance.MoveVerticalInput) + ( orientation.right * InputManager.Instance.moveHorizontalInput);
 
-        // on ground
-        if(grounded)
-            rB.AddForce(10 * moveSpeed * moveDirection.normalized, ForceMode.Force);
-
-        // in air: cange total force apliade in move
-        else if(!grounded)
-            rB.AddForce(10 * airMultiplier * moveSpeed * moveDirection.normalized, ForceMode.Force);
+        rB.AddForce(10 * moveSpeed * moveDirection.normalized, ForceMode.Force);
 
     }
 
@@ -121,27 +76,4 @@ public class PlayerMovement : MonoBehaviour
             rB.velocity = new Vector3(limitedVel.x, rB.velocity.y, limitedVel.z); // limit velocity on x and z
         }
     }
-
-    private void Jump()
-    {
-        // reset y velocity: This will make every jump the same hight
-        rB.velocity = new Vector3(rB.velocity.x, 0, rB.velocity.z);
-
-        rB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
-    private void ResetJump()
-    {
-        readyToJump = true;
-    }
-
-    // Set grounded to true if playerobjekt tuches any other objekt
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject)
-        {
-            grounded = true;
-        }
-    }
-    */
 }
