@@ -165,7 +165,7 @@ public class DungonGenerator : MonoBehaviour
         //Check right neighbor
         if ((cell + 1) % size.x != 0 && !board[Mathf.FloorToInt(cell + 1)].visited)
         {
-            neighbors.Add(Mathf.FloorToInt(cell - 1));
+            neighbors.Add(Mathf.FloorToInt(cell + 1));
         }
 
         //Check left neighbor
