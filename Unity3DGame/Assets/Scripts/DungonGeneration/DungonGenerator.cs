@@ -39,10 +39,16 @@ public class DungonGenerator : MonoBehaviour
         {
             for(int j = 0; j < size.y; j++)
             {
-                var newRoom = Instantiate(room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehavior>();
-                newRoom.UpdateRoom(board[Mathf.FloorToInt(i+j*size.x)].status);
+                Cell currentCell = board[Mathf.FloorToInt(i + j * size.x)]; // The cell curently being built
 
-                newRoom.name += " " + i + "-" + j;
+                if (currentCell.visited) // if current cell visited, instatiate it
+                {
+
+                    var newRoom = Instantiate(room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehavior>();
+                    newRoom.UpdateRoom(currentCell.status);
+
+                    newRoom.name += " " + i + "-" + j;
+                }
             }
         }
     }
@@ -73,6 +79,12 @@ public class DungonGenerator : MonoBehaviour
             k++;
 
             board[currentCell].visited = true; // note that the curentCell has been vissited
+
+
+            if(currentCell == board.Count - 1) // last cell of board
+            {
+                break;
+            }
 
             //Check the cell's neighbors
             List<int> neighbors = CheckNeighbors(currentCell);
