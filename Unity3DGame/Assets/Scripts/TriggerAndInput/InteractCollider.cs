@@ -10,21 +10,27 @@ public class InteractCollider : MonoBehaviour
     /// The following are interactions that follow the gameobjekts colltion
     /// </summary>
 
-    [Header("UI and general Objekt to cange by interaction")]
-    public GameObject InteractUI;
-    public bool InteractUIIsClosed = true;
+    //public GameObject InteractUI;
+
     private void OnTriggerEnter(Collider other)
     {
         // Player interact with npc
-        if (other.gameObject.CompareTag("NPC") && InteractUIIsClosed)
+        if (other.gameObject.CompareTag("NPC") && PlayerUIManager.Instance.InteractUIClosed)
         {
-            InteractUI.SetActive(true); // Open UI when colion with npc
-            InteractUIIsClosed = false; // UI is open -> set InteractUIClosed to false
+            //InteractUI.SetActive(true); // Open UI when colion with npc
+
+            PlayerUIManager.Instance.talkNPCText.gameObject.SetActive(true);
+
+            PlayerUIManager.Instance.InteractUIClosed = false; // UI is open -> set InteractUIClosed to false
+
         }
-        else if (other.gameObject && !InteractUIIsClosed)
+        else if (other.gameObject && !PlayerUIManager.Instance.InteractUIClosed)
         {
-            InteractUI.SetActive(false); // Close Ui when player activates InteractUI again (Must hit a gameObjekt)
-            InteractUIIsClosed = true; // UI is closed -> set interactUIClosed to True
+            //InteractUI.SetActive(false); // Close Ui when player activates InteractUI again (Must hit a gameObjekt)
+
+            PlayerUIManager.Instance.talkNPCText.gameObject.SetActive(false);
+
+            PlayerUIManager.Instance.InteractUIClosed = true; // UI is closed -> set interactUIClosed to True
         }
 
         // Player hit enemy

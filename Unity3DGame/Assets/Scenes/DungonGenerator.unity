@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ca996d4ab3f9e47a60ce65a8fe1a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 100, y: 100}
+  size: {x: 10, y: 10}
   startPos: 0
   room: {fileID: 7837688167261676025, guid: fb6888e3e0a201549ae6f6188c01075f, type: 3}
   offset: {x: 6, y: 6}

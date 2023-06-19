@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHPManager : MonoBehaviour
 {
     /// <summary>
-    /// This holds the value for player HP
+    /// This holds the value for player HP and game over
     /// </summary>
     public static PlayerHPManager Instance;
 

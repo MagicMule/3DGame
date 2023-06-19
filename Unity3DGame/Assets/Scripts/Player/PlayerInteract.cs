@@ -16,7 +16,7 @@ public class PlayerInteract : MonoBehaviour
 
 
 
-    public GameObject popUpUI;
+    //public GameObject popUpUI;
     private bool interatonHasHappend = false;
 
     public GameObject playerCameraMoveScript;
@@ -49,9 +49,13 @@ public class PlayerInteract : MonoBehaviour
     void QuitMenu()
     {
         // exsit interationMenu
-        if (Input.GetKeyDown(InputManager.Instance.quitMenuKey))
+        if (Input.GetKeyDown(InputManager.Instance.quitMenuKey) && !PlayerUIManager.Instance.InteractUIClosed)
         {
-            popUpUI.SetActive(false);
+            //popUpUI.SetActive(false);
+            PlayerUIManager.Instance.talkNPCText.gameObject.SetActive(false);
+
+            PlayerUIManager.Instance.InteractUIClosed = true;
+
         }
     }
 
