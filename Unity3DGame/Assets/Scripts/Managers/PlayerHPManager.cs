@@ -35,7 +35,7 @@ public class PlayerHPManager : MonoBehaviour
 
     private void Update()
     {
-        playerHPText.text = $"HP: {playerHP}";
+        PlayerUIManager.Instance.playerHPText.text = $"HP: {playerHP}";
     }
 
     public void PlayerDecreaseHP(int damgeToPlayer)

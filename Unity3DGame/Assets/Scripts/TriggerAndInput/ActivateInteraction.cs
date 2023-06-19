@@ -10,12 +10,13 @@ public class ActivateInteraction : MonoBehaviour
     /// This script activates a objekt, making its colidor available for interaction with other gameobjekts.
     /// </summary>
     /// 
-    [Header("GameObjekt used to initaite interaction")]
+
+
+    [Header("GameObjekt used to initaite Player interaction")]
     public GameObject interactor;
 
 
-
-    [Header("Interaction")]
+    [Header("Player Interaction")]
     public bool interactReady = true; // A bool to chek if a interaktin is ready
     public float interactDeley = 0.5f; // time befor next interaction bekoms avialable
     public float interactDuration = 0.2f; // active time of iteractor objekt

@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static EnemyManager Instance;
 
-    public bool gameOver;
-
+    public bool enemyHP;
 
 
     private void Awake()
@@ -21,4 +20,5 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

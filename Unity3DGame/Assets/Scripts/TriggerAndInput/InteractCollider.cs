@@ -37,6 +37,7 @@ public class InteractCollider : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("HIT AND ENEMY!");
+
             Destroy(other.gameObject);
         }
 

@@ -6,6 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
     /// <summary>
     /// This scipt is to instaintat attack in player diraktion
+    /// Go to Player -> Stop -> Avtivate indecator in player diration -> activate attack in same diration -> 
     /// </summary>
 
     public Transform playerPos;
@@ -24,9 +25,9 @@ public class EnemyAttack : MonoBehaviour
 
 
     [Header("Interaction")]
-    public bool interactReady = true; // A bool to chek if a interaktin is ready
-    public float interactDeley = 0.5f; // time befor next interaction bekoms avialable
-    public float interactDuration = 0.2f; // active time of iteractor objekt
+    public bool attackReady = true; // A bool to chek if a interaktin is ready
+    public float attackDeley = 0.5f; // time befor next interaction bekoms avialable
+    public float attackDuration = 0.2f; // active time of iteractor objekt
 
     private void Start()
     {
@@ -53,7 +54,7 @@ public class EnemyAttack : MonoBehaviour
     {
 
         // If Enemy in range and interaction is ready, start to indekate that attack is comming
-        if (interactReady && isAttackInRange)
+        if (attackReady && isAttackInRange)
         {
             lookAtPlayerScript.enabled = false; // Stop looking player when making attack
             moveToPlayerScript.enabled = false; // Stop follwing player when makaing attack
@@ -68,15 +69,15 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator DoInteraction()
     {
 
-        interactReady = false;
+        attackReady = false;
 
-        yield return new WaitForSeconds(interactDuration);
+        yield return new WaitForSeconds(attackDuration);
 
         indecate.SetActive(false); // Stop indecator
         attack.SetActive(true); // Start attack
         attack.SetActive(true); // Start attack
 
-        yield return new WaitForSeconds(interactDuration);
+        yield return new WaitForSeconds(attackDuration);
 
         attack.SetActive(false);
 
@@ -91,11 +92,11 @@ public class EnemyAttack : MonoBehaviour
     {
 
 
-        yield return new WaitForSeconds(interactDeley);
+        yield return new WaitForSeconds(attackDeley);
 
         
         
-        interactReady = true;
+        attackReady = true;
 
 
     }
