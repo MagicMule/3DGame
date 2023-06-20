@@ -64,7 +64,7 @@ public class MoveLever : MonoBehaviour
 
         if (currentRotation >= targetDegrees)
         {
-            objektToMove.GetComponent<MoveToSide>().enabled = true; //move objekt with its MoveToSide script
+            objektToMove.GetComponent<MoveToSide>().enabled = true; //move objekt with its MoveToSide scriptw
 
             leverIsPulled = false;
 
