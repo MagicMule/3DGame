@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 437625850}
   - component: {fileID: 437625851}
   m_Layer: 0
-  m_Name: Rotation
+  m_Name: RotationOfEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,9 +50,9 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   indecate: {fileID: 1883405757}
   attack: {fileID: 567735903}
-  interactReady: 1
-  interactDeley: 2
-  interactDuration: 1
+  attackReady: 1
+  attackDeley: 0.5
+  attackDuration: 1
 --- !u!114 &437625851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 4737663544639577520}
   - component: {fileID: 4737663544639577521}
   - component: {fileID: 1877760315}
+  - component: {fileID: 1690571470}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -409,3 +410,16 @@ MonoBehaviour:
   distanceToPlayer: 0
   isInStopPos: 0
   stopDistance: 3
+--- !u!114 &1690571470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4737663544639577534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5937e1f4c093d44a3798315dc57725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnemyHp: 0

@@ -33,12 +33,20 @@ public class InteractCollider : MonoBehaviour
             PlayerUIManager.Instance.InteractUIClosed = true; // UI is closed -> set interactUIClosed to True
         }
 
+
         // Player hit enemy
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("HIT AND ENEMY!");
 
-            Destroy(other.gameObject);
+            EnemyHPManager.Instance.enemyHP = DamageManager.Instance.DecreaseHP(EnemyHPManager.Instance.enemyHP, 1); // hit enemy with 1 point of damage
+
+            Debug.Log(EnemyHPManager.Instance.enemyHP);
+
+            if (EnemyHPManager.Instance.enemyHP <= 0) // Destory enemy
+            {
+                Destroy(other.gameObject);
+            }
+
         }
 
         // Hit door objekt and the activet openCloseDoor, script on "doorHinge"

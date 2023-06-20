@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-    public int thisEnemyHP = 10;
+    public int thisEnemyHp;
+
+    // Enemy HP is allwas updated
+    private void Update()
+    {
+        thisEnemyHp = EnemyHPManager.Instance.enemyHP;
+    }
 }
