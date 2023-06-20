@@ -55,6 +55,11 @@ public class InteractCollider : MonoBehaviour
             other.gameObject.GetComponentInParent<OpenCloseDoor>().enabled = true;
         }
 
+        if (other.gameObject.CompareTag("Lever"))
+        {
+            other.gameObject.GetComponentInParent<MoveLever>().enabled = true;
+        }
+
 
     }
 
