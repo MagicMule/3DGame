@@ -10076,6 +10076,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6257264384442167115, guid: 3b7501cf91abe9c48958e7862c1799ef, type: 3}
   m_PrefabInstance: {fileID: 866964758}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &872365162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4737663544639577534, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
+  m_PrefabInstance: {fileID: 1934017729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &872365164 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1877760315, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
+  m_PrefabInstance: {fileID: 1934017729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872365162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef28497ee2c7264da1e40d4379ab77a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &872365170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872365162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b46425ddd3bb2478340b051b027989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  Damage: 1
+  Speed: 0
 --- !u!1001 &876458193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23076,6 +23107,10 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 1658950443670710663}
+    - target: {fileID: 567735908, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
+      propertyPath: e
+      value: 
+      objectReference: {fileID: 872365164}
     - target: {fileID: 1877760315, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
       propertyPath: HP
       value: 0
@@ -23090,7 +23125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1877760315, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
       propertyPath: Damage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1877760315, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
       propertyPath: damage

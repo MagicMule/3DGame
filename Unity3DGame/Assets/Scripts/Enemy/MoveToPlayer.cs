@@ -21,7 +21,7 @@ public class MoveToPlayer : Enemy
 
     public bool isInStopPos = false; //This gb is in possition to stop
 
-    public float stopDistance = 3f ;
+    public float stopDistance = 3f;
 
     private void Start()
     {
