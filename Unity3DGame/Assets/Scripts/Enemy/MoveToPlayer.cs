@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToPlayer : Enemy
+public class MoveToPlayer : MonoBehaviour
 {
     /// <summary>
     /// This skript is atached to enemy
@@ -17,6 +17,9 @@ public class MoveToPlayer : Enemy
 
     float savedMoveSpeed = 1f; // Saved movesped aplide StopMove, When enemy is to move
 
+    public float speed = 1f;
+
+
     public float distanceToPlayer;
 
     public bool isInStopPos = false; //This gb is in possition to stop
@@ -25,7 +28,7 @@ public class MoveToPlayer : Enemy
 
     private void Start()
     {
-        savedMoveSpeed = Speed;
+        savedMoveSpeed = speed;
 
     }
     void Update()
@@ -44,7 +47,7 @@ public class MoveToPlayer : Enemy
     void MoveToPlayerPos()
     {
         vectorToPlayer.Normalize();
-        transform.Translate(vectorToPlayer * Time.deltaTime * Speed);
+        transform.Translate(vectorToPlayer * Time.deltaTime * speed);
     }
 
     // Stop movement when player is close/ in range
@@ -55,12 +58,12 @@ public class MoveToPlayer : Enemy
         if( distanceToPlayer < stopDistance )
         {
             isInStopPos = true;
-            Speed = 0;
+            speed = 0;
         }
         else
         {
             isInStopPos = false;
-            Speed = savedMoveSpeed;
+            speed = savedMoveSpeed;
         }
 
     }
