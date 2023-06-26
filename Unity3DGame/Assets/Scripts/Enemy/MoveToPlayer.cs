@@ -17,7 +17,7 @@ public class MoveToPlayer : MonoBehaviour
 
     float savedMoveSpeed = 1f; // Saved movesped aplide StopMove, When enemy is to move
 
-    public float speed = 1f;
+    private float speed = 1f;
 
 
     public float distanceToPlayer;
@@ -26,16 +26,28 @@ public class MoveToPlayer : MonoBehaviour
 
     public float stopDistance = 3f;
 
+    private float agroRange;
+
     private void Start()
     {
+        agroRange = GetComponent<Enemy>().AgroRange;
+
+        speed = GetComponent<Enemy>().Speed;
+
         savedMoveSpeed = speed;
 
     }
     void Update()
     {
         GetDistanceToPlayer();
+
         GetPlayerPos();
-        MoveToPlayerPos();
+
+        if (distanceToPlayer <= agroRange) // move to player if in agro range
+        {
+            MoveToPlayerPos();
+        }
+
         StopMove();
     }
     void GetPlayerPos()

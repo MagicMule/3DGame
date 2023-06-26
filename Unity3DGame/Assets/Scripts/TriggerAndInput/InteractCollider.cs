@@ -37,12 +37,9 @@ public class InteractCollider : MonoBehaviour
         // Player hit enemy
         if (other.gameObject.CompareTag("Enemy"))
         {
+            other.gameObject.GetComponent<Enemy>().HP = DamageManager.Instance.DecreaseHP(other.gameObject.GetComponent<Enemy>().HP, 1); // hit enemy with 1 point of damage
 
-            EnemyHPManager.Instance.enemyHP = DamageManager.Instance.DecreaseHP(EnemyHPManager.Instance.enemyHP, 1); // hit enemy with 1 point of damage
-
-            Debug.Log(EnemyHPManager.Instance.enemyHP);
-
-            if (EnemyHPManager.Instance.enemyHP <= 0) // Destory enemy
+            if (other.gameObject.GetComponent<Enemy>().HP <= 0) // Destory enemy
             {
                 Destroy(other.gameObject);
             }

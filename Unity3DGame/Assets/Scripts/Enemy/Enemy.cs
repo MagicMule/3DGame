@@ -11,4 +11,6 @@ public class Enemy : MonoBehaviour
 
     public float Speed;
 
+    public float AgroRange;
+
 }
