@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 4737663544639577520}
   - component: {fileID: 4737663544639577521}
   - component: {fileID: 1877760315}
-  - component: {fileID: 1690571470}
+  - component: {fileID: 91669442}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -406,11 +406,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
-  enemyMoveSpeed: 3
   distanceToPlayer: 0
   isInStopPos: 0
   stopDistance: 3
---- !u!114 &1690571470
+--- !u!114 &91669442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -419,7 +418,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4737663544639577534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5937e1f4c093d44a3798315dc57725, type: 3}
+  m_Script: {fileID: 11500000, guid: 03b46425ddd3bb2478340b051b027989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnemyHp: 0
+  HP: 3
+  Damage: 1
+  Speed: 1
+  AgroRange: 15

@@ -34,6 +34,11 @@ public class InputManager : MonoBehaviour
 
     //
 
+    public KeyCode missileKey = KeyCode.E;
+    public KeyCode MissileKey => interactKey;
+
+    //
+
     public float moveHorizontalInput;
     public float MoveHorizontalInput
     {
