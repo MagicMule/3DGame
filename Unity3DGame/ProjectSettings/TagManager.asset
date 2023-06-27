@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Door
   - Lever
+  - Damage
+  - MoveSide
   layers:
   - Default
   - TransparentFX

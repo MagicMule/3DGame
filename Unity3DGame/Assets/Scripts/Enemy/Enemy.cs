@@ -13,4 +13,21 @@ public class Enemy : MonoBehaviour
 
     public float AgroRange;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        // Player hit enemy
+        if (other.gameObject.CompareTag("Damage"))
+        {
+            HP = DamageManager.Instance.DecreaseHP(HP, 1); // hit enemy with 1 point of damage
+
+            Destroy(other.gameObject);
+
+            if (HP <= 0) // Destory enemy
+            {
+                Destroy(gameObject);
+            }
+
+        }
+    }
+
 }

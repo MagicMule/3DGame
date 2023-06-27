@@ -6,7 +6,7 @@ public class MoveLever : MonoBehaviour
 {
     /// <summary>
     /// simelar to OpenCloseDoor,
-    /// The movement of a lever wWhen puled
+    /// The movement of a lever when puled
     /// </summary>
     /// 
     public float rotationSpeed = 50f;  // Speed at which the object rotates
@@ -44,7 +44,15 @@ public class MoveLever : MonoBehaviour
         // Check if the current rotation has reached the target degrees
         if (currentRotation >= targetDegrees)
         {
-            objektToMove.GetComponent<MoveToSide>().enabled = true; //move objekt with its MoveToSide script
+            if (objektToMove.CompareTag("MoveSide"))
+            {
+                objektToMove.GetComponent<MoveToSide>().enabled = true; //move objekt with its MoveToSide script
+            }
+
+            if (objektToMove.CompareTag("Door"))
+            {
+                objektToMove.GetComponent<OpenCloseDoor>().enabled = true;
+            }
 
             leverIsPulled = true; // The lever has reched the target
 
@@ -64,7 +72,15 @@ public class MoveLever : MonoBehaviour
 
         if (currentRotation >= targetDegrees)
         {
-            objektToMove.GetComponent<MoveToSide>().enabled = true; //move objekt with its MoveToSide scriptw
+            if (objektToMove.CompareTag("MoveSide"))
+            {
+                objektToMove.GetComponent<MoveToSide>().enabled = true; //move objekt with its MoveToSide scriptw
+            }
+
+            if (objektToMove.CompareTag("Door"))
+            {
+                objektToMove.GetComponent<OpenCloseDoor>().enabled = true;
+            }
 
             leverIsPulled = false;
 

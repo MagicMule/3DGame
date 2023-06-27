@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3846524779441241046}
   - component: {fileID: 6259811821847033381}
   m_Layer: 0
-  m_Name: Little_Vase
-  m_TagString: Untagged
+  m_Name: Lever
+  m_TagString: Lever
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4100946614333735817}
+  - component: {fileID: 1664834287}
   m_Layer: 0
   m_Name: leverHinge
   m_TagString: Untagged
@@ -120,7 +121,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4189899840920865891}
-  m_LocalRotation: {x: 0, y: 0, z: 0.29237175, w: 0.9563048}
+  m_LocalRotation: {x: 0, y: 0, z: 0.30070576, w: 0.953717}
   m_LocalPosition: {x: -0.815, y: -1, z: -0.075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -128,7 +129,22 @@ Transform:
   - {fileID: 7884789846517373672}
   m_Father: {fileID: 4706332701468278009}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 34}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35}
+--- !u!114 &1664834287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4189899840920865891}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6718a5d8a355900419873bef5bdd802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+  targetDegrees: 75
+  objektToMove: {fileID: 0}
 --- !u!1 &6240070719388306809
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +253,7 @@ GameObject:
   - component: {fileID: 4706332701468278009}
   m_Layer: 0
   m_Name: Lever
-  m_TagString: Untagged
+  m_TagString: Lever
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 8254690645693898328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.790152, y: 1.4913045, z: -14.814796}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1049601341632702424}
