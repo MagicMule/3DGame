@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHPManager : MonoBehaviour
@@ -39,8 +41,10 @@ public class PlayerHPManager : MonoBehaviour
         Destroy(PlayerUIManager.Instance.playerHPText);
 
         PlayerUIManager.Instance.gameOverText.text = "GAME OVER";
-        
-        Debug.Log("Game over");
+
+        string scene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(scene);
+      
 
     }
 }
