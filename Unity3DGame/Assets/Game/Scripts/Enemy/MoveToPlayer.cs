@@ -11,7 +11,7 @@ public class MoveToPlayer : MonoBehaviour
     /// </summary>
 
 
-    public Transform playerPos;
+    private Transform playerPos;
 
     Vector3 vectorToPlayer;
 
@@ -30,6 +30,8 @@ public class MoveToPlayer : MonoBehaviour
 
     private void Start()
     {
+        playerPos = GetComponent<Enemy>().PlayerPos;
+
         agroRange = GetComponent<Enemy>().AgroRange;
 
         speed = GetComponent<Enemy>().Speed;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12395,6 +12395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b46425ddd3bb2478340b051b027989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerPos: {fileID: 0}
   HP: 3
   Damage: 1
   Speed: 1
@@ -13154,27 +13155,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4687182150707669800, guid: 166b92b7222fe8344a671615701d3657, type: 3}
   m_PrefabInstance: {fileID: 282774181}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &283011709 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4737663544639577534, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
-  m_PrefabInstance: {fileID: 295552708}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &283011717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283011709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03b46425ddd3bb2478340b051b027989, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 3
-  Damage: 1
-  Speed: 1
-  AgroRange: 15
 --- !u!1001 &283246690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13843,6 +13823,10 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 1658950443670710663}
+    - target: {fileID: 4737663544639577523, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4737663544639577525, guid: 5da05ecf8be55974c8bac153570e4ed7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -19834,7 +19818,7 @@ Transform:
   - {fileID: 1584247209}
   - {fileID: 1326781533}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &385315316
 PrefabInstance:
@@ -29201,7 +29185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5952393589219456978, guid: 92f16025c226fcd4997dbff17c0c3383, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5952393589219456978, guid: 92f16025c226fcd4997dbff17c0c3383, type: 3}
       propertyPath: m_LocalPosition.x
@@ -97246,7 +97230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1927881213
 Light:
   m_ObjectHideFlags: 0
