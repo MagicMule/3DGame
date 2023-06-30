@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public bool gameOver {  get; set; }
 
 
-
     private void Awake()
     {
         if (Instance == null)
@@ -20,5 +19,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        Debug.Log("Target frameRate set");
+        Application.targetFrameRate = 60;
     }
 }
