@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour
 
     public float AgroRange;
 
-
     private void OnTriggerEnter(Collider other)
     {
         // Player hit enemy

@@ -11,12 +11,22 @@ public class MoveToSide : MonoBehaviour
     /// </summary>
     // Start is called before the first frame update
 
+    private AudioSource sourceAudio;
+    public AudioClip soundClip;
+
     private float currentPositon = 0;
     public float targetPosition = 2;
 
     public float moveSpeed = 1;
 
     private bool objektAtOrignal = true;
+
+    private void OnEnable()
+    {
+        sourceAudio = GetComponent<AudioSource>();
+        sourceAudio.PlayOneShot(soundClip);
+    }
+
 
     void Update()
     {

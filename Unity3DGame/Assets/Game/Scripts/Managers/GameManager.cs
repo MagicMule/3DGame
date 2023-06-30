@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Target frameRate set");
         Application.targetFrameRate = 60;
     }
 }

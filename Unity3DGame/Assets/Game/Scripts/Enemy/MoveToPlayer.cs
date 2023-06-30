@@ -10,7 +10,6 @@ public class MoveToPlayer : MonoBehaviour
     /// The enemy would stop infront of player
     /// </summary>
 
-
     private Transform playerPos;
 
     Vector3 vectorToPlayer;
@@ -57,7 +56,7 @@ public class MoveToPlayer : MonoBehaviour
         vectorToPlayer = new Vector3(playerPos.position.x - transform.position.x, 0f, playerPos.position.z - transform.position.z);
         
     }
-     
+
     void MoveToPlayerPos()
     {
         vectorToPlayer.Normalize();
