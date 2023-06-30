@@ -5,8 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public Transform PlayerPos;
-
     public int HP;
 
     public int Damage;
@@ -15,10 +13,6 @@ public class Enemy : MonoBehaviour
 
     public float AgroRange;
 
-    private void Start()
-    {
-        PlayerPos = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Transform>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
