@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    public Transform PlayerPos;
+
     public int HP;
 
     public int Damage;

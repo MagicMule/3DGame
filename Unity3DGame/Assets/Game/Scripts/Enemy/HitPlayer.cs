@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class HitPlayer : MonoBehaviour
 {
+    /// <summary>
+    /// The damge done to player when attack is activated
+    /// Cheks if there shuld be GameOver
+    /// </summary>
 
     private void OnTriggerEnter(Collider other)
     {

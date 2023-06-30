@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -8,8 +9,6 @@ public class EnemyAttack : MonoBehaviour
     /// This scipt is to instaintat attack in player diraktion
     /// Go to Player -> Stop -> Avtivate indecator in player diration -> activate attack in same diration -> 
     /// </summary>
-
-    public Transform playerPos;
 
 
     private bool isAttackInRange = false;

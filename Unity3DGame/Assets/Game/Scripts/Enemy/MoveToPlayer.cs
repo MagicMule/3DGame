@@ -7,7 +7,7 @@ public class MoveToPlayer : MonoBehaviour
     /// <summary>
     /// This skript is atached to enemy
     /// It moves the atadched gameobjekt, playerPos - stopDistance
-    /// The enemy would stop infromt of player
+    /// The enemy would stop infront of player
     /// </summary>
 
 
