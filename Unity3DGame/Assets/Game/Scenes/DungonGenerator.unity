@@ -154,7 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 10, y: 10}
   startPos: 0
-  room: {fileID: 7837688167261676025, guid: fb6888e3e0a201549ae6f6188c01075f, type: 3}
+  rooms:
+  - {fileID: 7837688167261676025, guid: d69d743a48fbdd74e8e3acac20e43ca9, type: 3}
+  - {fileID: 7837688167261676025, guid: 64fb6b3af04fdd247bc7b923e87a2309, type: 3}
+  - {fileID: 7837688167261676025, guid: ede60de6291bc8e4caa2b0e9a75481dc, type: 3}
+  - {fileID: 7837688167261676025, guid: fb6888e3e0a201549ae6f6188c01075f, type: 3}
   offset: {x: 6, y: 6}
 --- !u!4 &524348344
 Transform:

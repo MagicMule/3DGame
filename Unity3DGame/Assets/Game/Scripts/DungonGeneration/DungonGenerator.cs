@@ -15,7 +15,7 @@ public class DungonGenerator : MonoBehaviour
 
     public Vector2 size; // The size of the dungon
     public int startPos = 0;
-    public GameObject room; // Roomes to used to construct dungon
+    public GameObject[] rooms; // Roomes to used to construct dungon
     public Vector2 offset; // distnace betwen generated rooms
 
     List<Cell> board; // the cells make up a 2D bord that represent dungon rooms
@@ -43,8 +43,8 @@ public class DungonGenerator : MonoBehaviour
 
                 if (currentCell.visited) // if current cell visited, instatiate it
                 {
-
-                    var newRoom = Instantiate(room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehavior>(); // Instatiate room and get its RoomBehavior component
+                    int randomRoom = Random.Range(0, rooms.Length);
+                    var newRoom = Instantiate(rooms[randomRoom], new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehavior>(); // Instatiate room and get its RoomBehavior component
                     newRoom.UpdateRoom(currentCell.status);
 
                     newRoom.name += " " + i + "-" + j;

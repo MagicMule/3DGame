@@ -10,6 +10,7 @@ TagManager:
   - Lever
   - Damage
   - MoveSide
+  - Wall
   layers:
   - Default
   - TransparentFX
