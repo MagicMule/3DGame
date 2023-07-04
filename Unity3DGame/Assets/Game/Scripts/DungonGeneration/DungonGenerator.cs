@@ -13,6 +13,28 @@ public class DungonGenerator : MonoBehaviour
         public bool[] status = new bool[4]; // bools for up, down, right and left
     }
 
+    [System.Serializable]
+    public class Rule
+    {
+        public GameManager room;
+        public Vector2Int minPosistion;
+        public Vector2Int maxPosistion;
+
+        public bool obligatory;
+
+        public int ProbabilityOfSpawning(int x, int y)
+        {
+            // 0 - cannot spawn, 1 - can spawn, 2 HAS to spawn
+            
+            if(x >= minPosistion.x && x <= maxPosistion.x && y >= minPosistion.y && y <= maxPosistion.y)
+            {
+                return obligatory ? 1 : 2; // if obligatory 1 else 2
+            }
+            
+            return 0;
+        }
+    }
+
     public Vector2 size; // The size of the dungon
     public int startPos = 0;
     public GameObject[] rooms; // Roomes to used to construct dungon
