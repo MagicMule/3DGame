@@ -7,6 +7,10 @@ TagManager:
   - NPC
   - Enemy
   - Door
+  - Lever
+  - Damage
+  - MoveSide
+  - Wall
   layers:
   - Default
   - TransparentFX
