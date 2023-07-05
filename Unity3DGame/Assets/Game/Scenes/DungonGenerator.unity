@@ -164,9 +164,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 524348342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30ca996d4ab3f9e47a60ce65a8fe1a87, type: 3}
+  m_Script: {fileID: 11500000, guid: 201f465f8cc06984fb58f256e4741e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  size: {x: 20, y: 20}
+  startPos: 0
+  rooms:
+  - room: {fileID: 7837688167261676025, guid: fb6888e3e0a201549ae6f6188c01075f, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 5, y: 5}
+    obligatory: 0
+  - room: {fileID: 7837688167261676025, guid: 64fb6b3af04fdd247bc7b923e87a2309, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 0, y: 0}
+    obligatory: 1
+  - room: {fileID: 7837688167261676025, guid: ede60de6291bc8e4caa2b0e9a75481dc, type: 3}
+    minPosition: {x: 5, y: 5}
+    maxPosition: {x: 10, y: 10}
+    obligatory: 0
+  - room: {fileID: 7837688167261676025, guid: d69d743a48fbdd74e8e3acac20e43ca9, type: 3}
+    minPosition: {x: 8, y: 8}
+    maxPosition: {x: 10, y: 10}
+    obligatory: 0
+  offset: {x: 6, y: 6}
 --- !u!1 &1094746449
 GameObject:
   m_ObjectHideFlags: 0
