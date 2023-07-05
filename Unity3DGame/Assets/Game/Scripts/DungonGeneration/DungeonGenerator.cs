@@ -89,6 +89,7 @@ public class DungeonGenerator : MonoBehaviour
                         }
                     }
 
+                    CheckRoomSize(rooms[randomRoom].room);
 
                     var newRoom = Instantiate(rooms[randomRoom].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
                     newRoom.UpdateRoom(currentCell.status);
@@ -218,4 +219,11 @@ public class DungeonGenerator : MonoBehaviour
 
         return neighbors;
     }
+
+    // Chek leanth of room to be instatiated
+    void CheckRoomSize(GameObject room)
+    {
+        Debug.Log(room.name + " " + room.GetComponentsInChildren<BoxCollider>().Length);
+    }
+
 }
