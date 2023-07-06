@@ -223,7 +223,7 @@ public class DungeonGenerator : MonoBehaviour
     // Chek leanth of room to be instatiated
     void CheckRoomSize(GameObject room)
     {
-        Debug.Log(room.name + " " + room.GetComponentsInChildren<BoxCollider>().Length);
+        Debug.Log(room.name + " " + room.GetComponent<SizeOfRoom>().roomSize);
     }
 
 }
