@@ -172,20 +172,20 @@ MonoBehaviour:
   rooms:
   - room: {fileID: 7837688167261676025, guid: fb6888e3e0a201549ae6f6188c01075f, type: 3}
     minPosition: {x: 0, y: 0}
-    maxPosition: {x: 10, y: 10}
-    obligatory: 0
-  - room: {fileID: 7837688167261676025, guid: 64fb6b3af04fdd247bc7b923e87a2309, type: 3}
-    minPosition: {x: 0, y: 0}
     maxPosition: {x: 0, y: 0}
     obligatory: 1
+  - room: {fileID: 7837688167261676025, guid: 64fb6b3af04fdd247bc7b923e87a2309, type: 3}
+    minPosition: {x: 1, y: 1}
+    maxPosition: {x: 3, y: 3}
+    obligatory: 0
   - room: {fileID: 7837688167261676025, guid: ede60de6291bc8e4caa2b0e9a75481dc, type: 3}
-    minPosition: {x: 0, y: 0}
-    maxPosition: {x: 10, y: 10}
+    minPosition: {x: 4, y: 4}
+    maxPosition: {x: 7, y: 7}
     obligatory: 0
   - room: {fileID: 7837688167261676025, guid: d69d743a48fbdd74e8e3acac20e43ca9, type: 3}
-    minPosition: {x: 10, y: 10}
+    minPosition: {x: 8, y: 8}
     maxPosition: {x: 10, y: 10}
-    obligatory: 1
+    obligatory: 0
   offset: {x: 6, y: 6}
 --- !u!1 &1094746449
 GameObject:
