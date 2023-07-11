@@ -41,6 +41,7 @@ public class DungeonGenerator : MonoBehaviour
     public Rule[] rooms;
     public Vector2 offset;
 
+
     List<Cell> board;
 
     // Start is called before the first frame update
@@ -81,7 +82,22 @@ public class DungeonGenerator : MonoBehaviour
                     {
                         if (availableRooms.Count > 0)
                         {
+
+                            // Chek if a room of the size generadet by randomRoom can fit without cliping with oter rooms/objekts in the aria
+                            // When there is colliton, generat a new room. Loop till a room fits
+
                             randomRoom = availableRooms[Random.Range(0, availableRooms.Count)];
+
+                            int ö = 0;
+
+                            while (CheckIfFreeFromCollison(new Vector3(i * offset.x, 0, -j * offset.y), rooms[randomRoom].room) && ö < 1000)
+                            {
+                                Debug.Log(rooms[randomRoom].room.GetComponent<SizeOfRoom>().roomSize);
+
+                                ö++;
+
+                                randomRoom = availableRooms[Random.Range(0, availableRooms.Count)];
+                            }
                         }
                         else
                         {
@@ -89,11 +105,11 @@ public class DungeonGenerator : MonoBehaviour
                         }
                     }
 
-                    CheckRoomSize(rooms[randomRoom].room);
-
+                    //Instatiante room and open doors
                     var newRoom = Instantiate(rooms[randomRoom].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
                     newRoom.UpdateRoom(currentCell.status);
                     newRoom.name += " " + i + "-" + j;
+
 
                 }
             }
@@ -220,10 +236,20 @@ public class DungeonGenerator : MonoBehaviour
         return neighbors;
     }
 
-    // Chek leanth of room to be instatiated
-    void CheckRoomSize(GameObject room)
+    // chek the 
+    bool CheckIfFreeFromCollison(Vector3 checkBox, GameObject room)
     {
-        Debug.Log(room.name + " " + room.GetComponent<SizeOfRoom>().roomSize);
+        int roomSide = room.GetComponent<SizeOfRoom>().roomSize;
+
+        if(Physics.CheckBox(checkBox, new Vector3 (roomSide, roomSide, roomSide) , transform.rotation))
+        {
+            return true;
+        }
+        else
+        {
+            Debug.Log("Collision");
+            return false;
+        }
     }
 
 }
