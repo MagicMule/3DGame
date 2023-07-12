@@ -83,21 +83,7 @@ public class DungeonGenerator : MonoBehaviour
                         if (availableRooms.Count > 0)
                         {
 
-                            // Chek if a room of the size generadet by randomRoom can fit without cliping with oter rooms/objekts in the aria
-                            // When there is colliton, generat a new room. Loop till a room fits
-
                             randomRoom = availableRooms[Random.Range(0, availableRooms.Count)];
-
-                            int ö = 0;
-
-                            while (CheckIfFreeFromCollison(new Vector3(i * offset.x, 0, -j * offset.y), rooms[randomRoom].room) && ö < 1000)
-                            {
-                                Debug.Log(rooms[randomRoom].room.GetComponent<SizeOfRoom>().roomSize);
-
-                                ö++;
-
-                                randomRoom = availableRooms[Random.Range(0, availableRooms.Count)];
-                            }
                         }
                         else
                         {
@@ -234,22 +220,6 @@ public class DungeonGenerator : MonoBehaviour
         }
 
         return neighbors;
-    }
-
-    // chek the 
-    bool CheckIfFreeFromCollison(Vector3 checkBox, GameObject room)
-    {
-        int roomSide = room.GetComponent<SizeOfRoom>().roomSize;
-
-        if(Physics.CheckBox(checkBox, new Vector3 (roomSide, roomSide, roomSide) , transform.rotation))
-        {
-            return true;
-        }
-        else
-        {
-            Debug.Log("Collision");
-            return false;
-        }
     }
 
 }
