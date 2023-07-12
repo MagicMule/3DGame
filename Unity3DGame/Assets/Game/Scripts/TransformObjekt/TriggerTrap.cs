@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class TriggerTrap : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    /// <summary>
+    /// Activates trap
+    /// </summary>
 
-    // Update is called once per frame
-    void Update()
+    public GameObject[] traps;
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject)
+        {
+            foreach ( GameObject trap in traps)
+            {
+                trap.GetComponent<OpenCloseDoor>().enabled = true;
+            }
+        }
     }
 }

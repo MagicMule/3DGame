@@ -21,5 +21,6 @@ public class WallCollision : MonoBehaviour
                 return;
             }
         }
+        GetComponent<Collider>().enabled = true;
     }
 }
