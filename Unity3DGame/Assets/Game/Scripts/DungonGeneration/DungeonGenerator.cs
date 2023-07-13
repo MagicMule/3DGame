@@ -58,6 +58,7 @@ public class DungeonGenerator : MonoBehaviour
             for (int j = 0; j < size.y; j++)
             {
                 Cell currentCell = board[(i + j * size.x)];
+
                 if (currentCell.visited)
                 {
                     int randomRoom = -1;
@@ -127,10 +128,12 @@ public class DungeonGenerator : MonoBehaviour
 
             board[currentCell].visited = true;
 
+            /*
             if (currentCell == board.Count - 1)
             {
                 break;
             }
+            */
 
             //Check the cell's neighbors
             List<int> neighbors = CheckNeighbors(currentCell);

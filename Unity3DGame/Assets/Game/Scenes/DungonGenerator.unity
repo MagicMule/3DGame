@@ -172,19 +172,15 @@ MonoBehaviour:
   rooms:
   - room: {fileID: 7837688167261676025, guid: fa1a3c4859f256e42a4f157a24f0cd4b, type: 3}
     minPosition: {x: 0, y: 0}
-    maxPosition: {x: 0, y: 0}
+    maxPosition: {x: 5, y: 5}
     obligatory: 0
   - room: {fileID: 7837688167261676025, guid: dedd24d8b81c552488b3f6fb2ca1e341, type: 3}
-    minPosition: {x: 1, y: 1}
-    maxPosition: {x: 1, y: 1}
-    obligatory: 1
-  - room: {fileID: 7837688167261676025, guid: fa1a3c4859f256e42a4f157a24f0cd4b, type: 3}
-    minPosition: {x: 1, y: 1}
-    maxPosition: {x: 10, y: 10}
+    minPosition: {x: 6, y: 6}
+    maxPosition: {x: 6, y: 6}
     obligatory: 0
   - room: {fileID: 7837688167261676025, guid: fa1a3c4859f256e42a4f157a24f0cd4b, type: 3}
-    minPosition: {x: 1, y: 1}
-    maxPosition: {x: 10, y: 10}
+    minPosition: {x: 7, y: 7}
+    maxPosition: {x: 20, y: 20}
     obligatory: 0
   offset: {x: 10, y: 10}
 --- !u!1 &1094746449
