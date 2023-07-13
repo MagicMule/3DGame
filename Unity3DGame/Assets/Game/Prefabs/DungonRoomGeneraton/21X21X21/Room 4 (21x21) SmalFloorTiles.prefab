@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: -543306598442599571}
   - component: {fileID: 3505033391847680429}
   m_Layer: 0
-  m_Name: Room 4 (21x21)
+  m_Name: Room 4 (21x21) SmalFloorTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
