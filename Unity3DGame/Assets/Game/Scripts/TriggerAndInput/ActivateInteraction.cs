@@ -22,6 +22,7 @@ public class ActivateInteraction : MonoBehaviour
     public float interactDuration = 0.2f; // active time of iteractor objekt
     //public KeyCode interactKey = KeyCode.Mouse0;
 
+
     private void Update()
     {
         StartInteraction();
@@ -32,6 +33,7 @@ public class ActivateInteraction : MonoBehaviour
     {
         if (Input.GetKey(InputManager.Instance.interactKey) && interactReady)
         {
+
             interactor.SetActive(true);
             StartCoroutine(DoInteraction());
         }
