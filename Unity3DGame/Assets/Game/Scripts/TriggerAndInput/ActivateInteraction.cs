@@ -14,6 +14,7 @@ public class ActivateInteraction : MonoBehaviour
 
     [Header("GameObjekt used to initaite Player interaction")]
     public GameObject interactor;
+    public GameObject spear;
 
 
     [Header("Player Interaction")]
@@ -33,6 +34,8 @@ public class ActivateInteraction : MonoBehaviour
     {
         if (Input.GetKey(InputManager.Instance.interactKey) && interactReady)
         {
+
+            spear.GetComponent<Animator>().SetTrigger("AttackTrigger");
 
             interactor.SetActive(true);
             StartCoroutine(DoInteraction());
