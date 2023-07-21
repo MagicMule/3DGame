@@ -11,6 +11,7 @@ TagManager:
   - Damage
   - MoveSide
   - Wall
+  - PlayerMeleeAttack
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Glow
   - 
   - 
   - 

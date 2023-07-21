@@ -16,6 +16,7 @@ public class EnemyAttack : MonoBehaviour
 
     private MoveToPlayer moveToPlayerScript;
     private LookAtPlayer lookAtPlayerScript;
+    public LookAtPlayer headLookAtPlayer;
 
     [Header("GameObjekts used to initaite interaction")]
     public GameObject indecate; // Objekt that indecate incoming attack
@@ -55,6 +56,7 @@ public class EnemyAttack : MonoBehaviour
         // If Enemy in range and interaction is ready, start to indekate that attack is comming
         if (attackReady && isAttackInRange)
         {
+            headLookAtPlayer.enabled = false; // Stop head to look att player
             lookAtPlayerScript.enabled = false; // Stop looking player when making attack
             moveToPlayerScript.enabled = false; // Stop follwing player when makaing attack
 
@@ -80,6 +82,7 @@ public class EnemyAttack : MonoBehaviour
 
         attack.SetActive(false);
 
+        headLookAtPlayer.enabled = true;
         lookAtPlayerScript.enabled = true; // enemy look at player again
         moveToPlayerScript.enabled = true; // enemy follow player again
 

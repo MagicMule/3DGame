@@ -18,8 +18,6 @@ public class RotateAndCangeColorRandom : MonoBehaviour
         {
             InvokeRepeating(nameof(RandomColor), 0.1f, cangeColorFrequency);
         }
-
-
         Material material = renderer.material;
         material.color = new Color(0.5f, 1.0f, 0.3f, 0.4f);
     }
