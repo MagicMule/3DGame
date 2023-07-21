@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Game/Scenes/DungonGenerator.unity
+    guid: 042eb07f2fa39034092940c3f67ddde9
   m_configObjects: {}
