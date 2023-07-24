@@ -18,7 +18,7 @@ public class HitPlayer : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !GameManager.Instance.gameOver)
         {
             Debug.Log("Enemy Hit player");
-            GameManager.Instance.playerHP = DamageManager.Instance.DecreaseHP(GameManager.Instance.playerHP, damge); // cange playerHP to new value
+            GameManager.Instance.playerHP = GameManager.Instance.DecreaseHP(GameManager.Instance.playerHP, damge); // cange playerHP to new value
 
             // call game over funkton
             if (GameManager.Instance.playerHP <= 0)

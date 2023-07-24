@@ -35,7 +35,7 @@ public class RangedAttack : MonoBehaviour
     // Instansate Missile, att missle prefab postion
     void ShotMissile()
     {
-        if (Input.GetKeyDown(InputManager.Instance.missileKey) && missileAttackReady)
+        if (Input.GetKeyDown(GameManager.Instance.missileKey) && missileAttackReady)
         {
             playerAudio.PlayOneShot(missileAttackSound, 1f);
             StartCoroutine(MissileAttack());

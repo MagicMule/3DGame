@@ -36,7 +36,7 @@ public class ActivateInteraction : MonoBehaviour
     //Activate interactor
     void StartInteraction()
     {
-        if (Input.GetKey(InputManager.Instance.interactKey) && interactReady)
+        if (Input.GetKey(GameManager.Instance.interactKey) && interactReady)
         {
             interactAudioSource.PlayOneShot(interactAudioClip);
 

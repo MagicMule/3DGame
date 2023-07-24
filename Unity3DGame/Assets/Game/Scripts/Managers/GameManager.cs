@@ -103,6 +103,21 @@ public class GameManager : MonoBehaviour
         playerHPText.text = $"HP: {playerHP}";
     }
 
+
+    // Call to deal damage
+    public int DecreaseHP(int objektHP, int damgeTaken)
+    {
+        objektHP -= damgeTaken;
+        return objektHP;
+    }
+
+    public int IncreseHP(int objektHP, int damgeRemoved)
+    {
+        objektHP += damgeRemoved;
+        return objektHP;
+    }
+
+
     //Set Gamer over text and load curent scene
     public void PlayerGameOver()
     {

@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         
         HandleDrag(); // Control playerObj drag
 
-        if (Input.GetKeyDown(InputManager.Instance.jumpKey) && IsGrounded())
+        if (Input.GetKeyDown(GameManager.Instance.jumpKey) && IsGrounded())
         {
 
             Jump();
@@ -68,15 +68,15 @@ public class PlayerMovement : MonoBehaviour
     //Get input
     private void MyInput()
     {
-        InputManager.Instance.moveHorizontalInput = Input.GetAxisRaw("Horizontal");
-        InputManager.Instance.MoveVerticalInput = Input.GetAxisRaw("Vertical");
+        GameManager.Instance.moveHorizontalInput = Input.GetAxisRaw("Horizontal");
+        GameManager.Instance.MoveVerticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void MovePlayer()
     {
         // calculate movement direction
         // player forwoard movement is were the charkater is looking
-        moveDirection = (orientation.forward * InputManager.Instance.MoveVerticalInput) + (orientation.right * InputManager.Instance.moveHorizontalInput);
+        moveDirection = (orientation.forward * GameManager.Instance.MoveVerticalInput) + (orientation.right * GameManager.Instance.moveHorizontalInput);
 
 
         if (IsGrounded()) // Player can only move on ground

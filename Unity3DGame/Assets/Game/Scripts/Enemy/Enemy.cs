@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         // Player hit enemy
         if (other.gameObject.CompareTag("Damage"))
         {
-            HP = DamageManager.Instance.DecreaseHP(HP, 1); // hit enemy with 1 point of damage
+            HP = GameManager.Instance.DecreaseHP(HP, 1); // hit enemy with 1 point of damage
 
             Destroy(other.gameObject);
 

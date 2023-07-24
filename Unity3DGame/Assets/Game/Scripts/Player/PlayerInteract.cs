@@ -31,7 +31,7 @@ public class PlayerInteract : MonoBehaviour
     void Interact()
     {
         // when push E down, intreakt
-        if (Input.GetKeyDown(InputManager.Instance.interactKeyNoColider) && !interatonHasHappend)
+        if (Input.GetKeyDown(GameManager.Instance.interactKeyNoColider) && !interatonHasHappend)
         {
             Debug.Log("Interact");
 
@@ -40,7 +40,7 @@ public class PlayerInteract : MonoBehaviour
         }
 
         // when E kay up, make new interaction ready
-        if (Input.GetKeyUp(InputManager.Instance.interactKeyNoColider))
+        if (Input.GetKeyUp(GameManager.Instance.interactKeyNoColider))
         {
             interatonHasHappend = false;
         }
@@ -49,7 +49,7 @@ public class PlayerInteract : MonoBehaviour
     void QuitMenu()
     {
         // exsit interationMenu
-        if (Input.GetKeyDown(InputManager.Instance.quitMenuKey) && !GameManager.Instance.InteractUIClosed)
+        if (Input.GetKeyDown(GameManager.Instance.quitMenuKey) && !GameManager.Instance.InteractUIClosed)
         {
             //popUpUI.SetActive(false);
             GameManager.Instance.talkNPCText.gameObject.SetActive(false);
@@ -62,13 +62,13 @@ public class PlayerInteract : MonoBehaviour
     //Start and stop player camera control
     void StopPlayerCameraMovment()
     {
-        if (Input.GetKeyDown(InputManager.Instance.frezeCamera) && cameraActive)
+        if (Input.GetKeyDown(GameManager.Instance.frezeCamera) && cameraActive)
         {
             Debug.Log("Stop player camera control");
             playerCameraMoveScript.GetComponent<PlayerCamera>().enabled = false;
             cameraActive = false;
         }
-        else if (Input.GetKeyDown(InputManager.Instance.frezeCamera))
+        else if (Input.GetKeyDown(GameManager.Instance.frezeCamera))
         {
             Debug.Log("Start player camera control");
             playerCameraMoveScript.GetComponent<PlayerCamera>().enabled = true;
