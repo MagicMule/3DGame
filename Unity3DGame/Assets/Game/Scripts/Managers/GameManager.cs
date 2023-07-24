@@ -78,6 +78,10 @@ public class GameManager : MonoBehaviour
 
     public int playerHP = 10;
 
+    [Header("Audio")]
+
+    public AudioClip generalHitEnemy;
+
     public bool gameOver {  get; set; }
 
 
