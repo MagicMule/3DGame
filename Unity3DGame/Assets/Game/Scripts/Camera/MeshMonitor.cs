@@ -5,6 +5,11 @@ using UnityEngine.Assertions.Must;
 
 public class MeshMonitor : MonoBehaviour
 {
+    /// <summary>
+    /// Hide the mesh of objekts far away to increase preformance
+    /// Aply on objekts how mesh is to be hidden
+    /// </summary>
+
     Transform playerCamTransform; // Stores the FPS camera transform
     private bool visible = true;
     private float distanceToAppear = 50;
@@ -39,7 +44,7 @@ public class MeshMonitor : MonoBehaviour
 
                 }
                 visible = true;
-                Debug.Log("Visible");
+                //Debug.Log("Visible");
             }
         }
         else if (visible)
@@ -53,7 +58,7 @@ public class MeshMonitor : MonoBehaviour
                 }
             }
             visible = false;
-            Debug.Log("InVisible");
+            //Debug.Log("InVisible");
         }
     }
 
