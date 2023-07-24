@@ -1778,6 +1778,7 @@ GameObject:
   - component: {fileID: 2229407758754196746}
   - component: {fileID: 717677802665224383}
   - component: {fileID: 717677802665224382}
+  - component: {fileID: 2229407758782981847}
   m_Layer: 0
   m_Name: Player1.0
   m_TagString: Player
@@ -1816,6 +1817,7 @@ MonoBehaviour:
   missileAttackDuration: 0.2
   missile: {fileID: 2688517206058997839, guid: 04067e3d6a31f9a4280d772760949b50, type: 3}
   missileAttackPos: {fileID: 2229407757170236375}
+  missileAttackSound: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
 --- !u!114 &717677802665224383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1833,6 +1835,7 @@ MonoBehaviour:
   interactReady: 1
   interactDeley: 0.5
   interactDuration: 0.2
+  interactAudioClip: {fileID: 8300000, guid: df6d6e6970d3ebc40a5ecbe1e1f21c1e, type: 3}
 --- !u!1 &717677803261540504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,6 +2152,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCameraMoveScript: {fileID: 3598218921078705308}
+--- !u!82 &2229407758782981847
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717677802665224378}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &2388591997682258094
 Transform:
   m_ObjectHideFlags: 0
@@ -2428,7 +2527,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ec7fd3eed0d7f6448a8ebe8feb67919a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.2
   m_Pitch: 0.3
   Loop: 1
   Mute: 0
@@ -4680,6 +4779,7 @@ GameObject:
   - component: {fileID: 8510826065429041015}
   - component: {fileID: 4009057792322931709}
   - component: {fileID: 4009057792700780804}
+  - component: {fileID: 8510826065429041017}
   m_Layer: 0
   m_Name: EnemyWBody
   m_TagString: Enemy
@@ -4687,6 +4787,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8510826065429041017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510826065429041016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b32eb832087b245982eb7fe0fa8241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8520598077053473922
 MonoBehaviour:
   m_ObjectHideFlags: 0

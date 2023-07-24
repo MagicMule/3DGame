@@ -18,7 +18,14 @@ public class RangedAttack : MonoBehaviour
 
     public GameObject missile;
     public GameObject missileAttackPos;
+    public AudioClip missileAttackSound;
 
+    private AudioSource playerAudio;
+
+    private void Start()
+    {
+        playerAudio = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -30,6 +37,7 @@ public class RangedAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(InputManager.Instance.missileKey) && missileAttackReady)
         {
+            playerAudio.PlayOneShot(missileAttackSound, 1f);
             StartCoroutine(MissileAttack());
         }
     }

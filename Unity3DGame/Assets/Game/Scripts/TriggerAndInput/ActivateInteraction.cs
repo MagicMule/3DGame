@@ -23,9 +23,13 @@ public class ActivateInteraction : MonoBehaviour
     public float interactDuration = 0.2f; // active time of iteractor objekt
     //public KeyCode interactKey = KeyCode.Mouse0;
 
+    private AudioSource interactAudioSource;
+    public AudioClip interactAudioClip;
+
 
     private void Update()
     {
+        interactAudioSource = GetComponent<AudioSource>();
         StartInteraction();
     }
 
@@ -34,6 +38,7 @@ public class ActivateInteraction : MonoBehaviour
     {
         if (Input.GetKey(InputManager.Instance.interactKey) && interactReady)
         {
+            interactAudioSource.PlayOneShot(interactAudioClip);
 
             spear.GetComponent<Animator>().SetTrigger("AttackTrigger");
 
