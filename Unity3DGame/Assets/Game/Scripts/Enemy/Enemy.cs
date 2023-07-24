@@ -15,6 +15,15 @@ public class Enemy : MonoBehaviour
 
     public float AgroRange;
 
+    private AudioSource enemyAudioSource;
+
+    public AudioClip enemyHitByPlayerAudioClip;
+
+    private void Start()
+    {
+        enemyAudioSource = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // Player hit enemy
@@ -29,6 +38,11 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
 
+        }
+        if(other.gameObject.CompareTag("PlayerMeleeAttack"))
+        {
+            Debug.Log("play sound");
+            enemyAudioSource.PlayOneShot(enemyHitByPlayerAudioClip);
         }
     }
 
