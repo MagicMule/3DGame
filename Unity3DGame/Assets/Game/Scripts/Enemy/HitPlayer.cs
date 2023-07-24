@@ -17,13 +17,14 @@ public class HitPlayer : MonoBehaviour
         Debug.Log(damge);
         if (other.gameObject.CompareTag("Player") && !GameManager.Instance.gameOver)
         {
-
-            PlayerHPManager.Instance.playerHP = DamageManager.Instance.DecreaseHP(PlayerHPManager.Instance.playerHP, damge); // cange playerHP to new value
+            Debug.Log("Enemy Hit player");
+            GameManager.Instance.playerHP = DamageManager.Instance.DecreaseHP(GameManager.Instance.playerHP, damge); // cange playerHP to new value
 
             // call game over funkton
-            if (PlayerHPManager.Instance.playerHP <= 0)
+            if (GameManager.Instance.playerHP <= 0)
             {
-                PlayerHPManager.Instance.PlayerGameOver();
+                Debug.Log("Game over");
+                GameManager.Instance.PlayerGameOver();
             }
         }
     }

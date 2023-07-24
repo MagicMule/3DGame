@@ -15,22 +15,22 @@ public class InteractCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Player interact with npc
-        if (other.gameObject.CompareTag("NPC") && PlayerUIManager.Instance.InteractUIClosed)
+        if (other.gameObject.CompareTag("NPC") && GameManager.Instance.InteractUIClosed)
         {
             //InteractUI.SetActive(true); // Open UI when colion with npc
 
-            PlayerUIManager.Instance.talkNPCText.gameObject.SetActive(true);
+            GameManager.Instance.talkNPCText.gameObject.SetActive(true);
 
-            PlayerUIManager.Instance.InteractUIClosed = false; // UI is open -> set InteractUIClosed to false
+            GameManager.Instance.InteractUIClosed = false; // UI is open -> set InteractUIClosed to false
 
         }
-        else if (other.gameObject && !PlayerUIManager.Instance.InteractUIClosed)
+        else if (other.gameObject && !GameManager.Instance.InteractUIClosed)
         {
             //InteractUI.SetActive(false); // Close Ui when player activates InteractUI again (Must hit a gameObjekt)
 
-            PlayerUIManager.Instance.talkNPCText.gameObject.SetActive(false);
+            GameManager.Instance.talkNPCText.gameObject.SetActive(false);
 
-            PlayerUIManager.Instance.InteractUIClosed = true; // UI is closed -> set interactUIClosed to True
+            GameManager.Instance.InteractUIClosed = true; // UI is closed -> set interactUIClosed to True
         }
 
 

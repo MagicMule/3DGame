@@ -49,12 +49,12 @@ public class PlayerInteract : MonoBehaviour
     void QuitMenu()
     {
         // exsit interationMenu
-        if (Input.GetKeyDown(InputManager.Instance.quitMenuKey) && !PlayerUIManager.Instance.InteractUIClosed)
+        if (Input.GetKeyDown(InputManager.Instance.quitMenuKey) && !GameManager.Instance.InteractUIClosed)
         {
             //popUpUI.SetActive(false);
-            PlayerUIManager.Instance.talkNPCText.gameObject.SetActive(false);
+            GameManager.Instance.talkNPCText.gameObject.SetActive(false);
 
-            PlayerUIManager.Instance.InteractUIClosed = true;
+            GameManager.Instance.InteractUIClosed = true;
 
         }
     }

@@ -14,7 +14,7 @@ public class PlayerHPManager : MonoBehaviour
     public static PlayerHPManager Instance;
 
 
-    public int playerHP = 10;
+    public int playerHP = 3;
     private void Awake()
     {
         if (Instance == null)
@@ -29,7 +29,7 @@ public class PlayerHPManager : MonoBehaviour
 
     private void Update()
     {
-        PlayerUIManager.Instance.playerHPText.text = $"HP: {playerHP}";
+        GameManager.Instance.playerHPText.text = $"HP: {playerHP}";
     }
 
 
@@ -38,9 +38,9 @@ public class PlayerHPManager : MonoBehaviour
     {
         GameManager.Instance.gameOver = true;
 
-        Destroy(PlayerUIManager.Instance.playerHPText);
+        Destroy(GameManager.Instance.playerHPText);
 
-        PlayerUIManager.Instance.gameOverText.text = "GAME OVER";
+        GameManager.Instance.gameOverText.text = "GAME OVER";
 
         string scene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(scene);
