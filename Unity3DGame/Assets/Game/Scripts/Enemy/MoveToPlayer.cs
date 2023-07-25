@@ -10,11 +10,13 @@ public class MoveToPlayer : MonoBehaviour
     /// The enemy would stop infront of player
     /// </summary>
 
+    [Header("Move to player")]
+
     private Transform playerPos;
 
     Vector3 vectorToPlayer;
 
-    float savedMoveSpeed = 1f; // Saved movesped aplide StopMove, When enemy is to move
+    float savedMoveSpeed = 1f; // Saved movespeed
 
     private float speed = 1f;
 
@@ -63,20 +65,20 @@ public class MoveToPlayer : MonoBehaviour
         transform.Translate(vectorToPlayer * Time.deltaTime * speed);
     }
 
-    // Stop movement when player is close/ in range
+    // Stop movement when player in range
     void StopMove()
     {
         GetPlayerPos();
 
         if( distanceToPlayer < stopDistance )
         {
-            isInStopPos = true;
+            isInStopPos = true; 
             speed = 0;
         }
         else
         {
             isInStopPos = false;
-            speed = savedMoveSpeed;
+            speed = savedMoveSpeed; // resume to move to player
         }
 
     }
