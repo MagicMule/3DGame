@@ -79,6 +79,12 @@ public class GameManager : MonoBehaviour
 
     public int playerHP = 10;
 
+    [Header("Player attack damge")]
+
+    public int meleeDamage = 1;
+
+    public int spellDamage1 = 1;
+
     [Header("Audio")]
 
     public AudioClip generalHitEnemy;
@@ -109,6 +115,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+
     // Call to deal damage
     public int DecreaseHP(int objektHP, int damgeTaken)
     {
@@ -121,6 +128,7 @@ public class GameManager : MonoBehaviour
         objektHP += damgeRemoved;
         return objektHP;
     }
+
 
 
     //Set Gamer over text and load curent scene

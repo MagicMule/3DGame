@@ -12,6 +12,7 @@ TagManager:
   - MoveSide
   - Wall
   - PlayerMeleeAttack
+  - PlayerSpellAttack1
   layers:
   - Default
   - TransparentFX

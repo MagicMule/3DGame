@@ -12,6 +12,7 @@ public class InteractCollider : MonoBehaviour
 
     //public GameObject InteractUI;
 
+
     private void OnTriggerEnter(Collider other)
     {
         // Player interact with npc
@@ -38,19 +39,14 @@ public class InteractCollider : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             //Play sound when player hit enemy
-
-            Debug.Log("Enemy hit suond");
-
             AudioClip hitEnemySound = other.gameObject.GetComponent<Enemy>().enemyHitByPlayerAudioClip;
-
             GameManager.Instance.PlayClipAt(hitEnemySound, 1f, 3f, other.transform.position);
 
             // Damage Enemy
-            other.gameObject.GetComponent<Enemy>().HP = GameManager.Instance.DecreaseHP(other.gameObject.GetComponent<Enemy>().HP, 1); // hit enemy with 1 point of damage
+            other.gameObject.GetComponent<Enemy>().HP = GameManager.Instance.DecreaseHP(other.gameObject.GetComponent<Enemy>().HP, GameManager.Instance.meleeDamage); // hit enemy with 1 point of damage
 
             if (other.gameObject.GetComponent<Enemy>().HP <= 0) // Destory enemy
             {
-                Debug.Log("Enemy dead");
                 Destroy(other.gameObject);
             }
 
