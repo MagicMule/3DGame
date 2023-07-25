@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.PlayerSettings;
 
 public class GameManager : MonoBehaviour
 {
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
 
     public AudioClip generalHitEnemy;
 
-    public bool gameOver {  get; set; }
+    public bool gameOver { get; set; }
 
 
     private void Awake()
@@ -133,5 +134,27 @@ public class GameManager : MonoBehaviour
 
         string scene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(scene);
+    }
+
+    /// <summary>
+    /// To play aoudio at pos, cangeable pitch
+    /// https://discussions.unity.com/t/adjust-properties-of-audiosource-created-with-playclipatpoint/51353
+    ///*aldonaletto
+    /// <summary>
+    public AudioSource PlayClipAt(AudioClip clip, float clipVolume, float clipPitch, Vector3 pos)
+    {
+        GameObject tempGO = new ("TempAudio"); // create the temp object
+        tempGO.transform.position = pos; // set its position
+
+        AudioSource aSource = tempGO.AddComponent(typeof(AudioSource)) as AudioSource; // add an audio source
+        
+        aSource.clip = clip; // define the clip
+        aSource.pitch = clipPitch; // set pitch
+        aSource.volume = clipVolume; // set voldume
+
+        // set other aSource properties here, if desired
+        aSource.Play(); // start the sound
+        Destroy(tempGO, clip.length); // destroy object after clip duration
+        return aSource; // return the AudioSource reference
     }
 }

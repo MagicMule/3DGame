@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Player hit enemy
+        // Some sorce of mic damage, not from player
         if (other.gameObject.CompareTag("Damage"))
         {
             HP = GameManager.Instance.DecreaseHP(HP, 1); // hit enemy with 1 point of damage
@@ -38,11 +38,6 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
 
-        }
-        if(other.gameObject.CompareTag("PlayerMeleeAttack"))
-        {
-            Debug.Log("play sound");
-            enemyAudioSource.PlayOneShot(enemyHitByPlayerAudioClip);
         }
     }
 
