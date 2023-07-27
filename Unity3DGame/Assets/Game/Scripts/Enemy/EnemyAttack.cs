@@ -13,7 +13,6 @@ public class EnemyAttack : MonoBehaviour
 
     private bool isAttackInRange = false;
 
-
     private MoveToPlayer moveToPlayerScript;
 
     // Direktion enemy is to face
@@ -21,11 +20,14 @@ public class EnemyAttack : MonoBehaviour
 
     // Direktion of enemy attack
     public LookAtPlayer direktionOfAttack;
+    // If enemy is to have range attack
+    public bool isRangedEnemy = false;
 
     [Header("GameObjekts used to initaite interaction")]
     public GameObject indecate; // Objekt that indecate incoming attack
     public GameObject attack; // attack Objekt that damge player
-
+    public GameObject missileAttack;
+    public GameObject enemyMissileAttackPos;
 
 
     [Header("Interaction")]
@@ -80,7 +82,12 @@ public class EnemyAttack : MonoBehaviour
 
         indecate.SetActive(false); // Stop indecator
         attack.SetActive(true); // Start attack
-        attack.SetActive(true); // Start attack
+
+        if (isRangedEnemy && missileAttack != null && enemyMissileAttackPos != null)
+        {
+
+            Instantiate(missileAttack, enemyMissileAttackPos.transform.position, enemyMissileAttackPos.transform.rotation); // shot missile
+        }
 
         yield return new WaitForSeconds(attackDuration);
 

@@ -14,7 +14,6 @@ public class HitPlayer : MonoBehaviour
     {
         int damge = GetComponentInParent<Enemy>().Damage;
 
-        Debug.Log(damge);
         if (other.gameObject.CompareTag("Player") && !GameManager.Instance.gameOver)
         {
             Debug.Log("Enemy Hit player");
