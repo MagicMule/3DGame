@@ -31,8 +31,7 @@ public class MoveToPlayer : MonoBehaviour
 
     private void Start()
     {
-        playerPos = GetComponent<Enemy>().PlayerPos;
-
+        
         agroRange = GetComponent<Enemy>().AgroRange;
 
         speed = GetComponent<Enemy>().Speed;
@@ -42,6 +41,8 @@ public class MoveToPlayer : MonoBehaviour
     }
     void Update()
     {
+        playerPos = GetComponent<Enemy>().PlayerPos;
+
         GetDistanceToPlayer();
 
         GetPlayerPos();
@@ -55,6 +56,7 @@ public class MoveToPlayer : MonoBehaviour
     }
     void GetPlayerPos()
     {
+        //calk vector to player on x and z
         vectorToPlayer = new Vector3(playerPos.position.x - transform.position.x, 0f, playerPos.position.z - transform.position.z);
         
     }

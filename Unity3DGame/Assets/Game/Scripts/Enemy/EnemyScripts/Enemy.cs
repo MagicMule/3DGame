@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        PlayerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         enemyAudioSource = GetComponent<AudioSource>();
     }
 
