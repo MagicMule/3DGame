@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - PlayerMeleeAttack
   - PlayerSpellAttack1
+  - PlayerSpellPos
   layers:
   - Default
   - TransparentFX

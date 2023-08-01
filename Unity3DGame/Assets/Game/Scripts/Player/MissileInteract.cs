@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class MissileInteract : MonoBehaviour
 {
+    public AudioClip missileClip;
+    public float audioClipVolume = 0.1f; 
+    // When the missile is instatiated
+    private void Awake()
+    {
+        GameManager.Instance.PlayClipAt(missileClip, audioClipVolume, 1, transform.position); // Playe missile sound
+    }
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Lever"))

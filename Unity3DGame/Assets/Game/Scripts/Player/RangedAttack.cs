@@ -18,13 +18,18 @@ public class RangedAttack : MonoBehaviour
 
     public GameObject missile;
     public GameObject missileAttackPos;
+
+    public Vector3 missileAttackPosOffset = new (0, 0, 0);
+    public Vector3 missileAttackRotOffset = new (1, 1, 1) ;
+
     public AudioClip missileAttackSound;
 
-    private AudioSource playerAudio;
 
     private void Start()
     {
-        playerAudio = GetComponent<AudioSource>();
+        //Apply offset to range attack
+        missileAttackPos.transform.position = missileAttackPos.transform.position + missileAttackPosOffset;
+        missileAttackPos.transform.rotation = missileAttackPos.transform.rotation * Quaternion.Euler(missileAttackRotOffset); //Cange Deg
     }
 
     private void Update()
@@ -37,7 +42,6 @@ public class RangedAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(GameManager.Instance.missileKey) && missileAttackReady)
         {
-            playerAudio.PlayOneShot(missileAttackSound, 1f);
             StartCoroutine(MissileAttack());
         }
     }

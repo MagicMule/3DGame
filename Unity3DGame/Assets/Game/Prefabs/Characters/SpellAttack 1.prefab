@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7302331240903617528}
   - component: {fileID: 6497658712355090656}
   m_Layer: 7
-  m_Name: SpellAttack
+  m_Name: SpellAttack 1
   m_TagString: PlayerSpellAttack1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09a862bd896b2744a2dab245b55c06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 7
+  forwardSpeed: 20
 --- !u!114 &7302331240903617528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76650734609d424eae3d61c7f35cb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missileClip: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
 --- !u!114 &6497658712355090656
 MonoBehaviour:
   m_ObjectHideFlags: 0
