@@ -36,6 +36,7 @@ public class RangedAttack : MonoBehaviour
 
     private void Update()
     {
+        CangeSpell();
         ShotMissile();
     }
 
@@ -89,17 +90,20 @@ public class RangedAttack : MonoBehaviour
     {
         if(Input.GetKeyDown(GameManager.Instance.hotKeyInput1))
         {
-            Debug.Log( missile[0] + " selekted");
+            spellSelected = 0;
+            Debug.Log( missile[0].name + " selekted");
         }
 
         if (Input.GetKeyDown(GameManager.Instance.hotKeyInput2))
         {
-            Debug.Log(missile[1] + " selekted");
+            spellSelected = 1;
+            Debug.Log(missile[1].name + " selekted");
         }
 
         if (Input.GetKeyDown(GameManager.Instance.hotKeyInput3))
         {
-            Debug.Log(missile[2] + " selekted");
+            spellSelected = 2;
+            Debug.Log(missile[2].name + " selekted");
         }
     }
 }

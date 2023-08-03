@@ -11,5 +11,13 @@ public class LightBallSpell : MonoBehaviour
 
         transform.position = lightPos.transform.position + new Vector3(-0.5f, 0, 1f);
         transform.rotation = lightPos.transform.rotation;
+
+        if(Input.GetKeyDown(GameManager.Instance.missileKey))
+        {
+            foreach ( GameObject lightSpell in GameObject.FindGameObjectsWithTag("Spell 3"))
+            {
+                Destroy(lightSpell);
+            }
+        }
     }
 }
