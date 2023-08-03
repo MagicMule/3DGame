@@ -28,10 +28,7 @@ public class RangedAttack : MonoBehaviour
 
     private void Start()
     {
-        CangeMissileOffset();
-        //Apply offset to range attack
-        missileAttackPos.transform.position = missileAttackPos.transform.position + missileAttackPosOffset;
-        missileAttackPos.transform.rotation = missileAttackPos.transform.rotation * Quaternion.Euler(missileAttackRotOffset); //Cange Deg
+
     }
 
     private void Update()
@@ -55,35 +52,13 @@ public class RangedAttack : MonoBehaviour
     {
 
         missileAttackReady = false;
+        
         Instantiate(missile[spellSelected], missileAttackPos.transform.position, missileAttackPos.transform.rotation);
+
 
         yield return new WaitForSeconds(missileAttackDeley); // Time befor player can make onather missile attack
 
         missileAttackReady = true;
-    }
-
-    public void CangeMissileOffset()
-    {
-        if (missile[spellSelected].CompareTag("Spell 1"))
-        {
-            missileAttackPosOffset = new(0, 0, 0);
-            missileAttackRotOffset = new(1, 1, 1);
-
-        }
-
-        else if (missile[spellSelected].CompareTag("Spell 2"))
-        {
-            missileAttackPosOffset = new(0.5f, 0.5f, 0);
-            missileAttackRotOffset = new(1, 45, 5);
-
-            Debug.Log("Shot: " + missile[spellSelected].name);
-        }
-
-        else if (missile[spellSelected].CompareTag("Spell 3"))
-        {
-            missileAttackPosOffset = new(0, 0, 0);
-            missileAttackRotOffset = new(1, 1, 1);
-        }
     }
 
     public void CangeSpell()
@@ -91,19 +66,37 @@ public class RangedAttack : MonoBehaviour
         if(Input.GetKeyDown(GameManager.Instance.hotKeyInput1))
         {
             spellSelected = 0;
+          
             Debug.Log( missile[0].name + " selekted");
         }
 
         if (Input.GetKeyDown(GameManager.Instance.hotKeyInput2))
         {
             spellSelected = 1;
+
             Debug.Log(missile[1].name + " selekted");
         }
 
         if (Input.GetKeyDown(GameManager.Instance.hotKeyInput3))
         {
             spellSelected = 2;
+
             Debug.Log(missile[2].name + " selekted");
         }
+
+    }
+
+    // Reset Missile pos and rotaion to that of missileattackPos gameobjekt
+    public void ResetMissileAttackPos()
+    {
+        missileAttackPos.transform.position = new (0, 0, 3);
+        missileAttackPos.transform.rotation = Quaternion.Euler(90, 0, 0);
+    }
+
+    public void CangeMissileOffset()
+    {
+        //Apply offset to range attack
+        missileAttackPos.transform.position = missileAttackPos.transform.position + missileAttackPosOffset;
+        missileAttackPos.transform.rotation = missileAttackPos.transform.rotation * Quaternion.Euler(missileAttackRotOffset); //Cange Deg
     }
 }

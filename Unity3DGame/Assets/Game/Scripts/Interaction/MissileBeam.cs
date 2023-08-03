@@ -6,7 +6,12 @@ public class MissileBeam : MonoBehaviour
 {
     public GameObject repeatingEffekt;
     private Transform missileAttackPos;
+
+    public Vector3 missileAttackPosOffset;
+    public Quaternion missileAttackRotOffset;
+
     public float repeatDelay = 0.001f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +28,8 @@ public class MissileBeam : MonoBehaviour
     {
         if (missileAttackPos != null)
         {
-            _ = Instantiate(repeatingEffekt, missileAttackPos.transform.position, missileAttackPos.transform.rotation);
+            _ = Instantiate(repeatingEffekt, 
+                missileAttackPos.transform.position + missileAttackPosOffset, missileAttackPos.transform.rotation * missileAttackRotOffset);
         }
     }
 
