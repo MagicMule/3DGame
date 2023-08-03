@@ -655,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835699363277953249, guid: 571bc53566e4c7e4b8b08a75c81cd8fc, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4835699363277953249, guid: 571bc53566e4c7e4b8b08a75c81cd8fc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1561,5 +1561,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
