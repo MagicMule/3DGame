@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -60,6 +61,21 @@ public class GameManager : MonoBehaviour
 
     //
 
+    public KeyCode hotKeyInput1 = KeyCode.Alpha1;
+    public KeyCode HotKeyInput1 => KeyCode.Alpha1;
+
+    //
+
+    public KeyCode hotKeyInput2 = KeyCode.Alpha2;
+    public KeyCode HotKeyInput2 => KeyCode.Alpha2;
+
+    //
+
+    public KeyCode hotKeyInput3 = KeyCode.Alpha3;
+    public KeyCode HotKeyInput3 => KeyCode.Alpha3;
+
+    //
+
 
     [Header("UI")]
 
@@ -84,6 +100,12 @@ public class GameManager : MonoBehaviour
     public int meleeDamage = 1;
 
     public int spellDamage1 = 1;
+
+    [Header("Objekts Transform")]
+
+    public Transform PlayerTrans;
+    public Transform MainCameraTrans;
+    public Transform PlayerMissileAttackTrans;
 
     [Header("Audio")]
 
@@ -111,6 +133,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        PlayerTrans = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        MainCameraTrans = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
+        PlayerMissileAttackTrans = GameObject.FindGameObjectWithTag("PlayerSpellPos").GetComponent<Transform>();
+
         playerHPText.text = $"HP: {playerHP}";
     }
 

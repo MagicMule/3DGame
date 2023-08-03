@@ -14,6 +14,9 @@ TagManager:
   - PlayerMeleeAttack
   - PlayerSpellAttack1
   - PlayerSpellPos
+  - Spell 1
+  - Spell 2
+  - Spell 3
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8795771539641982218}
   m_Layer: 0
   m_Name: SpellAttack 2
-  m_TagString: Untagged
+  m_TagString: Spell 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repeatingEffekt: {fileID: 2815750274697950823, guid: 231fd43cd1fb44f4cb142b0087e4cfc4, type: 3}
-  missileAttackPos: {fileID: 0}
+  repeatDelay: 0.001
 --- !u!114 &8795771539641982218
 MonoBehaviour:
   m_ObjectHideFlags: 0
