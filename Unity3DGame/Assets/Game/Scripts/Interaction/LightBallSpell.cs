@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class LightBallSpell : MonoBehaviour
 {
+    public Vector3 lightPosOffset;
     private Transform lightPos;
     void Update()
     {
         lightPos = GameManager.Instance.MainCameraTrans;
 
-        transform.position = lightPos.transform.position + new Vector3(-0.5f, 0, 1f);
+        transform.position = lightPos.transform.position + lightPosOffset;
         transform.rotation = lightPos.transform.rotation;
 
         if(Input.GetKeyDown(GameManager.Instance.missileKey))
@@ -21,3 +22,4 @@ public class LightBallSpell : MonoBehaviour
         }
     }
 }
+ 

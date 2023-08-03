@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4732700699879653770}
   - component: {fileID: 5095964297635273420}
   m_Layer: 7
-  m_Name: LightBall
+  m_Name: LightBall (No Glow)
   m_TagString: Spell 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d20f4a69e15be43a5228efd66e729f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightPosOffset: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &815270346942822615
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,8 +641,7 @@ GameObject:
   - component: {fileID: 3478979662399309213}
   - component: {fileID: 3478979662399309202}
   - component: {fileID: 3478979662399309203}
-  - component: {fileID: 3478979662399309201}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +691,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 61df2fd27905bbe46926e9eb256d0792, type: 2}
+  - {fileID: 2100000, guid: ad84bb8d946141947831400e7baa375c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -715,23 +713,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3478979662399309201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3478979662399309214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 526dd0a28f635454592fa76227ef2404, type: 2}
-  isGlobal: 0
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!1 &3478979662585352500
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +765,7 @@ MonoBehaviour:
   rotationSpeedZ: 0
   renderer: {fileID: 3478979663441897994}
   cangeColorFrequency: 0.5
-  cangeCollorRandom: 1
+  cangeCollorRandom: 0
 --- !u!1 &3478979662797886996
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,8 +777,7 @@ GameObject:
   - component: {fileID: 3478979662797886987}
   - component: {fileID: 3478979662797886984}
   - component: {fileID: 3478979662797886985}
-  - component: {fileID: 3478979662797886991}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -847,7 +827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 61df2fd27905bbe46926e9eb256d0792, type: 2}
+  - {fileID: 2100000, guid: ad84bb8d946141947831400e7baa375c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -869,23 +849,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3478979662797886991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3478979662797886996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 526dd0a28f635454592fa76227ef2404, type: 2}
-  isGlobal: 0
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!1 &3478979663441898005
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,8 +860,7 @@ GameObject:
   - component: {fileID: 3478979663441898004}
   - component: {fileID: 3478979663441897993}
   - component: {fileID: 3478979663441897994}
-  - component: {fileID: 3478979663441897992}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +910,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 61df2fd27905bbe46926e9eb256d0792, type: 2}
+  - {fileID: 2100000, guid: ad84bb8d946141947831400e7baa375c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -970,20 +932,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3478979663441897992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3478979663441898005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 526dd0a28f635454592fa76227ef2404, type: 2}
-  isGlobal: 0
-  blendDistance: 0
-  weight: 1
-  priority: 0
