@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class MissileInteract : MonoBehaviour
 {
+    /// <summary>
+    /// How a missil fierd form the player will ackt
+    /// </summary>
+
     public AudioClip missileClip;
-    public float audioClipVolume = 0.1f; 
+    public float audioClipVolume = 0.1f;
+
+    public bool missileTimeLimit = false;
+    public float timeToDestoryed = 2f;
+
+
+
     // When the missile is instatiated
     private void Awake()
     {
         GameManager.Instance.PlayClipAt(missileClip, audioClipVolume, 1, transform.position); // Playe missile sound
+
+        if (missileTimeLimit)
+        {
+            StartCoroutine(MissilePersistence());
+        }
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -35,5 +50,10 @@ public class MissileInteract : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+    }
+    IEnumerator MissilePersistence()
+    {
+        yield return new WaitForSeconds(timeToDestoryed);
+        Destroy(gameObject);
     }
 }
