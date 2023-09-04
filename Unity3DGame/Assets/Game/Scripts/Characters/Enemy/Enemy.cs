@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    /// <summary>
+    /// Base for all enemy GM
+    /// </summary>
     public Transform PlayerPos;
 
     public int HP;
@@ -15,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     public float AgroRange;
 
-    private AudioSource enemyAudioSource;
+    public AudioSource enemyAudioSource;
 
     public AudioClip enemyHitByPlayerAudioClip;
 
