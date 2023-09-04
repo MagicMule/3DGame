@@ -94,7 +94,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717677803462293180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.07, y: 1, z: 2.93}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583fcc400cfe8fe49bdd890cb57bf6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactor: {fileID: 2229407757013172104}
+  interactor: {fileID: 1581187077545357093}
   spear: {fileID: 8767791980797423418}
   interactReady: 1
   interactDeley: 0.5
@@ -212,8 +212,12 @@ MonoBehaviour:
   missileAttackReady: 1
   missileAttackDeley: 0.5
   missileAttackDuration: 0.2
-  missile: {fileID: 2688517206058997839, guid: 04067e3d6a31f9a4280d772760949b50, type: 3}
+  missile:
+  - {fileID: 2688517206058997839, guid: 859c906ff25416c46b3dedc5f68690bd, type: 3}
+  - {fileID: 2688517206058997839, guid: 8403f0c83e4919b48b2a0504cc3e7abb, type: 3}
+  - {fileID: 123129373844959805, guid: e322e398034f73a4583527cac05166e5, type: 3}
   missileAttackPos: {fileID: 2229407757950748113}
+  spellSelected: 0
   missileAttackSound: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
 --- !u!82 &7448116854158892134
 AudioSource:
@@ -342,7 +346,7 @@ Transform:
   m_Father: {fileID: 717677803462293182}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2229407757013172104
+--- !u!1 &1581187077545357093
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,25 +354,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2229407757013172100}
-  - component: {fileID: 2229407757013172107}
-  - component: {fileID: 2229407757013172106}
-  - component: {fileID: 2229407757013172105}
-  - component: {fileID: 2229407757013172101}
+  - component: {fileID: 1581187077545357097}
+  - component: {fileID: 1581187077545357094}
+  - component: {fileID: 1581187077545357095}
+  - component: {fileID: 1581187077545357092}
+  - component: {fileID: 1581187077545357096}
   m_Layer: 0
-  m_Name: InteractCylinder
+  m_Name: PlayerAttackCylinder
   m_TagString: PlayerMeleeAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &2229407757013172100
+--- !u!4 &1581187077545357097
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2229407757013172104}
+  m_GameObject: {fileID: 1581187077545357093}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 3.124}
   m_LocalScale: {x: 1, y: 2.14, z: 1}
@@ -377,21 +381,21 @@ Transform:
   m_Father: {fileID: 3598218920281641631}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &2229407757013172107
+--- !u!33 &1581187077545357094
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2229407757013172104}
+  m_GameObject: {fileID: 1581187077545357093}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2229407757013172106
+--- !u!23 &1581187077545357095
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2229407757013172104}
+  m_GameObject: {fileID: 1581187077545357093}
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -427,13 +431,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2229407757013172105
+--- !u!136 &1581187077545357092
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2229407757013172104}
+  m_GameObject: {fileID: 1581187077545357093}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -441,13 +445,13 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &2229407757013172101
+--- !u!114 &1581187077545357096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2229407757013172104}
+  m_GameObject: {fileID: 1581187077545357093}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a16995dc6146ee4480e418356349a43, type: 3}
@@ -464,7 +468,7 @@ GameObject:
   - component: {fileID: 2229407757950748112}
   m_Layer: 0
   m_Name: MissleAttackPos
-  m_TagString: Untagged
+  m_TagString: PlayerSpellPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -477,7 +481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2229407757950748113}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 3.1240005}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 2.14, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -520,7 +524,7 @@ Transform:
   m_Children:
   - {fileID: 8767791980797423421}
   - {fileID: 2229407757950748112}
-  - {fileID: 2229407757013172100}
+  - {fileID: 1581187077545357097}
   m_Father: {fileID: 717677803462293182}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

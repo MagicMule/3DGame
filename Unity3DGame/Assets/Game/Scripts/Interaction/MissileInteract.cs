@@ -43,7 +43,7 @@ public class MissileInteract : MonoBehaviour
             
             Debug.Log(gameObject.name + " Hit " + other.gameObject.name);
 
-            Destroy(gameObject);
+            Destroy(gameObject); //Destory the projektile
 
             if (other.gameObject.GetComponent<Enemy>().HP <= 0) // Destory enemy
             {
@@ -53,6 +53,7 @@ public class MissileInteract : MonoBehaviour
     }
     IEnumerator MissilePersistence()
     {
+        Debug.Log("Missile timeout");
         yield return new WaitForSeconds(timeToDestoryed);
         Destroy(gameObject);
     }

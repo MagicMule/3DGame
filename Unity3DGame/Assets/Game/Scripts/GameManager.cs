@@ -137,7 +137,13 @@ public class GameManager : MonoBehaviour
         MainCameraTrans = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
         PlayerMissileAttackTrans = GameObject.FindGameObjectWithTag("PlayerSpellPos").GetComponent<Transform>();
 
+        //Updaete player hp hud
         playerHPText.text = $"HP: {playerHP}";
+
+        if (playerHP <= 0)
+        {
+            PlayerGameOver();
+        }
     }
 
 

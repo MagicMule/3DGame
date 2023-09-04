@@ -169,6 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileClip: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
   audioClipVolume: 0.1
+  missileTimeLimit: 1
+  timeToDestoryed: 2
 --- !u!114 &6497658712355090656
 MonoBehaviour:
   m_ObjectHideFlags: 0

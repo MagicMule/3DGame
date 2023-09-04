@@ -17,6 +17,7 @@ TagManager:
   - Spell 1
   - Spell 2
   - Spell 3
+  - EnemyProjektile
   layers:
   - Default
   - TransparentFX

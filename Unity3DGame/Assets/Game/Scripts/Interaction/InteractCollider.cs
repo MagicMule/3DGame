@@ -63,6 +63,13 @@ public class InteractCollider : MonoBehaviour
             other.gameObject.GetComponentInParent<MoveLever>().enabled = true;
         }
 
+        if (other.gameObject.CompareTag("EnemyProjektile"))
+        {
+           Debug.Log("Hit projektile");
+           Destroy(other.gameObject);
+        }
+
+
 
     }
 
