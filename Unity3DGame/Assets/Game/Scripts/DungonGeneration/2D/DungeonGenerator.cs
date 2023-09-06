@@ -7,7 +7,7 @@ public class DungeonGenerator : MonoBehaviour
     /// <summary>
     /// https://www.youtube.com/watch?v=gHU5RQWbmWE
     /// </summary>
-    public class Cell
+    public class Cell 
     {
         public bool visited = false;
         public bool[] status = new bool[4];
