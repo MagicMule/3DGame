@@ -33,7 +33,7 @@ public class GridGeneration2D : MonoBehaviour
     {
         board = new List<Cell>();
 
-        for (int i = 0; i < size.x; i++) // This for loop makes a complite rectangular grid made of cells
+        for (int i = 0; i < size.x; i++) // This for loop represantes a rectangular grid made of cells, based on the size.x and size.y
         {
             for (int j = 0; j < size.y; j++)
             {
@@ -43,35 +43,38 @@ public class GridGeneration2D : MonoBehaviour
 
         int currentCell = startPos; // selekting a start possiton, statring cell to look at, on the grid 
 
-        Stack<int> path = new Stack<int>();
+        Stack<int> path = new Stack<int>(); // The current path of cells we are following
 
         int k = 0;
 
-        while (k < 1000)
+        while (k < 1000) // This loop is what carves a path thoru the constructed grid, generating a maze
         {
             k++;
 
             board[currentCell].visited = true; //We are vissiting the curent cell
 
-            List<int> neighbors = CheckNeighbors(currentCell); //check the current neigbors for current cell
+            List<int> neighbors = CheckNeighbors(currentCell); //check the current neigbors of the current cell
 
+            //Debug.Log(currentCell);
+            Debug.Log(path.Count);
 
-            if (neighbors.Count == 0)
+            if (neighbors.Count == 0) // if there are no neighbors around current cell
             {
-                if (path.Count == 0)
+                if (path.Count == 0) // 
                 {
                     break;
                 }
                 else
                 {
-                    currentCell = path.Pop(); // Set the int value of currentCell to int value on top of the "path" stack
+                    currentCell = path.Pop(); // Set the int value of currentCell to int value on top of the "path" stack, that is the current cell is leading the path
+
                 }
             }
             else
             {
-                path.Push(currentCell); 
+                path.Push(currentCell); // place current cell in path
 
-                int newCell = neighbors[Random.Range(0, neighbors.Count)];
+                int newCell = neighbors[Random.Range(0, neighbors.Count)]; //place a new cell in a random place chosen among the available neighbors
 
                 if (newCell > currentCell)
                 {
@@ -108,7 +111,7 @@ public class GridGeneration2D : MonoBehaviour
 
             }
 
-        }
+        } 
     }
     List<int> CheckNeighbors(int cell)
     {
