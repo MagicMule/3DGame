@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using UnityEditor;
 using UnityEngine;
 
 public class GridGeneration2D : MonoBehaviour
@@ -23,6 +25,8 @@ public class GridGeneration2D : MonoBehaviour
     List<Cell> board;
     public Vector2Int size;
     public int startPos = 0;
+    public GameObject[] rooms;
+    public Vector2 offset;
 
     private void Start()
     {
@@ -45,6 +49,8 @@ public class GridGeneration2D : MonoBehaviour
 
         Stack<int> path = new Stack<int>(); // The current path of cells we are following
 
+        //Debug.Log(path.Count);
+
         int k = 0;
 
         while (k < 1000) // This loop is what carves a path thoru the constructed grid, generating a maze
@@ -56,17 +62,20 @@ public class GridGeneration2D : MonoBehaviour
             List<int> neighbors = CheckNeighbors(currentCell); //check the current neigbors of the current cell
 
             //Debug.Log(currentCell);
-            Debug.Log(path.Count);
+            //Debug.Log(path.Count);
 
-            if (neighbors.Count == 0) // if there are no neighbors around current cell
+            
+            if (neighbors.Count == 0) // if there are no neighbors around current cell 
             {
-                if (path.Count == 0) // 
+                if (path.Count == 0) //*
                 {
                     break;
                 }
                 else
                 {
-                    currentCell = path.Pop(); // Set the int value of currentCell to int value on top of the "path" stack, that is the current cell is leading the path
+                    // remove one element on top of the stack "path", set the int value of currentCell to int value on top of the "path" stack
+                    // We "go back" thoue the made path until we come to a free neighbor, OR unlit there is no more path (look up *)
+                    currentCell = path.Pop(); 
 
                 }
             }
@@ -108,11 +117,39 @@ public class GridGeneration2D : MonoBehaviour
                         board[currentCell].status[1] = true;
                     }
                 }
-
             }
-
-        } 
+        }
+        StartCoroutine(GenerateDungeon2D());
     }
+
+    IEnumerator GenerateDungeon2D() // Place the blocks in scene
+    {
+
+        for (int i = 0; i < size.x; i++)
+        {
+            for (int j = 0; j < size.y; j++)
+            {
+                Cell currentCell = board[(i + j * size.x)];
+
+                if (currentCell.visited)
+                {
+                    if (IsPartOfPath(i, j))
+                    {
+                        var newRoom = Instantiate(rooms[0], new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform);
+                        newRoom.name += " " + i + "-" + j;
+                        yield return new WaitForSeconds(1);
+                    }
+                }
+            }
+        }
+
+    }
+
+    bool IsPartOfPath(int x, int y)
+    {
+        return board[x + y * size.x].visited;
+    }
+
     List<int> CheckNeighbors(int cell)
     {
         /*
@@ -125,12 +162,14 @@ public class GridGeneration2D : MonoBehaviour
         //check up neighbor
         if (cell - size.x >= 0 && !board[(cell - size.x)].visited)
         {
+            //Debug.Log("Checking up neigbor: " + " cell - size.x = " + (cell - size.x)); 
             neighbors.Add((cell - size.x));
         }
 
         //check down neighbor
         if (cell + size.x < board.Count && !board[(cell + size.x)].visited)
         {
+            //Debug.Log("Checking down neigbor: " + " cell + size.x = " + (cell + size.x) + " , cell = " + cell + " , size.x = " + size.x + "  , board count = " + board.Count);
             neighbors.Add((cell + size.x));
         }
 
@@ -138,12 +177,14 @@ public class GridGeneration2D : MonoBehaviour
         //check right neighbor
         if ((cell + 1) % size.x != 0 && !board[(cell + 1)].visited)
         {
+            //Debug.Log("Checking right neigbor: " + "(cell + 1) % size.x = " + ((cell + 1) % size.x) + " , Cell + 1 = " + (cell + 1) + " , size.x = " + size.x);
             neighbors.Add((cell + 1));
         }
 
         //check left neighbor
         if (cell % size.x != 0 && !board[(cell - 1)].visited)
         {
+            //Debug.Log("Checking left neigbor: " + "cell % size.x = " + (cell % size.x));
             neighbors.Add((cell - 1));
         }
         //Debug.Log(board.Count);

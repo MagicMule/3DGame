@@ -42,7 +42,7 @@ public class DungeonGenerator : MonoBehaviour
     public Vector2 offset;
 
 
-    List<Cell> board;
+    List<Cell> board; 
 
     // Start is called before the first frame update
     void Start()

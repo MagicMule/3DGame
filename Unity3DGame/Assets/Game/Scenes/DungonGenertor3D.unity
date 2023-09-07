@@ -240,6 +240,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 5, y: 5}
   startPos: 0
+  rooms:
+  - {fileID: 3804765574373111445, guid: 8c182da955d871a4e84ebdac3deb1ee6, type: 3}
+  offset: {x: 4, y: 4}
 --- !u!4 &319244707
 Transform:
   m_ObjectHideFlags: 0
@@ -511,7 +514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1223830380
 MonoBehaviour:
   m_ObjectHideFlags: 0
