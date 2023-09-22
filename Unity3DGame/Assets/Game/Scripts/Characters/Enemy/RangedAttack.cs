@@ -11,7 +11,6 @@ public class RangedAttack : MonoBehaviour
     //Missile
     public bool missileAttackReady = true;
     public float missileAttackDeley = 0.5f;
-    public float missileAttackDuration = 0.2f;
 
     //public AudioClip missileAttackSound;
     //public float missileAttackSoundVolume = 1.0f;
@@ -40,6 +39,7 @@ public class RangedAttack : MonoBehaviour
     // Instansate Missile, att missle prefab postion
     void ShotMissile()
     {
+
         if (Input.GetKeyDown(GameManager.Instance.missileKey) && missileAttackReady)
         {
 

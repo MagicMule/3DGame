@@ -7,7 +7,7 @@ using UnityEngine;
 public class StreatchObjekt : MonoBehaviour
 {
     /// <summary>
-    /// This canges an objekts scale in game time, creating an expanbding efekt
+    /// This canges an objekts scale in game time, creating an expanding efekt
     /// </summary>
     public Vector3 targetScale = new Vector3(10f, 1f, 1f);
 
