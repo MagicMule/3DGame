@@ -46,7 +46,7 @@ public class PlayerInteract : MonoBehaviour
         if (Input.GetKeyDown(GameManager.Instance.quitMenuKey) && !GameManager.Instance.InteractUIClosed)
         {
             //popUpUI.SetActive(false);
-            GameManager.Instance.talkNPCText.gameObject.SetActive(false);
+            GameManager.Instance.messigeToPlayer.gameObject.SetActive(false);
 
             GameManager.Instance.InteractUIClosed = true;
 

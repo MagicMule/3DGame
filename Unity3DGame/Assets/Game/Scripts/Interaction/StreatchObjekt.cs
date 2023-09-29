@@ -9,10 +9,10 @@ public class StreatchObjekt : MonoBehaviour
     /// <summary>
     /// This canges an objekts scale in game time, creating an expanding efekt
     /// </summary>
+    /// 
+
     public Vector3 targetScale = new Vector3(10f, 1f, 1f);
-
     public float scaleSpeed = 1f;
-
     public float tilingIncreseRate = 1f; //The incres of the tailing of the cangin objekts textrue
     private Renderer objectRenderer;
     private Vector2 initialTiling = new Vector2(5, 2);
@@ -32,10 +32,6 @@ public class StreatchObjekt : MonoBehaviour
         ShrinkObjakteScale();
         KeepTilingConsistnat();
     }
-
-
-
-
     void ExpandObjektScale()
     {
         if(expand == true)

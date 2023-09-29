@@ -16,32 +16,33 @@ public class TypeOutText : MonoBehaviour
 
     private TextMeshProUGUI textInUI;
 
-    private string textToTypeOut;
+    public string textToTypeOut;
 
     public float textSpeed;
 
 
     // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
         textInUI = GetComponent<TextMeshProUGUI>();
         textInUI.text = "";
         StartCoroutine(StartTypingText());
-
+        Debug.Log("Wake up");
     }
 
     IEnumerator StartTypingText()
     {
         string charaktersOfStrings = textToTypeOut;
 
-        charaktersOfStrings = "Byrgenwerth... Byrgenwerth... Blasphemous murderers... Blood-crazed fiends... Atonement for the wretches... By the wrath of Mother Kos...Mercy for the poor, wizened child... Mercy, oh please...";
         foreach (char charakter in charaktersOfStrings)
         {
             textInUI.text = textInUI.text + charakter;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(textSpeed);
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+
         this.gameObject.SetActive(false);
     }
 }

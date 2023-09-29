@@ -80,8 +80,6 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI playerHPText;
 
-    public TextMeshProUGUI talkNPCText;
-
     public TextMeshProUGUI gameOverText;
 
     public TextMeshProUGUI messigeToPlayer;

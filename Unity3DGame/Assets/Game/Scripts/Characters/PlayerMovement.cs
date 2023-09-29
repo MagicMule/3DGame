@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     Vector3 moveDirection; // direction player is to move
+    Vector3 playerMomentum;
 
     Rigidbody rB; // player rigeidbody
 
@@ -83,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
             //aply velocatry
             rB.AddForce(10 * moveSpeed * moveDirection.normalized, ForceMode.Force);
         }
+
+        playerMomentum = 10 * moveSpeed * moveDirection.normalized; //save player momentum
     }
 
     // Manualy cotrol of speed
@@ -112,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        rB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // add momentum up
+        rB.AddForce(playerMomentum, ForceMode.Impulse); // contiony movement speed momentum
     }
 }
