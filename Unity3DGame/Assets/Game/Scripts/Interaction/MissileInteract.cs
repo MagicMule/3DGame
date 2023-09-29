@@ -10,12 +10,8 @@ public class MissileInteract : MonoBehaviour
 
     public AudioClip missileClip;
     public float audioClipVolume = 0.1f;
-
     public bool missileTimeLimit = false;
     public float timeToDestoryed = 2f;
-
-
-
     // When the missile is instatiated
     private void Awake()
     {

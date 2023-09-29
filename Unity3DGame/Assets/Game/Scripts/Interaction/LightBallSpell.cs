@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LightBallSpell : MonoBehaviour
 {
+    /// <summary>
+    /// The lightball follow player pos and is destropyed when player cast new spell
+    /// </summary>
     public Vector3 lightPosOffset;
     private Transform lightPos;
     void Update()

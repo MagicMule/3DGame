@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class MissileBeam : MonoBehaviour
 {
+    /// <summary>
+    /// Efekt of the missleBeam spell
+    /// </summary>
     public GameObject repeatingEffekt;
     private Transform missileAttackPos;
-
     public Vector3 missileAttackPosOffset;
     public Quaternion missileAttackRotOffset;
-
     public float repeatDelay = 0.001f;
 
     // Start is called before the first frame update

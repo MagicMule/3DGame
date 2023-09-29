@@ -10,11 +10,15 @@ using UnityEngine.TextCore.Text;
 
 public class TypeOutText : MonoBehaviour
 {
+    /// <summary>
+    /// Get the text of objekt atached to, write out text given in variable "textToTypeOut", on charakter at the time
+    /// </summary>
+
     private TextMeshProUGUI textInUI;
 
     private string textToTypeOut;
 
-    public float typeOutTextSpeed;
+    public float textSpeed;
 
 
     // Start is called before the first frame update
@@ -22,14 +26,7 @@ public class TypeOutText : MonoBehaviour
     {
         textInUI = GetComponent<TextMeshProUGUI>();
         textInUI.text = "";
-
         StartCoroutine(StartTypingText());
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 
@@ -41,11 +38,10 @@ public class TypeOutText : MonoBehaviour
         foreach (char charakter in charaktersOfStrings)
         {
             textInUI.text = textInUI.text + charakter;
-            Debug.Log(textInUI.text);
             yield return new WaitForSeconds(0.1f);
         }
 
         yield return new WaitForSeconds(1);
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
     }
 }

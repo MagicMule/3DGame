@@ -2093,8 +2093,8 @@ GameObject:
   - component: {fileID: 8510826064735276661}
   - component: {fileID: 8510826064735276660}
   - component: {fileID: 4009057792430017278}
-  - component: {fileID: 1542002816456630134}
   - component: {fileID: 1542002816456630135}
+  - component: {fileID: 1542002816456630134}
   m_Layer: 0
   m_Name: EnemyWBody
   m_TagString: Enemy
@@ -2163,6 +2163,25 @@ MonoBehaviour:
   distanceToPlayer: 0
   isInStopPos: 0
   stopDistance: 3
+--- !u!114 &1542002816456630135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510826064735276667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323269cd19aeaed43a299814e050b638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPos: {fileID: 0}
+  HP: 3
+  Damage: 1
+  Speed: 1
+  AgroRange: 15
+  enemyAudioSource: {fileID: 0}
+  enemyHitByPlayerAudioClip: {fileID: 8300000, guid: e7ee25a47d63b46cdaf65480d62b405c, type: 3}
 --- !u!82 &1542002816456630134
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2259,24 +2278,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1542002816456630135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8510826064735276667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323269cd19aeaed43a299814e050b638, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerPos: {fileID: 0}
-  HP: 3
-  Damage: 1
-  Speed: 1
-  AgroRange: 15
-  enemyHitByPlayerAudioClip: {fileID: 8300000, guid: e7ee25a47d63b46cdaf65480d62b405c, type: 3}
 --- !u!1 &9090172630507486734
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,11 +8,11 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
 
-    [Header("Movement")]
+    [Header("MOVEMENT")]
     public float moveSpeed;
     public float groundDrag;
     public float airDrag;
-    public Transform orientation; //Players curent oriantion, player should move forward when oriantaion forward
+    public Transform orientation; //Players curent oriantion, player should move forward when oriantaion is forward
 
     public float jumpForce = 5f;
 
@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(GameManager.Instance.jumpKey) && IsGrounded())
         {
-
             Jump();
         }
 
@@ -103,10 +102,8 @@ public class PlayerMovement : MonoBehaviour
         // Perform a raycast or collision check to determine if the player is grounded
         // Return true if grounded, false otherwise
         // Example: Use Raycast
-        RaycastHit hit;
         float raycastDistance = 0.6f;
-
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance))
+        if (Physics.Raycast(transform.position, Vector3.down, out _, raycastDistance))
         {
             return true;
         }

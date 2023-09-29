@@ -8,27 +8,15 @@ public class RangedAttack : MonoBehaviour
     /// This script Shot out a loaded missile or efekt (on missileAttackPos)
     /// </summary>
 
-    //Missile
     public bool missileAttackReady = true;
     public float missileAttackDeley = 0.5f;
-
-    //public AudioClip missileAttackSound;
-    //public float missileAttackSoundVolume = 1.0f;
-
     public GameObject[] missile;
     public GameObject missileAttackPos;
     public int spellSelected = 0;
-
     private Vector3 missileAttackPosOffset = new (0, 0, 0); //Positon
     private Vector3 missileAttackRotOffset = new (1, 1, 1); //Rotation
-
     public AudioClip missileAttackSound;
 
-
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {

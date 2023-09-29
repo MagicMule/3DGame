@@ -9,13 +9,7 @@ public class PlayerInteract : MonoBehaviour
     /// General interation, not tide to objekt or colidor
     /// </summary>
 
-    
-    //public KeyCode interactKey = KeyCode.E;
-
-    //public KeyCode quitMenuKey = KeyCode.Escape;
-
-
-
+ 
     //public GameObject popUpUI;
     private bool interatonHasHappend = false;
 

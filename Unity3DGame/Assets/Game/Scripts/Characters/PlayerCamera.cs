@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+    /// <summary>
+    /// Move oriantrion objekt, to change first preston view and diraction of player attack and spells as appropriate
+    /// </summary>
+
     public float sensitivityX;
     public float sensitivityY;
 

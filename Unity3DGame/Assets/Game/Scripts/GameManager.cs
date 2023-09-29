@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [Header("Inputs")]
+    [Header("INPUTS")]
 
     // Player camera rotaion disamle
     public KeyCode frezeCamera = KeyCode.F;
@@ -52,15 +52,6 @@ public class GameManager : MonoBehaviour
 
     //
 
-    public float moveVerticalInput;
-    public float MoveVerticalInput
-    {
-        get => moveVerticalInput;
-        set { moveVerticalInput = value; }
-    }
-
-    //
-
     public KeyCode hotKeyInput1 = KeyCode.Alpha1;
     public KeyCode HotKeyInput1 => KeyCode.Alpha1;
 
@@ -76,6 +67,14 @@ public class GameManager : MonoBehaviour
 
     //
 
+    public float moveVerticalInput;
+    public float MoveVerticalInput
+    {
+        get => moveVerticalInput;
+        set { moveVerticalInput = value; }
+    }
+
+    //
 
     [Header("UI")]
 
@@ -91,23 +90,23 @@ public class GameManager : MonoBehaviour
 
     public bool InteractUIClosed = true;
 
-    [Header("Player HP")]
+    [Header("PLAYER HP")]
 
     public int playerHP = 10;
 
-    [Header("Player attack damge")]
+    [Header("PLAYER ATTACK DAMAGE")]
 
     public int meleeDamage = 1;
 
     public int spellDamage1 = 1;
 
-    [Header("Objekts Transform")]
+    [Header("OBJEKT TRANSFROMATION")]
 
     public Transform PlayerTrans;
     public Transform MainCameraTrans;
     public Transform PlayerMissileAttackTrans;
 
-    [Header("Audio")]
+    [Header("AUDIO")]
 
     public AudioClip generalHitEnemy;
 
@@ -148,6 +147,22 @@ public class GameManager : MonoBehaviour
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Call to deal damage
     public int DecreaseHP(int objektHP, int damgeTaken)
     {
@@ -163,6 +178,8 @@ public class GameManager : MonoBehaviour
 
 
 
+
+
     //Set Gamer over text and load curent scene
     public void PlayerGameOver()
     {
@@ -175,6 +192,9 @@ public class GameManager : MonoBehaviour
         string scene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(scene);
     }
+
+
+
 
     /// <summary>
     /// To play aoudio at pos, cangeable pitch
