@@ -1,0 +1,21 @@
+{
+	"dialogScene1": 
+	[
+	
+		{
+			"line1": "Yes",
+			"line2": "No"
+		}
+
+	],
+
+	"dialogScene2": 
+	[
+	
+		{
+			"line1": "No",
+			"line2": "Yes"
+		}
+
+	]
+}

@@ -48,6 +48,7 @@ public class InteractCollider : MonoBehaviour
 
         }
 
+
         // Hit door objekt and the activet openCloseDoor, script on "doorHinge"
         if (other.gameObject.CompareTag("Door"))
         {

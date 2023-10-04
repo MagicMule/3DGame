@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6745418226799680071}
   - component: {fileID: 8795771539641982218}
   m_Layer: 0
-  m_Name: SpellAttack 2
+  m_Name: Spel2
   m_TagString: Spell 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

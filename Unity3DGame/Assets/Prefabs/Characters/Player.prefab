@@ -73,12 +73,8 @@ GameObject:
   - component: {fileID: 717677803462293182}
   - component: {fileID: 717677803462293183}
   - component: {fileID: 717677803462293179}
-  - component: {fileID: 717677803462293121}
-  - component: {fileID: 2229407757415758032}
-  - component: {fileID: 2229407757437334284}
-  - component: {fileID: 717677803462293177}
-  - component: {fileID: 717677803462293176}
   - component: {fileID: 7448116854158892134}
+  - component: {fileID: 774056422373445354}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -136,89 +132,6 @@ CapsuleCollider:
   m_Height: 2.0326464
   m_Direction: 1
   m_Center: {x: 0, y: -0.0032099485, z: 0}
---- !u!114 &717677803462293121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717677803462293180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db8ff18ca6fd9734cbddcb88275afe19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  groundDrag: 10
-  airDrag: 1
-  orientation: {fileID: 717677803357771497}
-  jumpForce: 12
---- !u!114 &2229407757415758032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717677803462293180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68070412d77a8748b1bcbae04549151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCameraMoveScript: {fileID: 3598218920281641626}
---- !u!114 &2229407757437334284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717677803462293180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd92c8d24b77fc54398f96c13cd05bae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customGravity: {x: 0, y: -10, z: 0}
---- !u!114 &717677803462293177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717677803462293180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 583fcc400cfe8fe49bdd890cb57bf6a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactor: {fileID: 1581187077545357093}
-  spear: {fileID: 8767791980797423418}
-  interactReady: 1
-  interactDeley: 0.5
-  interactDuration: 0.2
-  interactAudioClip: {fileID: 8300000, guid: df6d6e6970d3ebc40a5ecbe1e1f21c1e, type: 3}
---- !u!114 &717677803462293176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717677803462293180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eda3d1b0b41df445bdcc03d4f9e6a11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missileAttackReady: 1
-  missileAttackDeley: 0.5
-  missileAttackDuration: 0.2
-  missile:
-  - {fileID: 2688517206058997839, guid: 859c906ff25416c46b3dedc5f68690bd, type: 3}
-  - {fileID: 2688517206058997839, guid: 8403f0c83e4919b48b2a0504cc3e7abb, type: 3}
-  - {fileID: 123129373844959805, guid: e322e398034f73a4583527cac05166e5, type: 3}
-  missileAttackPos: {fileID: 2229407757950748113}
-  spellSelected: 0
-  missileAttackSound: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
 --- !u!82 &7448116854158892134
 AudioSource:
   m_ObjectHideFlags: 0
@@ -315,6 +228,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &774056422373445354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717677803462293180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9271dd728b2b7e4e9091a9551d6d394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missileAttackReady: 1
+  missileAttackDeley: 0.5
+  missile:
+  - {fileID: 2688517206058997839, guid: 859c906ff25416c46b3dedc5f68690bd, type: 3}
+  - {fileID: 2688517206058997839, guid: 8403f0c83e4919b48b2a0504cc3e7abb, type: 3}
+  - {fileID: 123129373844959805, guid: e322e398034f73a4583527cac05166e5, type: 3}
+  missileAttackPos: {fileID: 2229407757950748113}
+  spellSelected: 0
+  missileAttackSound: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
+  interactor: {fileID: 1581187077545357093}
+  spear: {fileID: 8767791980797423418}
+  interactReady: 1
+  interactDeley: 0.5
+  interactDuration: 0.2
+  interactAudioClip: {fileID: 8300000, guid: df6d6e6970d3ebc40a5ecbe1e1f21c1e, type: 3}
+  moveSpeed: 10
+  groundDrag: 10
+  airDrag: 1
+  orientation: {fileID: 717677803357771497}
+  jumpForce: 12
+  customGravity: {x: 0, y: -10, z: 0}
+  cameraMoveScript: {fileID: 3598218920281641626}
 --- !u!1 &717677803805149315
 GameObject:
   m_ObjectHideFlags: 0

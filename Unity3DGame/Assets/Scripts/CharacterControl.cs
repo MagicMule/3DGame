@@ -34,7 +34,6 @@ public class CharacterControl : MonoBehaviour
     public bool interactReady = true; // A bool to chek if a interaktin is ready
     public float interactDeley = 0.5f; // time befor next interaction bekoms avialable
     public float interactDuration = 0.2f; // active time of iteractor objekt
-    //public KeyCode interactKey = KeyCode.Mouse0;
     private AudioSource interactAudioSource;
     public AudioClip interactAudioClip;
 
