@@ -18,14 +18,12 @@ public class InteractCollider : MonoBehaviour
         // Player interact with npc
         if (other.gameObject.CompareTag("NPC") && GameManager.Instance.InteractUIClosed)
         {
-            //InteractUI.SetActive(true); // Open UI when colion with npc
 
             GameManager.Instance.messigeToPlayer.gameObject.SetActive(true);
 
         }
         else if (other.gameObject && !GameManager.Instance.InteractUIClosed)
         {
-            //InteractUI.SetActive(false); // Close Ui when player activates InteractUI again (Must hit a gameObjekt)
 
             GameManager.Instance.messigeToPlayer.gameObject.SetActive(false);
 
