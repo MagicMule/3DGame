@@ -14,6 +14,8 @@ public class DialogueManger : MonoBehaviour
     /// Advance Dialog
     /// </summary>
 
+    
+
     public KeyCode nextLine = KeyCode.Mouse0;
     public KeyCode NextLine => nextLine;
 
@@ -27,6 +29,8 @@ public class DialogueManger : MonoBehaviour
 
     private DialogText dialogText;
     private int dialogTextIndex = 0; //starting with the first line
+
+    public GameObject[] dilogInteractivObjekts; // things that spawn or other change based on dialog
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +82,15 @@ public class DialogueManger : MonoBehaviour
                     if (dialogTextIndex < dialogText.dilogLinesA.line.Count)
                     {
                         charakterDialog2.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesA.line[dialogTextIndex];
+
+                        //Spawn spear
+                        if (dialogText.dilogLinesA.line[dialogTextIndex] == "Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl. You already know its name.")
+                        {
+                            dilogInteractivObjekts[0].SetActive(true);
+                        }
+
                         dialogTextIndex += 1; // Continue to next line
+
                     }
 
 

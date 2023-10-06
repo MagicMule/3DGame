@@ -43,6 +43,6 @@ public class TypeOutText : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 }
