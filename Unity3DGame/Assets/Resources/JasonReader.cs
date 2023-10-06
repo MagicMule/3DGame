@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class JasonReader : MonoBehaviour
 {
+
+    /// <summary>
+    /// read form a JSON file
+    /// </summary>
+
     public TextAsset textJSON;
 
     [System.Serializable]
@@ -29,8 +34,8 @@ public class JasonReader : MonoBehaviour
     {
         myPlayerList = JsonUtility.FromJson<PlayerList>(textJSON.text);
 
-        Debug.Log(myPlayerList.dialogScene1[0].line1);
-
+        Debug.Log(myPlayerList.dialogScene1[1].line1);
+        
     }
 
     // Update is called once per frame
