@@ -22,7 +22,15 @@ public class DialogText : MonoBehaviour
 
     void Start()
     {
+        DialogA();
+        DialogB();
 
+
+
+    }
+
+    void DialogA()
+    {
         dilogLinesA.line.Add("...");
         dilogLinesA.line.Add("How are you feeling?");
         dilogLinesA.line.Add("How should I feel? I'm as I have been. Don't worry, Im am but ready");
@@ -31,14 +39,11 @@ public class DialogText : MonoBehaviour
         dilogLinesA.line.Add("Laws, is it? Arum is a land where people make their own law. Are you sure a sneak will not cross and deny you?");
         dilogLinesA.line.Add("No, but that is the why of things. If in truth I have but my will and a drop of blood, it will have to do");
         dilogLinesA.line.Add("Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl. You already know its name.");
-
-
     }
 
-
-    void Update()
+    void DialogB()
     {
-        
+        dilogLinesB.line.Add("This place is now of old cosality. The stink of the Yog-agl subtel asail, of evil. The place and time is corrypted. The sorce, the lord, must i find and drag they out of the world and back to the nothing truth of there making");
     }
 
 }

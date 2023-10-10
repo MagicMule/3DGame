@@ -16,7 +16,7 @@ public class InteractCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Player interact with npc
-        if (other.gameObject.CompareTag("NPC") && GameManager.Instance.InteractUIClosed)
+        if (other.gameObject.CompareTag("NPC"))
         {
 
             GameManager.Instance.messigeToPlayer.gameObject.SetActive(true);

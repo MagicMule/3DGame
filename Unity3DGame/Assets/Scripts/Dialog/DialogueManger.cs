@@ -14,23 +14,37 @@ public class DialogueManger : MonoBehaviour
     /// Advance Dialog
     /// </summary>
 
-    
+    public static DialogueManger Instance;
 
     public KeyCode nextLine = KeyCode.Mouse0;
     public KeyCode NextLine => nextLine;
 
-
+    //Dialog with two charaklters convesrins
     private int currentState = 0;  //inital sate
-
     public TextMeshProUGUI charakterDialog1;
     public TextMeshProUGUI charakterDialog2;
-
     private TextMeshProUGUI currentCharakterDialog;
+
+    //Dialog of naration
+    public TextMeshProUGUI narativDialog;
+
 
     private DialogText dialogText;
     private int dialogTextIndex = 0; //starting with the first line
 
     public GameObject[] dilogInteractivObjekts; // things that spawn or other change based on dialog
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -43,11 +57,23 @@ public class DialogueManger : MonoBehaviour
     {
         if (Input.GetKeyDown(nextLine))
         {
-            PlayerControlDialog();
+            OneOnOneDialog();
         }
     }
 
-    void PlayerControlDialog()
+
+
+
+    void NarativDialog()
+    {
+        if (dialogTextIndex < dialogText.dilogLinesA.line.Count)
+        {
+
+        }
+    }
+
+
+    void OneOnOneDialog()
     {
         // Toggel between charakter1 and charakter2 dialog
         if (dialogTextIndex < dialogText.dilogLinesA.line.Count)
@@ -59,7 +85,10 @@ public class DialogueManger : MonoBehaviour
 
                     if (dialogTextIndex < dialogText.dilogLinesA.line.Count)
                     {
-                        charakterDialog1.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesA.line[dialogTextIndex];
+                        charakterDialog1.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesA.line[dialogTextIndex]; // Get line from DilogText
+
+                        DialogEvent();
+
                         dialogTextIndex += 1; // Continue to next line
                     }
 
@@ -83,11 +112,7 @@ public class DialogueManger : MonoBehaviour
                     {
                         charakterDialog2.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesA.line[dialogTextIndex];
 
-                        //Spawn spear
-                        if (dialogText.dilogLinesA.line[dialogTextIndex] == "Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl. You already know its name.")
-                        {
-                            dilogInteractivObjekts[0].SetActive(true);
-                        }
+                        DialogEvent();
 
                         dialogTextIndex += 1; // Continue to next line
 
@@ -120,5 +145,15 @@ public class DialogueManger : MonoBehaviour
 
     }
 
+    // Things that happen based on line/ dialog prograsion
+    void DialogEvent()
+    {
+        //Spawn spear
+        if (dialogText.dilogLinesA.line[dialogTextIndex] == "Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl. You already know its name.")
+        {
+            dilogInteractivObjekts[0].SetActive(true);
+        }
+
+    }
 
 }
