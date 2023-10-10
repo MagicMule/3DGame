@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -30,9 +31,19 @@ public class DialogueManger : MonoBehaviour
 
 
     private DialogText dialogText;
+
     private int dialogTextIndex = 0; //starting with the first line
 
-    public GameObject[] dilogInteractivObjekts; // things that spawn or other change based on dialog
+    public List<GameObject> dilogInteractivObjekts; // things that spawn or other change based on dialog
+
+    public bool startDialogA = false;
+    public bool startDialogB = false;
+    public bool startDialogC = false;
+    public bool startDialogD = false;
+    public bool startDialogE = false;
+    public bool startDialogF = false;
+    public bool startDialogG = false;
+    public bool startDialogh = false;
 
     private void Awake()
     {
@@ -55,37 +66,71 @@ public class DialogueManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(nextLine))
         {
-            OneOnOneDialog();
+            if (startDialogA)
+            {
+
+                OneOnOneDialog(dialogText.dilogLinesA);
+            }
+
+            else if (startDialogB)
+            {
+                NarativDialog(dialogText.dilogLinesB);
+            }
+
         }
+
+
     }
 
 
-
-
-    void NarativDialog()
+    public void spellVerbalDialog()
     {
-        if (dialogTextIndex < dialogText.dilogLinesA.line.Count)
+        if (dialogTextIndex < dialogText.dilogLinesC.line.Count)
         {
+            narativDialog.gameObject.SetActive(false);
 
+            narativDialog.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesC.line[dialogTextIndex];
+
+            dialogTextIndex += 1; // Continue to next line
+            narativDialog.gameObject.SetActive(true);
+        }
+    }
+
+    void NarativDialog(DialogText.Dialog activeDialog)
+    {
+
+        if (dialogTextIndex < activeDialog.line.Count)
+        {
+            narativDialog.gameObject.SetActive(false);
+
+            narativDialog.GetComponent<TypeOutText>().textToTypeOut = activeDialog.line[dialogTextIndex];
+
+            dialogTextIndex += 1; // Continue to next line
+            narativDialog.gameObject.SetActive(true);
+        }
+        else
+        {
+            narativDialog.gameObject.SetActive(false);
         }
     }
 
 
-    void OneOnOneDialog()
+    void OneOnOneDialog(DialogText.Dialog activeDialog)
     {
         // Toggel between charakter1 and charakter2 dialog
-        if (dialogTextIndex < dialogText.dilogLinesA.line.Count)
+        if (dialogTextIndex < activeDialog.line.Count)
         {
             switch (currentState)
             {
                 //charkter 1 talk
                 case 0:
 
-                    if (dialogTextIndex < dialogText.dilogLinesA.line.Count)
+                    if (dialogTextIndex < activeDialog.line.Count)
                     {
-                        charakterDialog1.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesA.line[dialogTextIndex]; // Get line from DilogText
+                        charakterDialog1.GetComponent<TypeOutText>().textToTypeOut = activeDialog.line[dialogTextIndex]; // Get line from DilogText
 
                         DialogEvent();
 
@@ -108,9 +153,9 @@ public class DialogueManger : MonoBehaviour
                 //Charkater 2 talk
                 case 1:
 
-                    if (dialogTextIndex < dialogText.dilogLinesA.line.Count)
+                    if (dialogTextIndex < activeDialog.line.Count)
                     {
-                        charakterDialog2.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesA.line[dialogTextIndex];
+                        charakterDialog2.GetComponent<TypeOutText>().textToTypeOut = activeDialog.line[dialogTextIndex];
 
                         DialogEvent();
 
@@ -153,6 +198,8 @@ public class DialogueManger : MonoBehaviour
         {
             dilogInteractivObjekts[0].SetActive(true);
         }
+
+
 
     }
 

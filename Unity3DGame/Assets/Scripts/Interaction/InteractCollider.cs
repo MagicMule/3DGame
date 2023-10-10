@@ -19,21 +19,14 @@ public class InteractCollider : MonoBehaviour
         if (other.gameObject.CompareTag("NPC"))
         {
 
-            GameManager.Instance.messigeToPlayer.gameObject.SetActive(true);
+            //DialogueManger.Instance.startDialogA = true;
 
-        }
-        else if (other.gameObject && !GameManager.Instance.InteractUIClosed)
-        {
-
-            GameManager.Instance.messigeToPlayer.gameObject.SetActive(false);
-
-            GameManager.Instance.InteractUIClosed = true; // UI is closed -> set interactUIClosed to True
         }
 
 
         // Player hit enemy
         if (other.gameObject.CompareTag("Enemy"))
-        {
+        { 
             //Play sound when player hit enemy
             AudioClip hitEnemySound = other.gameObject.GetComponent<Enemy>().enemyHitByPlayerAudioClip;
             GameManager.Instance.PlayClipAt(hitEnemySound, 1f, 3f, other.transform.position);

@@ -5,26 +5,26 @@ using UnityEngine;
 public class DialogText : MonoBehaviour
 {
     [System.Serializable]
-    public class Dialog1
+    public class Dialog
     {
         public List<string> line;
     }
 
     //intro
-    public Dialog1 dilogLinesA;
-    //Spellcast
-    public Dialog1 dilogLinesB;
-    public Dialog1 dilogLinesC;
-    public Dialog1 dilogLinesD;
-    public Dialog1 dilogLinesE;
-    public Dialog1 dilogLinesF;
+    public Dialog dilogLinesA;
+    //Start of level
+    public Dialog dilogLinesB;
+    public Dialog dilogLinesC;
+    public Dialog dilogLinesD;
+    public Dialog dilogLinesE;
+    public Dialog dilogLinesF;
 
 
     void Start()
     {
         DialogA();
         DialogB();
-
+        DialogC();
 
 
     }
@@ -46,4 +46,8 @@ public class DialogText : MonoBehaviour
         dilogLinesB.line.Add("This place is now of old cosality. The stink of the Yog-agl subtel asail, of evil. The place and time is corrypted. The sorce, the lord, must i find and drag they out of the world and back to the nothing truth of there making");
     }
 
+    void DialogC()
+    {
+        dilogLinesC.line.Add ("LIGHTINGBOLT!");
+    }
 }

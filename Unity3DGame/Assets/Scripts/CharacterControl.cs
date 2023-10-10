@@ -82,8 +82,6 @@ public class CharacterControl : MonoBehaviour
 
         Interact();
 
-        QuitMenu();
-
         StopPlayerCameraMovment();
 
         MyInput(); // Get imput from player
@@ -137,8 +135,10 @@ public class CharacterControl : MonoBehaviour
 
         Instantiate(missile[spellSelected], missileAttackPos.transform.position, missileAttackPos.transform.rotation);
 
+        DialogueManger.Instance.spellVerbalDialog();
 
         yield return new WaitForSeconds(missileAttackDeley); // Time befor player can make onather missile attack
+
 
         missileAttackReady = true;
     }
@@ -245,19 +245,6 @@ public class CharacterControl : MonoBehaviour
         if (Input.GetKeyUp(GameManager.Instance.interactKeyNoColider))
         {
             interatonHasHappend = false;
-        }
-    }
-
-    void QuitMenu()
-    {
-        // exsit interationMenu
-        if (Input.GetKeyDown(GameManager.Instance.quitMenuKey) && !GameManager.Instance.InteractUIClosed)
-        {
-            //popUpUI.SetActive(false);
-            GameManager.Instance.messigeToPlayer.gameObject.SetActive(false);
-
-            GameManager.Instance.InteractUIClosed = true;
-
         }
     }
 

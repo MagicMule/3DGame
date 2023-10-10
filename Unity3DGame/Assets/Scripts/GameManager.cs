@@ -82,12 +82,6 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI gameOverText;
 
-    public TextMeshProUGUI messigeToPlayer;
-
-    public TextMeshProUGUI playerDialog;
-
-    public bool InteractUIClosed = true;
-
     [Header("PLAYER HP")]
 
     public int playerHP = 10;
