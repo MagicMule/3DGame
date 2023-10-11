@@ -20,6 +20,7 @@ public class TypeOutText : MonoBehaviour
 
     public float textSpeed;
 
+    public bool typeOutDone = true;
 
     // Start is called before the first frame update
 
@@ -28,11 +29,13 @@ public class TypeOutText : MonoBehaviour
         textInUI = GetComponent<TextMeshProUGUI>();
         textInUI.text = "";
         StartCoroutine(StartTypingText());
-        Debug.Log("Wake up");
     }
 
     IEnumerator StartTypingText()
     {
+        Debug.Log("In StartTyping");
+        typeOutDone = false;
+
         string charaktersOfStrings = textToTypeOut;
 
         foreach (char charakter in charaktersOfStrings)
@@ -42,6 +45,8 @@ public class TypeOutText : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2);
+
+        typeOutDone = true;
 
         //this.gameObject.SetActive(false);
     }

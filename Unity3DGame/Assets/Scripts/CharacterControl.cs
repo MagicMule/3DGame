@@ -130,15 +130,34 @@ public class CharacterControl : MonoBehaviour
     // missile instasiate at missileAttackPos
     IEnumerator MissileAttack()
     {
+        // Charakter verbal
+        if (spellSelected == 0)
+        {
+            DialogueManger.Instance.SpellVerbalDialog(0);
+        }
+        else if (spellSelected == 1)
+        {
+            DialogueManger.Instance.SpellVerbalDialog(1);
+        }
+        else if (spellSelected == 2)
+        {
+            DialogueManger.Instance.SpellVerbalDialog(2);
+        }
+
+
+
+
 
         missileAttackReady = false;
 
         Instantiate(missile[spellSelected], missileAttackPos.transform.position, missileAttackPos.transform.rotation);
 
-        DialogueManger.Instance.spellVerbalDialog();
+
+        
 
         yield return new WaitForSeconds(missileAttackDeley); // Time befor player can make onather missile attack
 
+        //DialogueManger.Instance.narativDialog.gameObject.SetActive(false); // Close text windo when spell is ready
 
         missileAttackReady = true;
     }

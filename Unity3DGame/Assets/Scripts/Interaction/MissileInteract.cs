@@ -51,7 +51,6 @@ public class MissileInteract : MonoBehaviour
     }
     IEnumerator MissilePersistence()
     {
-        Debug.Log("Missile timeout");
         yield return new WaitForSeconds(timeToDestoryed);
         Destroy(gameObject);
     }

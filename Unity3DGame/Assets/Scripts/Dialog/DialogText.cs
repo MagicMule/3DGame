@@ -48,6 +48,8 @@ public class DialogText : MonoBehaviour
 
     void DialogC()
     {
-        dilogLinesC.line.Add ("LIGHTINGBOLT!");
+        dilogLinesC.line.Add ("Magic Missile!");
+        dilogLinesC.line.Add("Lighting Bolt!");
+        dilogLinesC.line.Add("Glim and see, from land and sea, the With Dwarf Of Circle Valy. Enter through the veil of space and come to light my way!");
     }
 }

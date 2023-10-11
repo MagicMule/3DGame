@@ -26,9 +26,12 @@ public class DialogueManger : MonoBehaviour
     public TextMeshProUGUI charakterDialog2;
     private TextMeshProUGUI currentCharakterDialog;
 
+
     //Dialog of naration
     public TextMeshProUGUI narativDialog;
 
+    //Spel verbal 
+    public TextMeshProUGUI spellVerbal;
 
     private DialogText dialogText;
 
@@ -43,7 +46,6 @@ public class DialogueManger : MonoBehaviour
     public bool startDialogE = false;
     public bool startDialogF = false;
     public bool startDialogG = false;
-    public bool startDialogh = false;
 
     private void Awake()
     {
@@ -86,17 +88,26 @@ public class DialogueManger : MonoBehaviour
     }
 
 
-    public void spellVerbalDialog()
+    // chose what inedect to use when spell is cast
+
+    public void SpellVerbalDialog(int spelIndex)
     {
-        if (dialogTextIndex < dialogText.dilogLinesC.line.Count)
+        Debug.Log("In spellvervaldialog");
+        Debug.Log(spellVerbal.GetComponent<TypeOutText>().typeOutDone);
+
+        if(spellVerbal.GetComponent<TypeOutText>().typeOutDone)
         {
-            narativDialog.gameObject.SetActive(false);
+            Debug.Log("Speak spell");
+            spellVerbal.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesC.line[spelIndex];
 
-            narativDialog.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesC.line[dialogTextIndex];
-
-            dialogTextIndex += 1; // Continue to next line
-            narativDialog.gameObject.SetActive(true);
+            spellVerbal.gameObject.SetActive(true);
+            
         }
+        else
+        {
+            spellVerbal.gameObject.SetActive(false);
+        }
+
     }
 
     void NarativDialog(DialogText.Dialog activeDialog)
@@ -201,6 +212,14 @@ public class DialogueManger : MonoBehaviour
 
 
 
+    }
+
+    //Set a timer on a dialog
+    IEnumerator DialogPrecistance(int timeOut, GameObject dialogToTimeOut)
+    {
+        dialogToTimeOut.SetActive(true);
+        yield return new WaitForSeconds(timeOut);
+        dialogToTimeOut.SetActive(false);
     }
 
 }
