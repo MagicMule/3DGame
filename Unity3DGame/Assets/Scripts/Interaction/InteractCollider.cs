@@ -15,53 +15,49 @@ public class InteractCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Player interact with npc
-        if (other.gameObject.CompareTag("NPC"))
+        // if using interaktion
+        if (CharacterControl.Instance.interactionModeInteract)
         {
-
-            //DialogueManger.Instance.startDialogA = true;
-
-        }
-
-
-        // Player hit enemy
-        if (other.gameObject.CompareTag("Enemy"))
-        { 
-            //Play sound when player hit enemy
-            AudioClip hitEnemySound = other.gameObject.GetComponent<Enemy>().enemyHitByPlayerAudioClip;
-            GameManager.Instance.PlayClipAt(hitEnemySound, 1f, 3f, other.transform.position);
-
-            // Damage Enemy
-            other.gameObject.GetComponent<Enemy>().HP = GameManager.Instance.DecreaseHP(other.gameObject.GetComponent<Enemy>().HP, GameManager.Instance.meleeDamage); // hit enemy with 1 point of damage
-
-            if (other.gameObject.GetComponent<Enemy>().HP <= 0) // Destory enemy
+            // Player interact with npc
+            if (other.gameObject.CompareTag("NPC"))
             {
+
+                Debug.Log("Npc interact");
+
+            }
+            // Hit door objekt and the activet openCloseDoor, script on "doorHinge"
+            if (other.gameObject.CompareTag("Door"))
+            {
+                other.gameObject.GetComponentInParent<OpenCloseDoor>().enabled = true;
+            }
+            if (other.gameObject.CompareTag("Lever"))
+            {
+                other.gameObject.GetComponentInParent<MoveLever>().enabled = true;
+            }
+            if (other.gameObject.CompareTag("EnemyProjektile"))
+            {
+                Debug.Log("Hit projektile");
                 Destroy(other.gameObject);
             }
-
         }
 
-
-        // Hit door objekt and the activet openCloseDoor, script on "doorHinge"
-        if (other.gameObject.CompareTag("Door"))
+        //if using attack
+        if (CharacterControl.Instance.interactionModeAttack)
         {
-            other.gameObject.GetComponentInParent<OpenCloseDoor>().enabled = true;
+            // Player hit enemy
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                //Play sound when player hit enemy
+                AudioClip hitEnemySound = other.gameObject.GetComponent<Enemy>().enemyHitByPlayerAudioClip;
+                GameManager.Instance.PlayClipAt(hitEnemySound, 1f, 3f, other.transform.position);
+                // Damage Enemy
+                other.gameObject.GetComponent<Enemy>().HP = GameManager.Instance.DecreaseHP(other.gameObject.GetComponent<Enemy>().HP, GameManager.Instance.meleeDamage); // hit enemy with 1 point of damage
+                if (other.gameObject.GetComponent<Enemy>().HP <= 0) // Destory enemy
+                {
+                    Destroy(other.gameObject);
+                }
+            }
         }
-
-        if (other.gameObject.CompareTag("Lever"))
-        {
-            other.gameObject.GetComponentInParent<MoveLever>().enabled = true;
-        }
-
-        if (other.gameObject.CompareTag("EnemyProjektile"))
-        {
-           Debug.Log("Hit projektile");
-           Destroy(other.gameObject);
-        }
-
-
-
     }
-
 }
 

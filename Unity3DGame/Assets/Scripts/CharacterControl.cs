@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
@@ -13,7 +14,7 @@ public class CharacterControl : MonoBehaviour
     /// <summary>
     /// This script Shot out a loaded missile or efekt (on missileAttackPos)
     /// </summary>
-
+    public static CharacterControl Instance;
 
     [Header("SPELL")]
     public bool missileAttackReady = true;
@@ -36,6 +37,8 @@ public class CharacterControl : MonoBehaviour
     public float interactDuration = 0.2f; // active time of iteractor objekt
     private AudioSource interactAudioSource;
     public AudioClip interactAudioClip;
+    public bool interactionModeAttack;
+    public bool interactionModeInteract;
 
     [Header("MOVEMENT")]
     public float moveSpeed;
@@ -46,7 +49,6 @@ public class CharacterControl : MonoBehaviour
     Vector3 moveDirection; // direction player is to move
     Vector3 playerMomentum;
 
-
     Rigidbody rB; // player rigeidbody
 
     public Vector3 customGravity = new Vector3(0f, 0f, 0f);
@@ -55,11 +57,22 @@ public class CharacterControl : MonoBehaviour
     /// General interation, not tide to objekt or colidor
     /// </summary>
 
-    //public GameObject popUpUI;
-    private bool interatonHasHappend = false;
-
     public GameObject cameraMoveScript;
     private bool cameraActive = true;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     private void Start()
     {
@@ -73,21 +86,12 @@ public class CharacterControl : MonoBehaviour
         interactAudioSource = GetComponent<AudioSource>();
 
         CangeSpell();
-
         ShotMissile();
-
         StartInteraction();
-
         GetGravityDirektion();
-
-        Interact();
-
         StopPlayerCameraMovment();
-
         MyInput(); // Get imput from player
-
         SpeedControl(); // Contorl PlayerObj speed
-
         HandleDrag(); // Control playerObj drag
 
         if (Input.GetKeyDown(GameManager.Instance.jumpKey) && IsGrounded())
@@ -101,14 +105,6 @@ public class CharacterControl : MonoBehaviour
     {
         MovePlayer(); // Move PlayerObj based input
     }
-
-
-
-
-
-
-
-
 
 
 
@@ -130,18 +126,32 @@ public class CharacterControl : MonoBehaviour
     // missile instasiate at missileAttackPos
     IEnumerator MissileAttack()
     {
-        // Charakter verbal
-        if (spellSelected == 0)
+        // cheek if last text rightout is done
+        if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone)
         {
-            DialogueManger.Instance.SpellVerbalDialog(0);
-        }
-        else if (spellSelected == 1)
-        {
-            DialogueManger.Instance.SpellVerbalDialog(1);
-        }
-        else if (spellSelected == 2)
-        {
-            DialogueManger.Instance.SpellVerbalDialog(2);
+
+            // Verbal conected to spells
+            // Here alls alter text comp based on spell, color, text speed ev
+            if (spellSelected == 0)
+            {
+                DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.cyan;
+                DialogueManger.Instance.SpellVerbalDialog(0);
+            }
+            else if (spellSelected == 1)
+            {
+                DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.blue;
+                DialogueManger.Instance.SpellVerbalDialog(1);
+            }
+            else if (spellSelected == 2)
+            {
+                // If there is no instance of Spell 3, do spell verb
+                if (GameObject.FindGameObjectWithTag("Spell 3") == null)
+                {
+                    DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.white;
+                    DialogueManger.Instance.SpellVerbalDialog(2);
+                }
+            }
+
         }
 
 
@@ -202,22 +212,35 @@ public class CharacterControl : MonoBehaviour
     }
 
     //Activate interactor
+    // intercaton invlovs attack, talk to npc, open door and interact with objekt general
     void StartInteraction()
     {
-        if (Input.GetKey(GameManager.Instance.interactKey) && interactReady)
+        if (Input.GetKey(GameManager.Instance.meleeAttackKey) && interactReady)
         {
-            interactAudioSource.PlayOneShot(interactAudioClip);
+            interactionModeAttack = true;
+            interactionModeInteract = false;
 
+            interactAudioSource.PlayOneShot(interactAudioClip);
             spear.GetComponent<Animator>().SetTrigger("AttackTrigger");
 
-            interactor.SetActive(true);
+            StartCoroutine(DoInteraction());
+
+        }
+        if (Input.GetKey(GameManager.Instance.interactKey) && interactReady)
+        {
+            interactionModeInteract = true;
+            interactionModeAttack = false;
+
             StartCoroutine(DoInteraction());
         }
+        
+        
     }
 
     //Set time the interactor colidor is to be active
     IEnumerator DoInteraction()
     {
+        interactor.SetActive(true);
         interactReady = false;
 
         yield return new WaitForSeconds(interactDuration);
@@ -246,25 +269,6 @@ public class CharacterControl : MonoBehaviour
 
         // Set the new gravity direction
         Physics.gravity = gravityDirection * customGravity.magnitude;
-    }
-
-
-    void Interact()
-    {
-        // when push E down, intreakt
-        if (Input.GetKeyDown(GameManager.Instance.interactKeyNoColider) && !interatonHasHappend)
-        {
-            Debug.Log("Interact");
-
-            interatonHasHappend = true;
-
-        }
-
-        // when E kay up, make new interaction ready
-        if (Input.GetKeyUp(GameManager.Instance.interactKeyNoColider))
-        {
-            interatonHasHappend = false;
-        }
     }
 
     //Start and stop player camera control

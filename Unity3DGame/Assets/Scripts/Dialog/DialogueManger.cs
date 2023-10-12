@@ -32,11 +32,8 @@ public class DialogueManger : MonoBehaviour
 
     //Spel verbal 
     public TextMeshProUGUI spellVerbal;
-
     private DialogText dialogText;
-
     private int dialogTextIndex = 0; //starting with the first line
-
     public List<GameObject> dilogInteractivObjekts; // things that spawn or other change based on dialog
 
     public bool startDialogA = false;
@@ -64,27 +61,26 @@ public class DialogueManger : MonoBehaviour
     {
         dialogText = GetComponent<DialogText>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        
+        // progration of charkter dialog
         if (Input.GetKeyDown(nextLine))
         {
             if (startDialogA)
             {
-
                 OneOnOneDialog(dialogText.dilogLinesA);
             }
-
             else if (startDialogB)
             {
                 NarativDialog(dialogText.dilogLinesB);
             }
-
         }
-
-
+        // Deactavet text when typeout is complet
+        if (spellVerbal.GetComponent<TypeOutText>().typeOutDone)
+        {
+            spellVerbal.gameObject.SetActive(false);
+        }
     }
 
 
@@ -92,33 +88,20 @@ public class DialogueManger : MonoBehaviour
 
     public void SpellVerbalDialog(int spelIndex)
     {
-        Debug.Log("In spellvervaldialog");
         Debug.Log(spellVerbal.GetComponent<TypeOutText>().typeOutDone);
-
         if(spellVerbal.GetComponent<TypeOutText>().typeOutDone)
         {
-            Debug.Log("Speak spell");
             spellVerbal.GetComponent<TypeOutText>().textToTypeOut = dialogText.dilogLinesC.line[spelIndex];
-
             spellVerbal.gameObject.SetActive(true);
-            
         }
-        else
-        {
-            spellVerbal.gameObject.SetActive(false);
-        }
-
     }
 
     void NarativDialog(DialogText.Dialog activeDialog)
     {
-
         if (dialogTextIndex < activeDialog.line.Count)
         {
             narativDialog.gameObject.SetActive(false);
-
             narativDialog.GetComponent<TypeOutText>().textToTypeOut = activeDialog.line[dialogTextIndex];
-
             dialogTextIndex += 1; // Continue to next line
             narativDialog.gameObject.SetActive(true);
         }
@@ -127,7 +110,6 @@ public class DialogueManger : MonoBehaviour
             narativDialog.gameObject.SetActive(false);
         }
     }
-
 
     void OneOnOneDialog(DialogText.Dialog activeDialog)
     {
@@ -138,59 +120,31 @@ public class DialogueManger : MonoBehaviour
             {
                 //charkter 1 talk
                 case 0:
-
                     if (dialogTextIndex < activeDialog.line.Count)
                     {
                         charakterDialog1.GetComponent<TypeOutText>().textToTypeOut = activeDialog.line[dialogTextIndex]; // Get line from DilogText
-
                         DialogEvent();
-
                         dialogTextIndex += 1; // Continue to next line
                     }
-
-
-
                     charakterDialog2.gameObject.SetActive(false);
-
                     currentCharakterDialog = charakterDialog1;
-
                     currentCharakterDialog.gameObject.SetActive(true);
-
                     currentState = 1;
-
-
                     break;
 
                 //Charkater 2 talk
                 case 1:
-
                     if (dialogTextIndex < activeDialog.line.Count)
                     {
                         charakterDialog2.GetComponent<TypeOutText>().textToTypeOut = activeDialog.line[dialogTextIndex];
-
                         DialogEvent();
-
                         dialogTextIndex += 1; // Continue to next line
-
                     }
-
-
-
                     charakterDialog1.gameObject.SetActive(false);
-
                     currentCharakterDialog = charakterDialog2;
-
                     currentCharakterDialog.gameObject.SetActive(true);
-
-
-
-
                     currentState = 0;
-
-
-
                     break;
-
             }
         }
         else
@@ -198,9 +152,7 @@ public class DialogueManger : MonoBehaviour
             charakterDialog1.gameObject.SetActive(false);
             charakterDialog2.gameObject.SetActive(false);
         }
-
     }
-
     // Things that happen based on line/ dialog prograsion
     void DialogEvent()
     {
@@ -209,11 +161,7 @@ public class DialogueManger : MonoBehaviour
         {
             dilogInteractivObjekts[0].SetActive(true);
         }
-
-
-
     }
-
     //Set a timer on a dialog
     IEnumerator DialogPrecistance(int timeOut, GameObject dialogToTimeOut)
     {

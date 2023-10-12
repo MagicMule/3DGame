@@ -33,8 +33,11 @@ public class GameManager : MonoBehaviour
 
     //
 
-    public KeyCode interactKey = KeyCode.Mouse0;
+    public KeyCode interactKey = KeyCode.E;
     public KeyCode InteractKey => interactKey;
+
+    public KeyCode meleeAttackKey = KeyCode.Mouse0;
+    public KeyCode MeleeAttackKey => interactKey;
 
     //
 
@@ -185,7 +188,23 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
+    // Simple On/Off switch
+    public void EfektOnAndOf(GameObject objetkToTurnOnOrOff, int onOrOff)
+    {
+        switch (onOrOff)
+        {
+            case 0: //On
+                objetkToTurnOnOrOff.SetActive(true);
+                break;
 
+            case 1: //Off
+                objetkToTurnOnOrOff.SetActive(false);
+                break;
+
+
+
+        }
+    }
 
 
     /// <summary>

@@ -41,12 +41,14 @@ public class TypeOutText : MonoBehaviour
         foreach (char charakter in charaktersOfStrings)
         {
             textInUI.text = textInUI.text + charakter;
-            yield return new WaitForSeconds(textSpeed);
+            yield return new WaitForSeconds(1/textSpeed);
         }
 
         yield return new WaitForSeconds(2);
 
         typeOutDone = true;
+
+        Debug.Log("Typeout done");
 
         //this.gameObject.SetActive(false);
     }

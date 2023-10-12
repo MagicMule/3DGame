@@ -48,8 +48,8 @@ public class DialogText : MonoBehaviour
 
     void DialogC()
     {
-        dilogLinesC.line.Add ("Magic Missile!");
-        dilogLinesC.line.Add("Lighting Bolt!");
+        dilogLinesC.line.Add ("From Erui firstborn woods, through the land of crashing down, come Syls Glare to smite from one hand!");
+        dilogLinesC.line.Add("By the arms of Odion, the earth-bound giant, grant me thy Spear, a grueling boon against the Yog-agl!");
         dilogLinesC.line.Add("Glim and see, from land and sea, the With Dwarf Of Circle Valy. Enter through the veil of space and come to light my way!");
     }
 }
