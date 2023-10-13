@@ -70,6 +70,12 @@ public class GameManager : MonoBehaviour
 
     //
 
+
+    public KeyCode hotKeyInput4 = KeyCode.Alpha4;
+    public KeyCode HotKeyInput4 => KeyCode.Alpha4;
+
+    //
+
     public float moveVerticalInput;
     public float MoveVerticalInput
     {
@@ -161,6 +167,7 @@ public class GameManager : MonoBehaviour
     // Call to deal damage
     public int DecreaseHP(int objektHP, int damgeTaken)
     {
+        Debug.Log("Gain HP");
         objektHP -= damgeTaken;
         return objektHP;
     }

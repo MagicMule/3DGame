@@ -126,6 +126,8 @@ public class CharacterControl : MonoBehaviour
     // missile instasiate at missileAttackPos
     IEnumerator MissileAttack()
     {
+        missileAttackReady = false;
+
         // cheek if last text rightout is done
         if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone)
         {
@@ -136,11 +138,13 @@ public class CharacterControl : MonoBehaviour
             {
                 DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.cyan;
                 DialogueManger.Instance.SpellVerbalDialog(0);
+
             }
             else if (spellSelected == 1)
             {
                 DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.blue;
                 DialogueManger.Instance.SpellVerbalDialog(1);
+
             }
             else if (spellSelected == 2)
             {
@@ -149,18 +153,32 @@ public class CharacterControl : MonoBehaviour
                 {
                     DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.white;
                     DialogueManger.Instance.SpellVerbalDialog(2);
+                    
                 }
             }
 
+            else if (spellSelected == 3)
+            {
+                DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.green;
+                DialogueManger.Instance.SpellVerbalDialog(3);
+                GameManager.Instance.playerHP += 1;
+
+            }
+
+        }
+
+        if (spellSelected == 0 || spellSelected == 1 || spellSelected == 2)
+        {
+            Instantiate(missile[spellSelected], missileAttackPos.transform.position, missileAttackPos.transform.rotation);
         }
 
 
 
 
 
-        missileAttackReady = false;
+        
 
-        Instantiate(missile[spellSelected], missileAttackPos.transform.position, missileAttackPos.transform.rotation);
+        
 
 
         
@@ -193,6 +211,14 @@ public class CharacterControl : MonoBehaviour
             spellSelected = 2;
 
             Debug.Log(missile[2].name + " selekted");
+        }
+
+        if (Input.GetKeyDown(GameManager.Instance.HotKeyInput4))
+        {
+            spellSelected = 3;
+
+            Debug.Log("HealSpell");
+
         }
 
     }
@@ -317,11 +343,17 @@ public class CharacterControl : MonoBehaviour
         // player forwoard movement is were the charkater is looking
         moveDirection = (orientation.forward * GameManager.Instance.MoveVerticalInput) + (orientation.right * GameManager.Instance.moveHorizontalInput);
 
-
+        //movement On ground
         if (IsGrounded()) // Player can only move on ground
         {
             //aply velocatry
             rB.AddForce(10 * moveSpeed * moveDirection.normalized, ForceMode.Force);
+        }
+
+        //movement in air
+        if(!IsGrounded())
+        {
+            rB.AddForce(playerMomentum / 10, ForceMode.Force); // contiony movement speed momentum
         }
 
         playerMomentum = 10 * moveSpeed * moveDirection.normalized; //save player momentum
@@ -355,6 +387,6 @@ public class CharacterControl : MonoBehaviour
     private void Jump()
     {
         rB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // add momentum up
-        rB.AddForce(playerMomentum, ForceMode.Impulse); // contiony movement speed momentum
+        
     }
 }

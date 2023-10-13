@@ -341,7 +341,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textToTypeOut: Yes
-  textSpeed: 0.01
+  textSpeed: 70
+  typeOutDone: 1
 --- !u!1001 &218926679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -857,8 +858,17 @@ MonoBehaviour:
   nextLine: 323
   charakterDialog1: {fileID: 164780479}
   charakterDialog2: {fileID: 1759163721}
+  narativDialog: {fileID: 1759163721}
+  spellVerbal: {fileID: 1759163721}
   dilogInteractivObjekts:
   - {fileID: 5015768674614827190}
+  startDialogA: 1
+  startDialogB: 0
+  startDialogC: 0
+  startDialogD: 0
+  startDialogE: 0
+  startDialogF: 0
+  startDialogG: 0
 --- !u!114 &1011293074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,7 +1230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textToTypeOut: No
-  textSpeed: 0.01
+  textSpeed: 70
+  typeOutDone: 1
 --- !u!4 &5015768674614827185
 Transform:
   m_ObjectHideFlags: 0
