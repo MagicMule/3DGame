@@ -16,7 +16,7 @@ public class MoveLever : MonoBehaviour
 
     private bool leverIsPulled = true;
 
-    public GameObject objektToMove;
+    public GameObject[] objektToMove;
 
     private void Update()
     {
@@ -44,14 +44,18 @@ public class MoveLever : MonoBehaviour
         // Check if the current rotation has reached the target degrees
         if (currentRotation >= targetDegrees)
         {
-            if (objektToMove.CompareTag("MoveSide"))
+            foreach (GameObject obj in objektToMove)
             {
-                objektToMove.GetComponent<MoveToSide>().enabled = true; //move objekt with its MoveToSide script
-            }
+                if (obj.CompareTag("MoveSide"))
+                {
+                    obj.GetComponent<MoveToSide>().enabled = true;//move objekt with its MoveToSide script
+                }
 
-            if (objektToMove.CompareTag("Door"))
-            {
-                objektToMove.GetComponent<OpenCloseDoor>().enabled = true;
+                if (obj.CompareTag("Door"))
+                {
+                    obj.GetComponent<OpenCloseDoor>().enabled = true;
+                }
+
             }
 
             leverIsPulled = true; // The lever has reched the target
@@ -72,14 +76,18 @@ public class MoveLever : MonoBehaviour
 
         if (currentRotation >= targetDegrees)
         {
-            if (objektToMove.CompareTag("MoveSide"))
+            foreach (GameObject obj in objektToMove)
             {
-                objektToMove.GetComponent<MoveToSide>().enabled = true; //move objekt with its MoveToSide scriptw
-            }
+                if (obj.CompareTag("MoveSide"))
+                {
+                    obj.GetComponent<MoveToSide>().enabled = true;//move objekt with its MoveToSide script
+                }
 
-            if (objektToMove.CompareTag("Door"))
-            {
-                objektToMove.GetComponent<OpenCloseDoor>().enabled = true;
+                if (obj.CompareTag("Door"))
+                {
+                    obj.GetComponent<OpenCloseDoor>().enabled = true;
+                }
+
             }
 
             leverIsPulled = false;

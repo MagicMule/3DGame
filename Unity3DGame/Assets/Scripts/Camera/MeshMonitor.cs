@@ -5,7 +5,7 @@ using UnityEngine.Assertions.Must;
 
 public class MeshMonitor : MonoBehaviour
 {
-    /// <summary>
+    /// <summary> 
     /// Hide the mesh of objekts far away to increase preformance
     /// Aply on objekts how mesh is to be hidden
     /// </summary>
