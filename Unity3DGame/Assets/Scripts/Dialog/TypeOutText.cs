@@ -45,10 +45,11 @@ public class TypeOutText : MonoBehaviour
 
             yield return new WaitForSeconds(1/textSpeed);
         }
-
-        yield return new WaitForSeconds(2);
-
+        
+        yield return new WaitForSeconds(1);
         typeOutDone = true;
+
+
 
 
         //this.gameObject.SetActive(false);

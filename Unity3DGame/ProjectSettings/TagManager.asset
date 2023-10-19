@@ -29,6 +29,7 @@ TagManager:
   - NPC5
   - NPC6
   - NPC7
+  - SpellVerbal
   layers:
   - Default
   - TransparentFX

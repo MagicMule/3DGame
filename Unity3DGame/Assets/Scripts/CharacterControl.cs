@@ -17,7 +17,7 @@ public class CharacterControl : MonoBehaviour
     public static CharacterControl Instance;
 
     [Header("SPELL")]
-    public bool missileAttackReady = true;
+    private bool missileAttackReady = false;
     public float missileAttackDeley = 0.5f;
     public GameObject[] missile;
     public GameObject missileAttackPos;
@@ -115,31 +115,32 @@ public class CharacterControl : MonoBehaviour
     // Instansate Missile, att missle prefab postion
     void ShotMissile()
     {
-
-        if (Input.GetKeyDown(GameManager.Instance.missileKey) && missileAttackReady)
+        // Shot if typeout is done
+        if (Input.GetKeyDown(GameManager.Instance.missileKey)  && DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone)
         {
-
-            StartCoroutine(MissileAttack());
+            MissileAttack();
+            missileAttackReady = true;
         }
 
         //Shot spell when dialog is done
         if (spellSelected == 0 || spellSelected == 1 || spellSelected == 2)
         {
-            if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone)
+            if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone && missileAttackReady)
             {
                 Instantiate(missile[spellSelected], missileAttackPos.transform.position, missileAttackPos.transform.rotation);
+                missileAttackReady = false;
             }
-
         }
+
+
     }
 
     // missile instasiate at missileAttackPos
-    IEnumerator MissileAttack()
+    void MissileAttack()
     {
-        missileAttackReady = false;
 
         // cheek if last text rightout is done
-        if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone)
+        if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone )
         {
 
             // Verbal conected to spells
@@ -175,26 +176,18 @@ public class CharacterControl : MonoBehaviour
 
             }
 
+            
+
+
+
         }
 
-
-
-
-
-
-
-        
-
-        
-
-
-        
-
+        /*
         yield return new WaitForSeconds(missileAttackDeley); // Time befor player can make onather missile attack
 
         //DialogueManger.Instance.narativDialog.gameObject.SetActive(false); // Close text windo when spell is ready
+        */
 
-        missileAttackReady = true;
     }
 
     public void CangeSpell()
