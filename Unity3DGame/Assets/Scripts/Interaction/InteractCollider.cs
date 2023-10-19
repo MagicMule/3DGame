@@ -48,6 +48,7 @@ public class InteractCollider : MonoBehaviour
                     DialogueManger.Instance.startDialogA = false;
                     DialogueManger.Instance.startDialogC = false;
 
+                    DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
                     DialogueManger.Instance.startDialogB = true; //Enambel dialogB
                     DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesB); //start dialogB
                 }
@@ -58,6 +59,7 @@ public class InteractCollider : MonoBehaviour
                     DialogueManger.Instance.startDialogA = false;
                     DialogueManger.Instance.startDialogB = false;
 
+                    DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
                     DialogueManger.Instance.startDialogC = true; //Enambel dialogB
                     DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesC); //start dialogC
                 }

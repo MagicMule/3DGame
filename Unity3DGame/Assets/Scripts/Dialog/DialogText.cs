@@ -49,16 +49,18 @@ public class DialogText : MonoBehaviour
 
     void DialogB()
     {
-        dilogLinesB.line.Add("I see the crystal raindrops fall\r\nAnd the beauty of it all\r\nIs when the sun comes shining through\r\nTo make those rainbows in my mind\r\nWhen I think of you sometime\r\nAnd I wanna spend some time with you");
-        dilogLinesB.line.Add("Just the two of us\r\nWe can make it if we try\r\nJust the two of us\r\n(Just the two of us)\r\nJust the two of us\r\nBuilding castles in the sky\r\nJust the two of us\r\nYou and I");
-        dilogLinesB.line.Add("We look for love, no time for tears\r\nWasted water's all that is\r\nAnd it don't make no flowers grow\r\nGood things might come to those who wait\r\nNot for those who wait too late\r\nWe gotta go for all we know");
-        dilogLinesB.line.Add("Just the two of us\r\nWe can make it if we try\r\nJust the two of us\r\n(Just the two of us)\r\nJust the two of us\r\nBuilding them castles in the sky\r\nJust the two of us\r\nYou and I");
-        dilogLinesB.line.Add("I hear the crystal raindrops fall\r\nOn the window down the hall\r\nAnd it becomes the morning dew\r\nAnd darling when the morning comes\r\nAnd I see the morning sun\r\nI wanna be the one with you");
-        dilogLinesB.line.Add("Just the two of us\r\nWe can make it if we try\r\nJust the two of us\r\n(Just the two of us)\r\nJust the two of us\r\nBuilding big castles way on high\r\nJust the two of us\r\nYou and I");
-        dilogLinesB.line.Add("7");
-        dilogLinesB.line.Add("8");
-        dilogLinesB.line.Add("9");
-        dilogLinesB.line.Add("10");
+        dilogLinesB.line.Add("...");
+        dilogLinesB.line.Add("...");
+        dilogLinesB.line.Add("Withround. I was brealey of the threould of this cursed place, and in the darkness I called you and you gave no answer.");
+        dilogLinesB.line.Add("...I got lost...");
+        dilogLinesB.line.Add("You got lost because you wandered! We have an agreement, you are to stay at my side and answer when I call. Are you to shame your character?");
+        dilogLinesB.line.Add("… I'm sorry. But I'm excited! It's been some time since I was in such a place! My nature is to wander, how could one not when such adventure, such mystery is afoot!");
+        dilogLinesB.line.Add("Considering you have wandered. What do you make of what you have seen?");
+        dilogLinesB.line.Add("I'm no sage such as you, but this place is significant. This must indeed be the deen of the Demon. We are indeed in the material but this place is sudo-material. I doubt the creed stands firmly here. The corridors and chambers will not be stacanary and even more so further in we go.");
+        dilogLinesB.line.Add("Let's continue. You're not the only spell to go astray.");
+        dilogLinesB.line.Add("Lets go! O Wait. Allsow, there are others here.");
+        dilogLinesB.line.Add("Indeed, I saw the remains of a camp on my way here. Now come.");
+        dilogLinesB.line.Add("Aye, Aye!");
     }
 
     void DialogC()

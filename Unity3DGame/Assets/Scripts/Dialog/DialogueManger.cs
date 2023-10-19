@@ -24,7 +24,7 @@ public class DialogueManger : MonoBehaviour
     private int currentState = 0;  //inital sate
     public TextMeshProUGUI charakterDialog1;
     public TextMeshProUGUI charakterDialog2;
-
+    public GameObject charakterDialogTextBackGround;
 
     //Dialog of naration
     public TextMeshProUGUI narativDialog;
@@ -34,6 +34,7 @@ public class DialogueManger : MonoBehaviour
     public DialogText dialogText;
     private int dialogTextIndex = 0; //starting with the first line
     public List<GameObject> dilogInteractivObjekts; // things that spawn or other change based on dialog
+    private bool dialogInteractiveObjektsFound = false;
 
     public bool startDialogA = false;
     public bool startDialogB = false;
@@ -59,11 +60,16 @@ public class DialogueManger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindDialogInteractiveObjeks();
         dialogText = GetComponent<DialogText>();
     }
     // Update is called once per frame
     void Update()
     {
+        if (!dialogInteractiveObjektsFound)
+        {
+            FindDialogInteractiveObjeks();
+        }
         // progration of charkter dialog
         if (Input.GetKeyDown(nextLine))
         {
@@ -76,9 +82,7 @@ public class DialogueManger : MonoBehaviour
 
             else if (startDialogB)
             {
-                
                 dialogIsActive = true;
-                Debug.Log("Enter dialogmode: " + dialogIsActive);
                 OneOnOneDialog(dialogText.dilogLinesB);
             }
 
@@ -139,7 +143,6 @@ public class DialogueManger : MonoBehaviour
 
                     charakterDialog1.gameObject.SetActive(true);
 
-                    Debug.Log(charakterDialog1.text);
 
                     currentState = 1;
                     break;
@@ -167,7 +170,6 @@ public class DialogueManger : MonoBehaviour
         {
             //mark that game has left "Dialog Mode"
             dialogIsActive = false;
-            Debug.Log("Exsit dialogmode: " + dialogIsActive);
 
             //Reset dialog bools
             startDialogA = false;
@@ -176,7 +178,11 @@ public class DialogueManger : MonoBehaviour
 
             //reset textIndex
             dialogTextIndex = 0;
-
+            if (charakterDialogTextBackGround != null)
+            {
+                charakterDialogTextBackGround.SetActive(false);
+            }
+                
             charakterDialog1.gameObject.SetActive(false);
             charakterDialog2.gameObject.SetActive(false);
         }
@@ -193,12 +199,37 @@ public class DialogueManger : MonoBehaviour
         {
             dilogInteractivObjekts[0].SetActive(true);
         }
+
+        // desapwn Withround
+        // *dilogInteractivObjekts[0] is now a difret objekt as it is in anopther scene
+        if (!(dialogText.dilogLinesB.line.Count <= dialogTextIndex)
+            && dialogText.dilogLinesB.line[dialogTextIndex] == "Aye, Aye!"
+            && startDialogB)
+        {
+
+            dilogInteractivObjekts[0].SetActive(false);
+        }
     }
     //Set a timer on a dialog
     IEnumerator DialogPrecistance(int timeOut, GameObject dialogToTimeOut)
     {
         yield return new WaitForSeconds(timeOut);
         dialogToTimeOut.SetActive(false);
+    }
+
+    // Find the ibjekts that ist to cange in realtion to dialog
+    // and add them to the list
+    public void FindDialogInteractiveObjeks()
+    {
+        Debug.Log(GameObject.FindGameObjectWithTag("NPC1"));
+        if(GameObject.FindGameObjectWithTag("NPC1") != null)
+        {
+            dialogInteractiveObjektsFound = true;
+            Debug.Log("find");
+            dilogInteractivObjekts.Add(GameObject.FindGameObjectWithTag("NPC1"));
+
+        }
+        
     }
 
 }

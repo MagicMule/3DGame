@@ -131,6 +131,14 @@ public class CharacterControl : MonoBehaviour
                 missileAttackReady = false;
             }
         }
+        else
+        {
+            if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone && missileAttackReady)
+            {
+                GameManager.Instance.playerHP += 1;
+                missileAttackReady = false;
+            }
+        }
 
 
     }
@@ -172,8 +180,6 @@ public class CharacterControl : MonoBehaviour
             {
                 DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.green;
                 DialogueManger.Instance.SpellVerbalDialog(3);
-                GameManager.Instance.playerHP += 1;
-
             }
 
             
