@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1038931811912511636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038931811912511659}
+  - component: {fileID: 8460249928430737632}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038931811912511659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038931811912511636}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 45.11597, y: 15.809999, z: -4.9857097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8460249928430737632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038931811912511636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5a0af115ca755439c18175d3862531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frezeCamera: 102
+  interactKeyNoColider: 101
+  quitMenuKey: 27
+  jumpKey: 32
+  interactKey: 101
+  meleeAttackKey: 323
+  missileKey: 324
+  moveHorizontalInput: 0
+  hotKeyInput1: 49
+  hotKeyInput2: 50
+  hotKeyInput3: 51
+  hotKeyInput4: 52
+  moveVerticalInput: 0
+  playerHPText: {fileID: 0}
+  gameOverText: {fileID: 0}
+  playerHP: 10
+  meleeDamage: 1
+  spellDamage1: 1
+  PlayerTrans: {fileID: 0}
+  MainCameraTrans: {fileID: 0}
+  PlayerMissileAttackTrans: {fileID: 0}
+  generalHitEnemy: {fileID: 8300000, guid: e7ee25a47d63b46cdaf65480d62b405c, type: 3}

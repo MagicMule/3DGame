@@ -121,6 +121,16 @@ public class CharacterControl : MonoBehaviour
 
             StartCoroutine(MissileAttack());
         }
+
+        //Shot spell when dialog is done
+        if (spellSelected == 0 || spellSelected == 1 || spellSelected == 2)
+        {
+            if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone)
+            {
+                Instantiate(missile[spellSelected], missileAttackPos.transform.position, missileAttackPos.transform.rotation);
+            }
+
+        }
     }
 
     // missile instasiate at missileAttackPos
@@ -167,10 +177,7 @@ public class CharacterControl : MonoBehaviour
 
         }
 
-        if (spellSelected == 0 || spellSelected == 1 || spellSelected == 2)
-        {
-            Instantiate(missile[spellSelected], missileAttackPos.transform.position, missileAttackPos.transform.rotation);
-        }
+
 
 
 

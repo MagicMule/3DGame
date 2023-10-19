@@ -91,15 +91,15 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI gameOverText;
 
-    [Header("PLAYER HP")]
+    [Header("PLAYER")]
 
     public int playerHP = 10;
-
-    [Header("PLAYER ATTACK DAMAGE")]
 
     public int meleeDamage = 1;
 
     public int spellDamage1 = 1;
+
+    public bool spellReady = true;
 
     [Header("OBJEKT TRANSFROMATION")]
 
