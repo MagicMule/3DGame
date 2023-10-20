@@ -79,7 +79,6 @@ public class DialogueManger : MonoBehaviour
                 OneOnOneDialog(dialogText.dilogLinesA);
             }
 
-
             else if (startDialogB)
             {
                 dialogIsActive = true;
@@ -94,15 +93,12 @@ public class DialogueManger : MonoBehaviour
         }
         // Deactavet text when typeout is complet
         if (spellVerbal.GetComponent<TypeOutText>().typeOutDone)
-
         {
             spellVerbal.gameObject.SetActive(false);
         }
     }
 
-
     // chose what inedect to use when spell is cast
-
     public void SpellVerbalDialog(int spelIndex)
     {
         Debug.Log(spellVerbal.GetComponent<TypeOutText>().typeOutDone);
@@ -133,35 +129,23 @@ public class DialogueManger : MonoBehaviour
                     if (dialogTextIndex < dialogListToStart.line.Count)
                     {
                         charakterDialog1.GetComponent<TypeOutText>().textToTypeOut = dialogListToStart.line[dialogTextIndex]; // Get line from DilogText
-
-
                         DialogEvent();
                         dialogTextIndex += 1; // Continue to next line
                     }
-
                     charakterDialog2.gameObject.SetActive(false);
-
                     charakterDialog1.gameObject.SetActive(true);
-
-
                     currentState = 1;
                     break;
-
                 //Charkater 2 talk
                 case 1:
                     if (dialogTextIndex < dialogListToStart.line.Count)
                     {
                         charakterDialog2.GetComponent<TypeOutText>().textToTypeOut = dialogListToStart.line[dialogTextIndex];
-
-
                         DialogEvent();
                         dialogTextIndex += 1; // Continue to next line
                     }
-
                     charakterDialog1.gameObject.SetActive(false);
-
                     charakterDialog2.gameObject.SetActive(true);
-
                     currentState = 0;
                     break;
             }
@@ -170,19 +154,16 @@ public class DialogueManger : MonoBehaviour
         {
             //mark that game has left "Dialog Mode"
             dialogIsActive = false;
-
             //Reset dialog bools
             startDialogA = false;
             startDialogB = false;
             startDialogC = false;
-
             //reset textIndex
             dialogTextIndex = 0;
             if (charakterDialogTextBackGround != null)
             {
                 charakterDialogTextBackGround.SetActive(false);
             }
-                
             charakterDialog1.gameObject.SetActive(false);
             charakterDialog2.gameObject.SetActive(false);
         }
@@ -206,7 +187,6 @@ public class DialogueManger : MonoBehaviour
             && dialogText.dilogLinesB.line[dialogTextIndex] == "Aye, Aye!"
             && startDialogB)
         {
-
             dilogInteractivObjekts[0].SetActive(false);
         }
     }
@@ -216,18 +196,15 @@ public class DialogueManger : MonoBehaviour
         yield return new WaitForSeconds(timeOut);
         dialogToTimeOut.SetActive(false);
     }
-
     // Find the ibjekts that ist to cange in realtion to dialog
     // and add them to the list
     public void FindDialogInteractiveObjeks()
     {
-        Debug.Log(GameObject.FindGameObjectWithTag("NPC1"));
         if(GameObject.FindGameObjectWithTag("NPC1") != null)
         {
             dialogInteractiveObjektsFound = true;
             Debug.Log("find");
             dilogInteractivObjekts.Add(GameObject.FindGameObjectWithTag("NPC1"));
-
         }
         
     }

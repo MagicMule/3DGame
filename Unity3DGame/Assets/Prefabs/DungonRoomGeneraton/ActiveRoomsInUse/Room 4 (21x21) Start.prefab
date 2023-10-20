@@ -14118,6 +14118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightBall (No Glow)
       objectReference: {fileID: 0}
+    - target: {fileID: 2602997470581055464, guid: b1cf7839994388245a93ee8be28a9774, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2602997470581055469, guid: b1cf7839994388245a93ee8be28a9774, type: 3}
       propertyPath: m_RootOrder
       value: 387

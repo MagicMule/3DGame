@@ -11,8 +11,6 @@ public class InteractCollider : MonoBehaviour
     /// </summary>
 
     //public GameObject InteractUI;
-
-
     private void OnTriggerEnter(Collider other)
     {
         if (!DialogueManger.Instance.dialogIsActive)// interakton only available if game not in "Dialog Mode"

@@ -9,12 +9,10 @@ public class MeshMonitor : MonoBehaviour
     /// Hide the mesh of objekts far away to increase preformance
     /// Aply on objekts how mesh is to be hidden
     /// </summary>
-
     Transform playerCamTransform; // Stores the FPS camera transform
     private bool visible = true;
     private float distanceToAppear = 50;
     List<Renderer> objRenderer;
-
     private void Start()
     {
         playerCamTransform = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Camera>().transform; // Get camera transform reference
@@ -29,7 +27,6 @@ public class MeshMonitor : MonoBehaviour
     private void DisappearChecker()
     {
         float distance = Vector3.Distance(playerCamTransform.position, transform.position);
-
         // We have reached the distance to Enable Object
         if (distance < distanceToAppear)
         {
@@ -44,7 +41,6 @@ public class MeshMonitor : MonoBehaviour
 
                 }
                 visible = true;
-                //Debug.Log("Visible");
             }
         }
         else if (visible)
@@ -53,12 +49,10 @@ public class MeshMonitor : MonoBehaviour
             {
                 if (renderer != null)
                 {
-
                     renderer.enabled = false; // Hide Object
                 }
             }
             visible = false;
-            //Debug.Log("InVisible");
         }
     }
 

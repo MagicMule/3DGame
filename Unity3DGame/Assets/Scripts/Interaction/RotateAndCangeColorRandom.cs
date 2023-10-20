@@ -9,7 +9,6 @@ public class RotateAndCangeColorRandom : MonoBehaviour
     public int rotationSpeedZ;
     public new MeshRenderer renderer;
     public float cangeColorFrequency = 5f;
-
     public bool cangeCollorRandom = true;
     void Start()
     {

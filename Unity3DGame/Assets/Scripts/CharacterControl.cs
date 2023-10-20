@@ -60,7 +60,6 @@ public class CharacterControl : MonoBehaviour
     public GameObject cameraMoveScript;
     private bool cameraActive = true;
 
-
     private void Awake()
     {
         if (Instance == null)
@@ -73,7 +72,6 @@ public class CharacterControl : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         Physics.gravity = Vector3.zero;
@@ -84,7 +82,6 @@ public class CharacterControl : MonoBehaviour
     private void Update()
     {
         interactAudioSource = GetComponent<AudioSource>();
-
         CangeSpell();
         ShotMissile();
         StartInteraction();
@@ -98,18 +95,12 @@ public class CharacterControl : MonoBehaviour
         {
             Jump();
         }
-
     }
 
     private void FixedUpdate()
     {
         MovePlayer(); // Move PlayerObj based input
     }
-
-
-
-
-
 
 
     // Instansate Missile, att missle prefab postion
@@ -139,18 +130,14 @@ public class CharacterControl : MonoBehaviour
                 missileAttackReady = false;
             }
         }
-
-
     }
 
     // missile instasiate at missileAttackPos
     void MissileAttack()
     {
-
         // cheek if last text rightout is done
         if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone )
         {
-
             // Verbal conected to spells
             // Here alls alter text comp based on spell, color, text speed ev
             if (spellSelected == 0)
@@ -172,28 +159,14 @@ public class CharacterControl : MonoBehaviour
                 {
                     DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.white;
                     DialogueManger.Instance.SpellVerbalDialog(2);
-                    
                 }
             }
-
             else if (spellSelected == 3)
             {
                 DialogueManger.Instance.spellVerbal.GetComponent<TextMeshProUGUI>().color = Color.green;
                 DialogueManger.Instance.SpellVerbalDialog(3);
             }
-
-            
-
-
-
         }
-
-        /*
-        yield return new WaitForSeconds(missileAttackDeley); // Time befor player can make onather missile attack
-
-        //DialogueManger.Instance.narativDialog.gameObject.SetActive(false); // Close text windo when spell is ready
-        */
-
     }
 
     public void CangeSpell()
@@ -201,30 +174,25 @@ public class CharacterControl : MonoBehaviour
         if (Input.GetKeyDown(GameManager.Instance.hotKeyInput1))
         {
             spellSelected = 0;
-
             Debug.Log(missile[0].name + " selekted");
         }
 
         if (Input.GetKeyDown(GameManager.Instance.hotKeyInput2))
         {
             spellSelected = 1;
-
             Debug.Log(missile[1].name + " selekted");
         }
 
         if (Input.GetKeyDown(GameManager.Instance.hotKeyInput3))
         {
             spellSelected = 2;
-
             Debug.Log(missile[2].name + " selekted");
         }
 
         if (Input.GetKeyDown(GameManager.Instance.HotKeyInput4))
         {
             spellSelected = 3;
-
             Debug.Log("HealSpell");
-
         }
 
     }
@@ -265,8 +233,6 @@ public class CharacterControl : MonoBehaviour
 
             StartCoroutine(DoInteraction());
         }
-        
-        
     }
 
     //Set time the interactor colidor is to be active
@@ -289,16 +255,12 @@ public class CharacterControl : MonoBehaviour
         interactReady = true;
     }
 
-
-
     void GetGravityDirektion()
     {
         // Get the object's rotation
         Quaternion objectRotation = transform.rotation;
-
         // Calculate the gravity direction based on the object's rotation
         Vector3 gravityDirection = objectRotation * -Vector3.up;
-
         // Set the new gravity direction
         Physics.gravity = gravityDirection * customGravity.magnitude;
     }
@@ -333,9 +295,6 @@ public class CharacterControl : MonoBehaviour
         }
     }
 
-
-
-
     //Get input
     private void MyInput()
     {
@@ -348,7 +307,6 @@ public class CharacterControl : MonoBehaviour
         // calculate movement direction
         // player forwoard movement is were the charkater is looking
         moveDirection = (orientation.forward * GameManager.Instance.MoveVerticalInput) + (orientation.right * GameManager.Instance.moveHorizontalInput);
-
         //movement On ground
         if (IsGrounded()) // Player can only move on ground
         {
@@ -361,7 +319,6 @@ public class CharacterControl : MonoBehaviour
         {
             rB.AddForce(playerMomentum / 10, ForceMode.Force); // contiony movement speed momentum
         }
-
         playerMomentum = 10 * moveSpeed * moveDirection.normalized; //save player momentum
     }
 
@@ -369,7 +326,6 @@ public class CharacterControl : MonoBehaviour
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rB.velocity.x, 0f, rB.velocity.z);
-
         if (flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed; // maxspeed will alwas be value "moveSpeed"
@@ -393,6 +349,5 @@ public class CharacterControl : MonoBehaviour
     private void Jump()
     {
         rB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // add momentum up
-        
     }
 }
