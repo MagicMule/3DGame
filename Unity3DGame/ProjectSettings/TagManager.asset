@@ -30,6 +30,7 @@ TagManager:
   - NPC6
   - NPC7
   - SpellVerbal
+  - Slope
   layers:
   - Default
   - TransparentFX

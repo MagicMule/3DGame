@@ -10,7 +10,6 @@ public class MissileDuration : MonoBehaviour
 
     public float deley = 0.1f;
 
-
     private void Awake()
     {
         StartCoroutine(DurationOFEffekt());
@@ -19,7 +18,6 @@ public class MissileDuration : MonoBehaviour
     IEnumerator DurationOFEffekt()
     {
         yield return new WaitForSeconds(deley);
-
         Destroy(gameObject);
     }
 }

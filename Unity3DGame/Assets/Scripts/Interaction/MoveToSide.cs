@@ -14,8 +14,8 @@ public class MoveToSide : MonoBehaviour
     private AudioSource sourceAudio;
     public AudioClip soundClip;
 
-    private float currentPositon = 0;
-    public float targetPosition = 2;
+    private float currentPositon = 0; // int represent start pos
+    public float targetPosition = 2; // movment magnitude
 
     public float moveSpeed = 1;
 
@@ -23,8 +23,12 @@ public class MoveToSide : MonoBehaviour
 
     private void OnEnable()
     {
-        sourceAudio = GetComponent<AudioSource>();
-        sourceAudio.PlayOneShot(soundClip);
+        if (soundClip != null)
+        {
+            sourceAudio = GetComponent<AudioSource>();
+            sourceAudio.PlayOneShot(soundClip);
+        }
+
     }
 
 

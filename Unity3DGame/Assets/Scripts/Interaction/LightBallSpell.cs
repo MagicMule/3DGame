@@ -12,10 +12,8 @@ public class LightBallSpell : MonoBehaviour
     void Update()
     {
         lightPos = GameManager.Instance.MainCameraTrans;
-
         transform.position = lightPos.transform.position + lightPosOffset;
         transform.rotation = lightPos.transform.rotation;
-
         if(Input.GetKeyDown(GameManager.Instance.missileKey) && CharacterControl.Instance.spellSelected == 2 )
         {
             foreach (GameObject lightSpell in GameObject.FindGameObjectsWithTag("Spell 3"))

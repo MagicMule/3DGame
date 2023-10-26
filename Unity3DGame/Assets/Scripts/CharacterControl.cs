@@ -90,7 +90,6 @@ public class CharacterControl : MonoBehaviour
         MyInput(); // Get imput from player
         SpeedControl(); // Contorl PlayerObj speed
         HandleDrag(); // Control playerObj drag
-
         if (Input.GetKeyDown(GameManager.Instance.jumpKey) && IsGrounded())
         {
             Jump();
@@ -338,7 +337,7 @@ public class CharacterControl : MonoBehaviour
         // Perform a raycast or collision check to determine if the player is grounded
         // Return true if grounded, false otherwise
         // Example: Use Raycast
-        float raycastDistance = 0.6f;
+        float raycastDistance = 0.8f;
         if (Physics.Raycast(transform.position, Vector3.down, out _, raycastDistance))
         {
             return true;
