@@ -219,6 +219,8 @@ public class CharacterControl : MonoBehaviour
             interactionModeAttack = true;
             interactionModeInteract = false;
 
+           spear.GetComponent<MeshRenderer>().enabled = true; // Make the spear visable
+
             interactAudioSource.PlayOneShot(interactAudioClip);
             spear.GetComponent<Animator>().SetTrigger("AttackTrigger");
 
@@ -243,6 +245,7 @@ public class CharacterControl : MonoBehaviour
         yield return new WaitForSeconds(interactDuration);
 
         interactor.SetActive(false);
+        spear.GetComponent<MeshRenderer>().enabled = false; // Hide the spear again
 
         StartCoroutine(DelayInteraction()); // Start deley
     }
