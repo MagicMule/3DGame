@@ -7,7 +7,8 @@ public class MeshMonitor : MonoBehaviour
 {
     /// <summary> 
     /// Hide the mesh of objekts far away to increase preformance
-    /// Aply on objekts how mesh is to be hidden
+    /// This is put on a objekt and enable all childobjekts rendere
+    /// Obs. do not hide the objekt aplyed to, only children
     /// </summary>
     Transform playerCamTransform; // Stores the FPS camera transform
     private bool visible = true;
@@ -32,7 +33,7 @@ public class MeshMonitor : MonoBehaviour
         {
             if (!visible)
             {
-                foreach (Renderer renderer in objRenderer)
+                foreach (Renderer renderer in objRenderer) 
                 {
                     if (renderer != null)
                     {
@@ -60,7 +61,7 @@ public class MeshMonitor : MonoBehaviour
     private void UpdateRendererReferences()
     {
         objRenderer = new List<Renderer>();
-        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>()) // get all child objekts renderer
         {
             if (renderer != null)
             {
