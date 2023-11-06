@@ -8,7 +8,7 @@ public class MeshMonitor : MonoBehaviour
     /// <summary> 
     /// Hide the mesh of objekts far away to increase preformance
     /// This is put on a objekt and enable all childobjekts rendere
-    /// Obs. do not hide the objekt aplyed to, only children
+    /// Obs. do not hide the objekt aplyed to, only children    
     /// </summary>
     Transform playerCamTransform; // Stores the FPS camera transform
     private bool visible = true;
