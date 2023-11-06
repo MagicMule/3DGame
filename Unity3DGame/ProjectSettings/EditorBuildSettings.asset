@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/DungonGenerator.unity
     guid: 042eb07f2fa39034092940c3f67ddde9
   - enabled: 1
-    path: Assets/Scenes/1.unity
+    path: Assets/Scenes/Level1UnderGroundLake.unity
     guid: c2a1a7aee4b59524ea7745ef80ebe7fb
   m_configObjects: {}
