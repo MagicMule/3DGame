@@ -60,12 +60,12 @@ public class InteractCollider : MonoBehaviour
             else if (other.gameObject.CompareTag("Interactive3"))
             {
                 Debug.Log("3");
-                DialogueManger.Instance.NarativDialog(3);
+                DialogueManger.Instance.NarativDialog(2);
             }
             else if (other.gameObject.CompareTag("Interactive4"))
             {
                 Debug.Log("4");
-                DialogueManger.Instance.NarativDialog(4);
+                DialogueManger.Instance.NarativDialog(3);
             }
 
             // Player interact with npc
