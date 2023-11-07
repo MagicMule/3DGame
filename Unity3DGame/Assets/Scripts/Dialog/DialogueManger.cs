@@ -25,6 +25,7 @@ public class DialogueManger : MonoBehaviour
     public TextMeshProUGUI charakterDialog1;
     public TextMeshProUGUI charakterDialog2;
     public GameObject charakterDialogTextBackGround;
+    public GameObject narativeTextBackGround;
 
     //Dialog of naration
     public TextMeshProUGUI narativDialog;
@@ -35,6 +36,8 @@ public class DialogueManger : MonoBehaviour
     private int dialogTextIndex = 0; //starting with the first line
     public List<GameObject> dilogInteractivObjekts; // things that spawn or other change based on dialog
     private bool dialogInteractiveObjektsFound = false;
+
+    private bool narativBoxOpen = false;
 
     public bool startDialogA = false;
     public bool startDialogB = false;
@@ -66,10 +69,17 @@ public class DialogueManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (narativBoxOpen && Input.GetKeyDown(GameManager.Instance.quitMenuKey)) // Player should be able to close dialog box thay have opend
+        {
+            narativDialog.gameObject.SetActive(false);
+            narativeTextBackGround.SetActive(false);
+        }
+
         if (!dialogInteractiveObjektsFound)
         {
             FindDialogInteractiveObjeks();
         }
+
         // progration of charkter dialog
         if (Input.GetKeyDown(nextLine))
         {
@@ -111,16 +121,15 @@ public class DialogueManger : MonoBehaviour
 
     public void NarativDialog(int dialogIndex)
     {
+        narativeTextBackGround.SetActive(true);
         narativDialog.gameObject.SetActive(false);
         narativDialog.GetComponent<TypeOutText>().textToTypeOut = dialogText.dialogLinesInteractives.line[dialogIndex];
         narativDialog.gameObject.SetActive(true);
 
-        if (Input.GetKeyDown(GameManager.Instance.InteractKey))
-        {
 
-        }
+        narativBoxOpen = true;
 
-        StartCoroutine(DialogPrecistance( 3, narativDialog.gameObject)); 
+        StartCoroutine(DialogPrecistance( 20, narativDialog.gameObject)); // If player do not close, close text
     }
 
     public void OneOnOneDialog(DialogText.Dialog dialogListToStart)
@@ -200,6 +209,7 @@ public class DialogueManger : MonoBehaviour
     IEnumerator DialogPrecistance(int timeOut, GameObject dialogToTimeOut)
     {
         yield return new WaitForSeconds(timeOut);
+        narativeTextBackGround.SetActive(false);
         dialogToTimeOut.SetActive(false);
     }
     // Find the ibjekts that ist to cange in realtion to dialog
