@@ -114,7 +114,13 @@ public class DialogueManger : MonoBehaviour
         narativDialog.gameObject.SetActive(false);
         narativDialog.GetComponent<TypeOutText>().textToTypeOut = dialogText.dialogLinesInteractives.line[dialogIndex];
         narativDialog.gameObject.SetActive(true);
-        StartCoroutine(DialogPrecistance( 3, narativDialog.gameObject));
+
+        if (Input.GetKeyDown(GameManager.Instance.InteractKey))
+        {
+
+        }
+
+        StartCoroutine(DialogPrecistance( 3, narativDialog.gameObject)); 
     }
 
     public void OneOnOneDialog(DialogText.Dialog dialogListToStart)

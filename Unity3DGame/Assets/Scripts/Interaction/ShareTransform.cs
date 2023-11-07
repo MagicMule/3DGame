@@ -6,6 +6,7 @@ public class ShareTransform : MonoBehaviour
 {
     /// <summary>
     /// The coliding objekt will share the same transform norm as this objekt
+    /// Usinge in elvetaros
     /// </summary>
     private void OnCollisionEnter(Collision collision)
     {
