@@ -14,7 +14,7 @@ public class MoveToSide : MonoBehaviour
     private AudioSource sourceAudio;
     public AudioClip soundClip;
 
-    private float currentPositon = 0; // int represent start pos
+    private float currentPositon = 0; // float represent start pos
     public float targetPosition = 2; // movment magnitude
 
     public float moveSpeed = 1;
