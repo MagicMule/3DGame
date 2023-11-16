@@ -107,8 +107,6 @@ public class EnemyAttack : MonoBehaviour
 
         yield return new WaitForSeconds(attackDeley);
 
-        
-        
         attackReady = true;
 
 
