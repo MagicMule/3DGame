@@ -65,16 +65,23 @@ public class DialogText : MonoBehaviour
 
     void DialogC()
     {
-        dilogLinesC.line.Add("A");
-        dilogLinesC.line.Add("B");
-        dilogLinesC.line.Add("C");
-        dilogLinesC.line.Add("D");
-        dilogLinesC.line.Add("E");
-        dilogLinesC.line.Add("F");
-        dilogLinesC.line.Add("G");
-        dilogLinesC.line.Add("H");
-        dilogLinesC.line.Add("I");
-        dilogLinesC.line.Add("J");
+        dilogLinesC.line.Add("Hello");
+        dilogLinesC.line.Add("AAAh! Ow. Greetings to you. I was absorbed in my material. Are you true? Who are you?");
+        dilogLinesC.line.Add("I’m here for the disturbance that has become nature here, to rout it out. I'm also searching for some spells that went astray.");
+        dilogLinesC.line.Add("Spells astray? Well this is indeed the place to come then. These halls are a treasure beyond, the potential is intoxicating. Uninterpretable things on the surface will be the soft butter and this library the hot blade. But maybe that is already so for you?");
+        dilogLinesC.line.Add("It is not.");
+        dilogLinesC.line.Add("But I'm sure there is much to learn from you, my friend. Maybe we can come to an accord?");
+        dilogLinesC.line.Add("You have something to offer me?");
+        dilogLinesC.line.Add("I have a key to the barred restricted section of the library. If you were to find a spell, this is where it must have wandered, as they tend to do. I have not made the way myself, active guardians are in the path. And do not try anything funny! The key is hidden for now.");
+        dilogLinesC.line.Add("What would you have of me?");
+        dilogLinesC.line.Add("In this library there is a room housing a mystical inscribed circle on the ground. I believe this could be a portal, a ritual to walk the astral plane. But I do not have the spell or power to make it function. I need the hand of a dead god and so I would like to make the journey. Would you make it in my stead?");
+        dilogLinesC.line.Add("You ask a lot but it may be possible.");
+        dilogLinesC.line.Add("And give me the name of the Moon-Man!");
+        dilogLinesC.line.Add(" … You are being absurd. I can give you one of the names of the three kings of the 2001th Moon.");
+        dilogLinesC.line.Add("Two kings!");
+        dilogLinesC.line.Add("No.");
+        dilogLinesC.line.Add("Deal!");
+        dilogLinesC.line.Add("I will return shortly. Hopefully.");
     }
 
     void Interactives()
