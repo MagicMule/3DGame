@@ -54,6 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileClip: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
   audioClipVolume: 0.1
+  missileTimeLimit: 0
+  timeToDestoryed: 2
 --- !u!114 &5095964297635273420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d20f4a69e15be43a5228efd66e729f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPosOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &815270346942822615
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +113,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.45834818, g: 0.827016, b: 0.9433962, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -204,7 +207,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.45834818, g: 0.827016, b: 0.9433962, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -298,7 +301,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.45834818, g: 0.827016, b: 0.9433962, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -392,7 +395,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.45834818, g: 0.827016, b: 0.9433962, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -486,7 +489,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.45834818, g: 0.827016, b: 0.9433962, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -580,7 +583,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.45834818, g: 0.827016, b: 0.9433962, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
