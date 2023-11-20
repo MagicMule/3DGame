@@ -10,9 +10,10 @@ public class DialogText : MonoBehaviour
         public List<string> line;
     }
 
-    //intro
-    public Dialog dilogLinesA;
+    
+    public Dialog dilogLinesA;//intro
     public Dialog dilogLinesB;
+    public List<Dialog> conversationsC;
     public Dialog dilogLinesC;
     public Dialog dilogLinesD;
     public Dialog dilogLinesE;
@@ -28,6 +29,9 @@ public class DialogText : MonoBehaviour
         DialogA();
         DialogB();
         DialogC();
+        DialogC1();
+        DialogC2();
+        DialogC3();
         Interactives();
         SpellVerbal();
 
@@ -82,15 +86,31 @@ public class DialogText : MonoBehaviour
         dilogLinesC.line.Add("No.");
         dilogLinesC.line.Add("Deal!");
         dilogLinesC.line.Add("I will return shortly. Hopefully.");
+
     }
+    
+    void DialogC1()
+    {
+
+    }
+    
+    void DialogC2()
+    {
+
+    }
+    void DialogC3()
+    {
+
+    }
+
 
     void Interactives()
     {
         dialogLinesInteractives.line.Add("This place is now of old cosality. The stink of the Yog-agl subtel asail, of evil. The place and time is corrypted. The sorce, the lord, must i find and drag they out of the world and back to the nothing truth of there making");
         dialogLinesInteractives.line.Add("Pages corroded, scared thou time. But  from what is latigable it seems to be the remanence of an index of the library's stock. From A-Ö in subject and A-Ö in title.");
         dialogLinesInteractives.line.Add("Locked. A place in a place of itself. A restricted access to, presumably, more obscure unvented knowledge. Miscaractasitons, falsehood, or perceived such, of nature and character. And two; valuable, irreplaceable things of arcana and esoterica.");
-        dialogLinesInteractives.line.Add("Locked. A place in a place of itself. A restricted access to, presumably, more obscure unvented knowledge. Miscaractasitons, falsehood, or perceived such, of nature and character. And two; valuable, irreplaceable things of arcana and esoterica.");
-        dialogLinesInteractives.line.Add("Forth");
+        dialogLinesInteractives.line.Add("A wall have materialised behind the door. I can not make it back this why");
+        dialogLinesInteractives.line.Add("Rubel and pillar blocks my way. It is big but brittle. If struck by a grand force, like spell of the like Odion’s Spear, it may clear a path.");
     }
 
     void SpellVerbal()
