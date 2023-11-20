@@ -31,6 +31,8 @@ TagManager:
   - NPC7
   - SpellVerbal
   - Slope
+  - GodHand
+  - Key1
   layers:
   - Default
   - TransparentFX

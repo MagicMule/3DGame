@@ -21,7 +21,11 @@ public class CharacterControl : MonoBehaviour
     public float missileAttackDeley = 0.5f;
     public GameObject[] missile;
     public GameObject missileAttackPos;
-    public int spellSelected = 0;
+    public int spellSelected = 9;
+    public bool playerHasSpel1;
+    public bool playerHasSpel2;
+    public bool playerHasSpel3;
+    public bool playerHasSpel4;
     private Vector3 missileAttackPosOffset = new(0, 0, 0); //Positon
     private Vector3 missileAttackRotOffset = new(1, 1, 1); //Rotation
     public AudioClip missileAttackSound;
@@ -134,7 +138,7 @@ public class CharacterControl : MonoBehaviour
     // missile instasiate at missileAttackPos
     void MissileAttack()
     {
-        // cheek if last text rightout is done
+        // cheek if last text wrightout is done
         if (DialogueManger.Instance.spellVerbal.GetComponent<TypeOutText>().typeOutDone )
         {
             // Verbal conected to spells
@@ -170,25 +174,25 @@ public class CharacterControl : MonoBehaviour
 
     public void CangeSpell()
     {
-        if (Input.GetKeyDown(GameManager.Instance.hotKeyInput1))
+        if (Input.GetKeyDown(GameManager.Instance.hotKeyInput1) && playerHasSpel1)
         {
             spellSelected = 0;
             Debug.Log(missile[0].name + " selekted");
         }
 
-        if (Input.GetKeyDown(GameManager.Instance.hotKeyInput2))
+        if (Input.GetKeyDown(GameManager.Instance.hotKeyInput2) && playerHasSpel2)
         {
             spellSelected = 1;
             Debug.Log(missile[1].name + " selekted");
         }
 
-        if (Input.GetKeyDown(GameManager.Instance.hotKeyInput3))
+        if (Input.GetKeyDown(GameManager.Instance.hotKeyInput3) && playerHasSpel3)
         {
             spellSelected = 2;
             Debug.Log(missile[2].name + " selekted");
         }
 
-        if (Input.GetKeyDown(GameManager.Instance.HotKeyInput4))
+        if (Input.GetKeyDown(GameManager.Instance.HotKeyInput4) && playerHasSpel4)
         {
             spellSelected = 3;
             Debug.Log("HealSpell");

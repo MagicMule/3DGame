@@ -79,14 +79,14 @@ public class InteractCollider : MonoBehaviour
                 DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesB); //start dialogB
             }
 
-
-            if (other.gameObject.CompareTag("NPC1"))
+            //Sage
+            if (other.gameObject.CompareTag("NPC2"))
             {
                 DialogueManger.Instance.startDialogA = false;
                 DialogueManger.Instance.startDialogB = false;
 
                 DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
-                DialogueManger.Instance.startDialogC = true; //Enambel dialogB
+                DialogueManger.Instance.startDialogC = true; //Enambel dialogC
                 DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesC); //start dialogC
             }
 

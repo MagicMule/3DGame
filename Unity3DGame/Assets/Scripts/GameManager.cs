@@ -100,6 +100,11 @@ public class GameManager : MonoBehaviour
     public int spellDamage1 = 1;
 
     public bool spellReady = true;
+    
+    //List of relvent gameobjekts of a scene
+    [Header("Interactive Objekts In Scene")]
+
+    public List<GameObject> objekts;
 
     [Header("OBJEKT TRANSFROMATION")]
 
