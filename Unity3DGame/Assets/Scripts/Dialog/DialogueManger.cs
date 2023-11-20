@@ -21,7 +21,7 @@ public class DialogueManger : MonoBehaviour
     public KeyCode NextLine => nextLine;
 
     //Dialog with two charaklters convesrins
-    private int currentState = 0;  //inital sate
+
     public TextMeshProUGUI charakterDialog1;
     public TextMeshProUGUI charakterDialog2;
     public GameObject charakterDialogTextBackGround;
@@ -33,7 +33,6 @@ public class DialogueManger : MonoBehaviour
     //Spel verbal 
     public TextMeshProUGUI spellVerbal;
     public DialogText dialogText;
-    private int dialogTextIndex = 0; //starting with the first line
     public List<GameObject> dilogInteractivObjekts; // things that spawn or other change based on dialog
     private bool dialogInteractiveObjektsFound = false;
 
@@ -46,7 +45,15 @@ public class DialogueManger : MonoBehaviour
     public bool startDialogE = false;
     public bool startDialogF = false;
     public bool startDialogG = false;
+
     public bool dialogIsActive; // keep trank on witch bool is active
+
+    private int currentState = 0;  //inital sate
+    private int dialogTextIndex = 0;
+
+    public DialogText.DialogueData currentDialog;
+
+
 
     private void Awake()
     {
@@ -83,22 +90,25 @@ public class DialogueManger : MonoBehaviour
         // progration of charkter dialog
         if (Input.GetKeyDown(nextLine))
         {
+            //Wizard and Master
             if (startDialogA)
             {
                 dialogIsActive = true; //Mark that game is in "Dialog mode"
-                OneOnOneDialog(dialogText.dilogLinesA);
+                OneOnOneDialog(dialogText.dialogLinesA);
             }
 
+            //Withround and Wizard
             else if (startDialogB)
             {
                 dialogIsActive = true;
-                OneOnOneDialog(dialogText.dilogLinesB);
+                OneOnOneDialog(dialogText.dialogLinesB);
             }
 
+            //Sage and Wizard
             else if (startDialogC)
             {
                 dialogIsActive = true;
-                OneOnOneDialog(dialogText.dilogLinesC);
+                OneOnOneDialog(dialogText.dialogLinesC);
             }
         }
         // Deactavet text when typeout is complet
@@ -114,7 +124,7 @@ public class DialogueManger : MonoBehaviour
         Debug.Log(spellVerbal.GetComponent<TypeOutText>().typeOutDone);
         if(spellVerbal.GetComponent<TypeOutText>().typeOutDone)
         {
-            spellVerbal.GetComponent<TypeOutText>().textToTypeOut = dialogText.dialogLinesSpellVerbal.line[spelIndex];
+            spellVerbal.GetComponent<TypeOutText>().textToTypeOut = dialogText.dialogLinesSpellVerbal.lines[spelIndex];
             spellVerbal.gameObject.SetActive(true);
         }
     }
@@ -123,7 +133,7 @@ public class DialogueManger : MonoBehaviour
     {
         narativeTextBackGround.SetActive(true);
         narativDialog.gameObject.SetActive(false);
-        narativDialog.GetComponent<TypeOutText>().textToTypeOut = dialogText.dialogLinesInteractives.line[dialogIndex];
+        narativDialog.GetComponent<TypeOutText>().textToTypeOut = dialogText.dialogLinesInteractives.lines[dialogIndex];
         narativDialog.gameObject.SetActive(true);
 
 
@@ -132,48 +142,35 @@ public class DialogueManger : MonoBehaviour
         StartCoroutine(DialogPrecistance( 20, narativDialog.gameObject)); // If player do not close, close text
     }
 
-    public void OneOnOneDialog(DialogText.Dialog dialogListToStart)
+    public void OneOnOneDialog(DialogText.DialogueData dialogListToStart)
     {
-        // Toggel between charakter1 and charakter2 dialog 
-        if (dialogTextIndex < dialogListToStart.line.Count)
+        if (dialogTextIndex < dialogListToStart.lines.Count)
         {
+            
             switch (currentState)
             {
-                //charkter 1 talk
                 case 0:
-                    if (dialogTextIndex < dialogListToStart.line.Count)
-                    {
-                        charakterDialog1.GetComponent<TypeOutText>().textToTypeOut = dialogListToStart.line[dialogTextIndex]; // Get line from DilogText
-                        DialogEvent();
-                        dialogTextIndex += 1; // Continue to next line
-                    }
-                    charakterDialog2.gameObject.SetActive(false);
-                    charakterDialog1.gameObject.SetActive(true);
-                    currentState = 1;
+                    charakterDialog1.GetComponent<TypeOutText>().textToTypeOut = dialogListToStart.lines[dialogTextIndex];
+                    DialogEvent();
+                    dialogTextIndex += 1;
                     break;
-                //Charkater 2 talk
                 case 1:
-                    if (dialogTextIndex < dialogListToStart.line.Count)
-                    {
-                        charakterDialog2.GetComponent<TypeOutText>().textToTypeOut = dialogListToStart.line[dialogTextIndex];
-                        DialogEvent();
-                        dialogTextIndex += 1; // Continue to next line
-                    }
-                    charakterDialog1.gameObject.SetActive(false);
-                    charakterDialog2.gameObject.SetActive(true);
-                    currentState = 0;
+                    charakterDialog2.GetComponent<TypeOutText>().textToTypeOut = dialogListToStart.lines[dialogTextIndex];
+                    DialogEvent();
+                    dialogTextIndex += 1;
                     break;
             }
         }
         else
         {
-            //mark that game has left "Dialog Mode"
             dialogIsActive = false;
-            //Reset dialog bools
             startDialogA = false;
             startDialogB = false;
             startDialogC = false;
-            //reset textIndex
+            startDialogD = false;
+            startDialogE = false;
+            startDialogF = false;
+            startDialogG = false;
             dialogTextIndex = 0;
             if (charakterDialogTextBackGround != null)
             {
@@ -189,8 +186,8 @@ public class DialogueManger : MonoBehaviour
         //Spawn spear
         // can only put in an indext that is less then or eqal to the total count of lines
         // if dilogTextIndex is greater then line.count it will not work
-        if (!(dialogText.dilogLinesA.line.Count <= dialogTextIndex) 
-            && dialogText.dilogLinesA.line[dialogTextIndex] == "Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl. You already know its name." 
+        if (!(dialogText.dialogLinesA.lines.Count <= dialogTextIndex) 
+            && dialogText.dialogLinesA.lines[dialogTextIndex] == "Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl. You already know its name." 
             && startDialogA)
         {
             dilogInteractivObjekts[0].SetActive(true);
@@ -198,8 +195,8 @@ public class DialogueManger : MonoBehaviour
 
         // desapwn Withround
         // *dilogInteractivObjekts[0] is now a difret objekt as it is in anopther scene
-        if (!(dialogText.dilogLinesB.line.Count <= dialogTextIndex)
-            && dialogText.dilogLinesB.line[dialogTextIndex] == "Aye, Aye!"
+        if (!(dialogText.dialogLinesA.lines.Count <= dialogTextIndex)
+            && dialogText.dialogLinesA.lines[dialogTextIndex] == "Aye, Aye!"
             && startDialogB)
         {
             dilogInteractivObjekts[0].SetActive(false);

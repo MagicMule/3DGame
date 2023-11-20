@@ -81,7 +81,7 @@ public class InteractCollider : MonoBehaviour
 
                 DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
                 DialogueManger.Instance.startDialogB = true; //Enambel dialogB
-                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesB); //start dialogB
+                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dialogLinesB); //start dialogB
             }
 
             //Sage
@@ -92,7 +92,7 @@ public class InteractCollider : MonoBehaviour
 
                 DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
                 DialogueManger.Instance.startDialogC = true; //Enambel dialogC
-                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesC); //start dialogC
+                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dialogLinesC); //start dialogC
             }
 
 
