@@ -97,8 +97,8 @@ public class DialogText : MonoBehaviour
         dialogLinesInteractives.line.Add("This place is now of old cosality. The stink of the Yog-agl subtel asail, of evil. The place and time is corrypted. The sorce, the lord, must i find and drag they out of the world and back to the nothing truth of there making");
         dialogLinesInteractives.line.Add("Pages corroded, scared thou time. But  from what is latigable it seems to be the remanence of an index of the library's stock. From A-Ö in subject and A-Ö in title.");
         dialogLinesInteractives.line.Add("Locked. A place in a place of itself. A restricted access to, presumably, more obscure unvented knowledge. Miscaractasitons, falsehood, or perceived such, of nature and character. And two; valuable, irreplaceable things of arcana and esoterica.");
-        dialogLinesInteractives.line.Add("Locked. A place in a place of itself. A restricted access to, presumably, more obscure unvented knowledge. Miscaractasitons, falsehood, or perceived such, of nature and character. And two; valuable, irreplaceable things of arcana and esoterica.");
-        dialogLinesInteractives.line.Add("Forth");
+        dialogLinesInteractives.line.Add("");
+        dialogLinesInteractives.line.Add("5");
     }
 
     void SpellVerbal()
@@ -107,5 +107,6 @@ public class DialogText : MonoBehaviour
         dialogLinesSpellVerbal.line.Add("By the arms of Odion, the earth-bound giant, grant me thy Spear, a grueling boon against the Yog-agl!");
         dialogLinesSpellVerbal.line.Add("Glim and see, from land and sea, the With Dwarf Of Circle Valy. Enter through the veil of space and come to light my way!");
         dialogLinesSpellVerbal.line.Add("By The Sacred Order Of I’wacrim. The Good From Inception. Let Moonwater Fall Upon Present Flesh. For Glory Of Their Rest!");
+        dialogLinesSpellVerbal.line.Add("Of the ever shifting dance of the land of gold, from the breath of Au. Grant me now to the why between wey from Au to Ua. Lend me the gust, o dream born wind!");
     }
 }

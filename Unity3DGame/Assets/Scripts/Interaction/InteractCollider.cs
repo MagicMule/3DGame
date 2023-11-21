@@ -64,8 +64,8 @@ public class InteractCollider : MonoBehaviour
             }
             else if (other.gameObject.CompareTag("Interactive4"))
             {
-                Debug.Log("4");
-                DialogueManger.Instance.NarativDialog(3);
+                DialogueManger.Instance.SpellVerbalDialog(4);
+
             }
 
             // Player interact with npc
@@ -96,7 +96,7 @@ public class InteractCollider : MonoBehaviour
 
                 DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
                 DialogueManger.Instance.startDialogD = true; //Enambel dialogD
-                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesD); //start dialogD
+                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesD); //start dialogDq
             }
 
 
