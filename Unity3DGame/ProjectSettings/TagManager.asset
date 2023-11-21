@@ -33,7 +33,6 @@ TagManager:
   - Slope
   - GodHand
   - Key1
-  - Interactive5
   layers:
   - Default
   - TransparentFX
