@@ -28,6 +28,7 @@ public class DialogText : MonoBehaviour
         DialogA();
         DialogB();
         DialogC();
+        DialogD();
         Interactives();
         SpellVerbal();
 
@@ -82,6 +83,13 @@ public class DialogText : MonoBehaviour
         dilogLinesC.line.Add("No.");
         dilogLinesC.line.Add("Deal!");
         dilogLinesC.line.Add("I will return shortly. Hopefully.");
+    }
+
+    void DialogD()
+    {
+        dilogLinesD.line.Add("");
+        dilogLinesD.line.Add("You have it?");
+        dilogLinesD.line.Add("No");
     }
 
     void Interactives()

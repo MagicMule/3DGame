@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -35,7 +36,6 @@ public class DialogueManger : MonoBehaviour
     public DialogText dialogText;
     private int dialogTextIndex = 0; //starting with the first line
     public List<GameObject> dilogInteractivObjekts; // things that spawn or other change based on dialog
-    private bool dialogInteractiveObjektsFound = false;
 
     private bool narativBoxOpen = false;
 
@@ -63,24 +63,31 @@ public class DialogueManger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindDialogInteractiveObjeks();
         dialogText = GetComponent<DialogText>();
     }
     // Update is called once per frame
     void Update()
     {
-        if (narativBoxOpen && Input.GetKeyDown(GameManager.Instance.quitMenuKey)) // Player should be able to close dialog box thay have opend
+        // Player should be able to close dialog box thay have opend
+        PlayerCloseDialog();
+
+        // progration of charkter dialog
+        ProgresCharakterDialog();
+
+        // Deactavet text when typeout is complet
+        CloseSpellText();
+    }
+
+    void PlayerCloseDialog()
+    {
+        if (narativBoxOpen && Input.GetKeyDown(GameManager.Instance.quitMenuKey))
         {
             narativDialog.gameObject.SetActive(false);
             narativeTextBackGround.SetActive(false);
         }
-
-        if (!dialogInteractiveObjektsFound)
-        {
-            FindDialogInteractiveObjeks();
-        }
-
-        // progration of charkter dialog
+    }
+    void ProgresCharakterDialog()
+    {
         if (Input.GetKeyDown(nextLine))
         {
             if (startDialogA)
@@ -101,13 +108,15 @@ public class DialogueManger : MonoBehaviour
                 OneOnOneDialog(dialogText.dilogLinesC);
             }
         }
-        // Deactavet text when typeout is complet
+    }
+
+    void CloseSpellText()
+    {
         if (spellVerbal.GetComponent<TypeOutText>().typeOutDone)
         {
             spellVerbal.gameObject.SetActive(false);
         }
     }
-
     // chose what inedect to use when spell is cast
     public void SpellVerbalDialog(int spelIndex)
     {
@@ -125,7 +134,6 @@ public class DialogueManger : MonoBehaviour
         narativDialog.gameObject.SetActive(false);
         narativDialog.GetComponent<TypeOutText>().textToTypeOut = dialogText.dialogLinesInteractives.line[dialogIndex];
         narativDialog.gameObject.SetActive(true);
-
 
         narativBoxOpen = true;
 
@@ -204,6 +212,17 @@ public class DialogueManger : MonoBehaviour
         {
             dilogInteractivObjekts[0].SetActive(false);
         }
+
+        //Deaktivate Sage1 and activate Sage2
+        if (!(dialogText.dilogLinesC.line.Count <= dialogTextIndex)
+            && dialogText.dilogLinesC.line[dialogTextIndex] == "I will return shortly. Hopefully."
+            && startDialogC)
+        {
+            dilogInteractivObjekts[0].SetActive(false);
+            dilogInteractivObjekts[1].SetActive(true);
+        }
+
+
     }
     //Set a timer on a dialog
     IEnumerator DialogPrecistance(int timeOut, GameObject dialogToTimeOut)
@@ -212,17 +231,4 @@ public class DialogueManger : MonoBehaviour
         narativeTextBackGround.SetActive(false);
         dialogToTimeOut.SetActive(false);
     }
-    // Find the ibjekts that ist to cange in realtion to dialog
-    // and add them to the list
-    public void FindDialogInteractiveObjeks()
-    {
-        if(GameObject.FindGameObjectWithTag("NPC1") != null)
-        {
-            dialogInteractiveObjektsFound = true;
-            Debug.Log("find");
-            dilogInteractivObjekts.Add(GameObject.FindGameObjectWithTag("NPC1"));
-        }
-        
-    }
-
 }

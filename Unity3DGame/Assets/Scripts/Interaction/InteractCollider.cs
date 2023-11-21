@@ -89,8 +89,15 @@ public class InteractCollider : MonoBehaviour
                 DialogueManger.Instance.startDialogC = true; //Enambel dialogC
                 DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesC); //start dialogC
             }
+            if (other.gameObject.CompareTag("NPC3"))
+            {
+                DialogueManger.Instance.startDialogA = false;
+                DialogueManger.Instance.startDialogB = false;
 
-
+                DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
+                DialogueManger.Instance.startDialogD = true; //Enambel dialogD
+                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesD); //start dialogD
+            }
 
 
             // Hit door objekt and the activet openCloseDoor, script on "doorHinge"
