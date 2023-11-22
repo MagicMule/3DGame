@@ -96,7 +96,25 @@ public class InteractCollider : MonoBehaviour
 
                 DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
                 DialogueManger.Instance.startDialogD = true; //Enambel dialogD
-                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesD); //start dialogDq
+                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesD); //start dialogD
+            }
+            if (other.gameObject.CompareTag("NPC4"))
+            {
+                DialogueManger.Instance.startDialogA = false;
+                DialogueManger.Instance.startDialogB = false;
+
+                DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
+                DialogueManger.Instance.startDialogE = true; //Enambel dialogD
+                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesE); //start dialogE
+            }
+            if (other.gameObject.CompareTag("NPC5"))
+            {
+                DialogueManger.Instance.startDialogA = false;
+                DialogueManger.Instance.startDialogB = false;
+
+                DialogueManger.Instance.charakterDialogTextBackGround.SetActive(true);
+                DialogueManger.Instance.startDialogF = true; //Enambel dialogD
+                DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesF); //start dialogF
             }
 
 

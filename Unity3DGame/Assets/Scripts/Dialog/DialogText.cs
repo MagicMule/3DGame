@@ -29,6 +29,8 @@ public class DialogText : MonoBehaviour
         DialogB();
         DialogC();
         DialogD();
+        DialogE();
+        DialogF();
         Interactives();
         SpellVerbal();
 
@@ -92,6 +94,29 @@ public class DialogText : MonoBehaviour
         dilogLinesD.line.Add("No");
     }
 
+    void DialogE()
+    {
+        dilogLinesE.line.Add("");
+        dilogLinesE.line.Add("Do you have it?");
+        dilogLinesE.line.Add("Yes");
+        dilogLinesE.line.Add("Fantastic. Staggering. Extraordinary. I can feel my soul swelling with purpose. What a treasure. Do you know what manner had this hand in living? NO wait! Do not tell me! That is not important now.");
+        dilogLinesE.line.Add("Now. I will tell you the name of the first king of the 2001th moon of The Wave; the one with a head of nothing gulping down, a dragon in a swelling sea. His name is Doormin, son of Portbrake.");
+        dilogLinesE.line.Add("Magnificent. But hold. He is a dragon?");
+        dilogLinesE.line.Add("No. His head is; “of nothing gulping down, a dragon in a swelling sea”");
+        dilogLinesE.line.Add("I see. Interesting.");
+        dilogLinesE.line.Add("Now. The key.");
+        dilogLinesE.line.Add("Of course. I am ever of my word. Safe travels friend!");
+        dilogLinesE.line.Add("And you? This place is not safe.");
+        dilogLinesE.line.Add("Nothing of value evere is!");
+        dilogLinesE.line.Add("I may be able to clear a way below. When you need to go, follow it. You may find a way out.");
+        dilogLinesE.line.Add("Noted! No go! I have a lot of work!");
+        dilogLinesE.line.Add("Goodbye.");
+    }
+    void DialogF()
+    {
+        dilogLinesF.line.Add("");
+        dilogLinesF.line.Add("No more interruptions!");
+    }
     void Interactives()
     {
         dialogLinesInteractives.line.Add("This place is now of old cosality. The stink of the Yog-agl subtel asail, of evil. The place and time is corrypted. The sorce, the lord, must i find and drag they out of the world and back to the nothing truth of there making");
