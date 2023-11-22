@@ -33,6 +33,7 @@ TagManager:
   - Slope
   - GodHand
   - Key1
+  - Destructable
   layers:
   - Default
   - TransparentFX

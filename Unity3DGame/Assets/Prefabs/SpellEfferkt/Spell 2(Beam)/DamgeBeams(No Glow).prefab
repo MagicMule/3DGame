@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 1047351477800103928}
   - component: {fileID: 1047351477800103931}
   - component: {fileID: 5661146965377899597}
+  - component: {fileID: 7489747508104941816}
   m_Layer: 0
   m_Name: Beam
   m_TagString: PlayerSpellAttack1
@@ -718,6 +719,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileClip: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
   audioClipVolume: 0.1
+  missileTimeLimit: 0
+  timeToDestoryed: 2
+--- !u!114 &7489747508104941816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047351477800103930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e986a94a08b774a4aa2f943bc11e3b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2815750274697950823
 GameObject:
   m_ObjectHideFlags: 0
