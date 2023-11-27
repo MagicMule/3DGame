@@ -18,6 +18,7 @@ public class DialogueManger : MonoBehaviour
 
     public static DialogueManger Instance;
 
+    //Player Advance dialog input
     public KeyCode nextLine = KeyCode.Mouse0;
     public KeyCode NextLine => nextLine;
 
@@ -142,8 +143,9 @@ public class DialogueManger : MonoBehaviour
 
     public void OneOnOneDialog(DialogText.Dialog dialogListToStart)
     {
-        // Toggel between charakter1 and charakter2 dialog 
-        if (dialogTextIndex < dialogListToStart.line.Count)
+        // Toggel between charakter1 and charakter2 dialog, as long as there is lines left in the dialoglist 
+        // dialogTextIndex is keep track of wtich line is the aktive is at. 
+        if (dialogTextIndex < dialogListToStart.line.Count) 
         {
             switch (currentState)
             {
@@ -155,8 +157,8 @@ public class DialogueManger : MonoBehaviour
                         DialogEvent();
                         dialogTextIndex += 1; // Continue to next line
                     }
-                    charakterDialog2.gameObject.SetActive(false);
                     charakterDialog1.gameObject.SetActive(true);
+                    charakterDialog2.gameObject.SetActive(false);
                     currentState = 1;
                     break;
                 //Charkater 2 talk
@@ -170,11 +172,12 @@ public class DialogueManger : MonoBehaviour
                     charakterDialog1.gameObject.SetActive(false);
                     charakterDialog2.gameObject.SetActive(true);
                     currentState = 0;
-                    break;
+                    break;                   
             }
         }
         else
         {
+            
             //mark that game has left "Dialog Mode"
             dialogIsActive = false;
             //Reset dialog bools
@@ -183,6 +186,8 @@ public class DialogueManger : MonoBehaviour
             startDialogC = false;
             //reset textIndex
             dialogTextIndex = 0;
+            //reset state
+            currentState = 0; 
             if (charakterDialogTextBackGround != null)
             {
                 charakterDialogTextBackGround.SetActive(false);
@@ -222,6 +227,14 @@ public class DialogueManger : MonoBehaviour
             dilogInteractivObjekts[1].SetActive(true);
         }
 
+        //Deaktivate Sage3 and activate Sage5
+        if (!(dialogText.dilogLinesE.line.Count <= dialogTextIndex)
+            && dialogText.dilogLinesE.line[dialogTextIndex] == "Goodbye."
+            && startDialogE)
+        {
+            dilogInteractivObjekts[2].SetActive(false);
+            dilogInteractivObjekts[3].SetActive(true);
+        }
 
     }
     //Set a timer on a dialog

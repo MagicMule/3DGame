@@ -89,14 +89,14 @@ public class DialogText : MonoBehaviour
 
     void DialogD()
     {
-        dilogLinesD.line.Add("");
+        dilogLinesD.line.Add("...");
         dilogLinesD.line.Add("You have it?");
         dilogLinesD.line.Add("No");
     }
 
     void DialogE()
     {
-        dilogLinesE.line.Add("");
+        dilogLinesE.line.Add("...");
         dilogLinesE.line.Add("Do you have it?");
         dilogLinesE.line.Add("Yes");
         dilogLinesE.line.Add("Fantastic. Staggering. Extraordinary. I can feel my soul swelling with purpose. What a treasure. Do you know what manner had this hand in living? NO wait! Do not tell me! That is not important now.");
@@ -114,7 +114,7 @@ public class DialogText : MonoBehaviour
     }
     void DialogF()
     {
-        dilogLinesF.line.Add("");
+        dilogLinesF.line.Add("...");
         dilogLinesF.line.Add("No more interruptions!");
     }
     void Interactives()
