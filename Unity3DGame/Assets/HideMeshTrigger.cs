@@ -9,11 +9,16 @@ public class HideMeshTrigger : MonoBehaviour
     // turn of all gameobjkts in the list apon pplayer colitons
     private void OnTriggerEnter(Collider other)
     {
+        ActivateAndDeactiveateObjekts(other);
+    }
+
+    public virtual void ActivateAndDeactiveateObjekts(Collider other)
+    {
         if (other.gameObject.CompareTag("Player"))
         {
-            foreach (GameObject aG in gameOvjektsToDeActivate) 
+            foreach (GameObject aG in gameOvjektsToDeActivate)
             {
-                if(aG != null)
+                if (aG != null)
                 {
                     aG.SetActive(false);
                 }
@@ -21,7 +26,7 @@ public class HideMeshTrigger : MonoBehaviour
 
             foreach (GameObject dG in gameOvjektsToActivate)
             {
-                if(dG != null)
+                if (dG != null)
                 {
                     dG.SetActive(true);
                 }

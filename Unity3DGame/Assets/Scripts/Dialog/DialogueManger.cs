@@ -228,12 +228,14 @@ public class DialogueManger : MonoBehaviour
         }
 
         //Deaktivate Sage3 and activate Sage5
+        //Sage give key
         if (!(dialogText.dilogLinesE.line.Count <= dialogTextIndex)
             && dialogText.dilogLinesE.line[dialogTextIndex] == "Goodbye."
             && startDialogE)
         {
             dilogInteractivObjekts[2].SetActive(false);
             dilogInteractivObjekts[3].SetActive(true);
+            PlayerInventory.Instance.key = true;
         }
 
     }
