@@ -62,10 +62,15 @@ public class InteractCollider : MonoBehaviour
                 Debug.Log("3");
                 DialogueManger.Instance.NarativDialog(2);
             }
+            //portalSpell
             else if (other.gameObject.CompareTag("Interactive4"))
             {
                 DialogueManger.Instance.SpellVerbalDialog(4);
-
+            }
+            else if (other.gameObject.CompareTag("Interactive5"))
+            {
+                Debug.Log("5");
+                DialogueManger.Instance.NarativDialog(3);
             }
 
             // Player interact with npc

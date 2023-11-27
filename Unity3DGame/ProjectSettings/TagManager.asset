@@ -34,6 +34,7 @@ TagManager:
   - GodHand
   - Key1
   - Destructable
+  - Interactive5
   layers:
   - Default
   - TransparentFX

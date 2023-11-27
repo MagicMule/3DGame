@@ -122,7 +122,7 @@ public class DialogText : MonoBehaviour
         dialogLinesInteractives.line.Add("This place is now of old cosality. The stink of the Yog-agl subtel asail, of evil. The place and time is corrypted. The sorce, the lord, must i find and drag they out of the world and back to the nothing truth of there making");
         dialogLinesInteractives.line.Add("Pages corroded, scared thou time. But  from what is latigable it seems to be the remanence of an index of the library's stock. From A-Ö in subject and A-Ö in title.");
         dialogLinesInteractives.line.Add("Locked. A place in a place of itself. A restricted access to, presumably, more obscure unvented knowledge. Miscaractasitons, falsehood, or perceived such, of nature and character. And two; valuable, irreplaceable things of arcana and esoterica.");
-        dialogLinesInteractives.line.Add("");
+        dialogLinesInteractives.line.Add("A wall has formed from the path I entered, I can not go back this way.");
         dialogLinesInteractives.line.Add("5");
     }
 
