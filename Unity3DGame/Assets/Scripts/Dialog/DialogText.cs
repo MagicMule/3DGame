@@ -17,6 +17,7 @@ public class DialogText : MonoBehaviour
     public Dialog dilogLinesD;
     public Dialog dilogLinesE;
     public Dialog dilogLinesF;
+    public Dialog dilogLinesG;
 
 
     public Dialog dialogLinesSpellVerbal;
@@ -31,6 +32,7 @@ public class DialogText : MonoBehaviour
         DialogD();
         DialogE();
         DialogF();
+        DialogG();
         Interactives();
         SpellVerbal();
 
@@ -116,6 +118,17 @@ public class DialogText : MonoBehaviour
     {
         dilogLinesF.line.Add("...");
         dilogLinesF.line.Add("No more interruptions!");
+    }
+    void DialogG() //odion spear and wizard
+    {
+        dilogLinesG.line.Add("The Arms of Odion. Why are you here?");
+        dilogLinesG.line.Add("I am mighty! Do not think for a moment I hide!");
+        dilogLinesG.line.Add("I know only you were gone when I entered this place. My reverence for Odion extends to you.");
+        dilogLinesG.line.Add("I was made a prisoner by agents of the Demon. It was not of my choosing.");
+        dilogLinesG.line.Add("You are not a damsel. What manner made you so?");
+        dilogLinesG.line.Add("Do not jest me mage! There is no enemy I can not face! I pierce the mountain! I pierce the heart of gods! I pearce the inner logic! I pearce the thought-stuf of tomorrow and the future! But. This place and its demons have weekend me, for the Demon has acolytes of the dark spot, scum of the enemy.");
+        dilogLinesG.line.Add("… That is a possibility I tried not to consider. But it looks true. Come to me again. I need your grand force to break out of this library.");
+        dilogLinesG.line.Add("I saw where you entered. On the same low ground, at the end of the complex, there is rubble and instability. I know for true that my power is grand, that it is to clear a path there. Let's break forth.");
     }
     void Interactives()
     {

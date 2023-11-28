@@ -613,7 +613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &524348344
 Transform:
   m_ObjectHideFlags: 0
@@ -1138,7 +1138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7837688167261676025, guid: ff9f7c3a2d98cf44c984390d3a1ae4db, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7837688167261676030, guid: ff9f7c3a2d98cf44c984390d3a1ae4db, type: 3}
       propertyPath: m_RootOrder
@@ -1186,6 +1186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9f7c3a2d98cf44c984390d3a1ae4db, type: 3}
+--- !u!1 &1466515668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1332377921683893492, guid: ff9f7c3a2d98cf44c984390d3a1ae4db, type: 3}
+  m_PrefabInstance: {fileID: 1416231512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1496327396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,20 +1722,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 789328018}
     - target: {fileID: 92522415268815580, guid: 5be34c3d37ca36e49bae08517461b045, type: 3}
+      propertyPath: narativeTextBackGround
+      value: 
+      objectReference: {fileID: 636821674}
+    - target: {fileID: 92522415268815580, guid: 5be34c3d37ca36e49bae08517461b045, type: 3}
       propertyPath: charakterDialogTextBackGround
       value: 
       objectReference: {fileID: 636821674}
     - target: {fileID: 92522415268815580, guid: 5be34c3d37ca36e49bae08517461b045, type: 3}
       propertyPath: dilogInteractivObjekts.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 92522415268815580, guid: 5be34c3d37ca36e49bae08517461b045, type: 3}
       propertyPath: dilogInteractivObjekts.Array.data[0]
       value: 
-      objectReference: {fileID: 2602997470581055464, guid: b1cf7839994388245a93ee8be28a9774, type: 3}
+      objectReference: {fileID: 1466515668}
     - target: {fileID: 2192780865097568001, guid: 5be34c3d37ca36e49bae08517461b045, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192780865798947153, guid: 5be34c3d37ca36e49bae08517461b045, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5be34c3d37ca36e49bae08517461b045, type: 3}
@@ -6265,6 +6278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1305188751298956980, guid: b72cd90c923f2fe449c1f4b911125191, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2792114932836423169, guid: b72cd90c923f2fe449c1f4b911125191, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6396,6 +6413,10 @@ PrefabInstance:
     - target: {fileID: 1038931811912511636, guid: 53188da9c2cbbcc45b95ca38624a8c95, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038931811912511636, guid: 53188da9c2cbbcc45b95ca38624a8c95, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1038931811912511659, guid: 53188da9c2cbbcc45b95ca38624a8c95, type: 3}
       propertyPath: m_RootOrder
@@ -7180,11 +7201,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1462981704477782925, guid: ec5f4881ec31ccc46ad4389d989dfa62, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2513912721554233226, guid: ec5f4881ec31ccc46ad4389d989dfa62, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696526059155388750, guid: ec5f4881ec31ccc46ad4389d989dfa62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3991854970914744006, guid: ec5f4881ec31ccc46ad4389d989dfa62, type: 3}
       propertyPath: m_RootOrder
@@ -7216,6 +7241,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6400657137224666135, guid: ec5f4881ec31ccc46ad4389d989dfa62, type: 3}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711763650563817011, guid: ec5f4881ec31ccc46ad4389d989dfa62, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7405656162282493372, guid: ec5f4881ec31ccc46ad4389d989dfa62, type: 3}

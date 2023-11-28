@@ -1,10 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class DialogueManger : MonoBehaviour
@@ -108,6 +104,26 @@ public class DialogueManger : MonoBehaviour
                 dialogIsActive = true;
                 OneOnOneDialog(dialogText.dilogLinesC);
             }
+            else if (startDialogD)
+            {
+                dialogIsActive = true;
+                OneOnOneDialog(dialogText.dilogLinesD);
+            }
+            else if (startDialogE)
+            {
+                dialogIsActive = true;
+                OneOnOneDialog(dialogText.dilogLinesE);
+            }
+            else if (startDialogF)
+            {
+                dialogIsActive = true;
+                OneOnOneDialog(dialogText.dilogLinesF);
+            }
+            else if (startDialogG)
+            {
+                dialogIsActive = true;
+                OneOnOneDialog(dialogText.dilogLinesG);
+            }
         }
     }
 
@@ -184,6 +200,10 @@ public class DialogueManger : MonoBehaviour
             startDialogA = false;
             startDialogB = false;
             startDialogC = false;
+            startDialogD = false;
+            startDialogE = false;
+            startDialogF = false;
+            startDialogG = false;
             //reset textIndex
             dialogTextIndex = 0;
             //reset state
@@ -216,6 +236,7 @@ public class DialogueManger : MonoBehaviour
             && startDialogB)
         {
             dilogInteractivObjekts[0].SetActive(false);
+            Debug.Log("Remove this");
         }
 
         //Deaktivate Sage1 and activate Sage2
@@ -225,6 +246,7 @@ public class DialogueManger : MonoBehaviour
         {
             dilogInteractivObjekts[0].SetActive(false);
             dilogInteractivObjekts[1].SetActive(true);
+            dilogInteractivObjekts[7].SetActive(true);
         }
 
         //Deaktivate Sage3 and activate Sage5
@@ -234,8 +256,18 @@ public class DialogueManger : MonoBehaviour
             && startDialogE)
         {
             dilogInteractivObjekts[2].SetActive(false);
+            dilogInteractivObjekts[6].SetActive(false);
             dilogInteractivObjekts[3].SetActive(true);
             PlayerInventory.Instance.key = true;
+        }
+        //Spear of Odion interaction
+        // deactivet npc and activeaete piuckupp
+        if (!(dialogText.dilogLinesG.line.Count <= dialogTextIndex)
+            && dialogText.dilogLinesG.line[dialogTextIndex] == "I saw where you entered. On the same low ground, at the end of the complex, there is rubble and instability. I know for true that my power is grand, that it is to clear a path there. Let's break forth."
+            && startDialogG)
+        {
+            dilogInteractivObjekts[4].SetActive(false);
+            dilogInteractivObjekts[5].SetActive(true);
         }
 
     }

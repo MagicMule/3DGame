@@ -24,11 +24,14 @@ public class MissileInteract : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
+        // Spell to trigger lever pull
+        /*
         if (other.gameObject.CompareTag("Lever"))
         {
             other.gameObject.GetComponentInParent<MoveLever>().enabled = true;
             Destroy(gameObject);
         }
+        */
         if (other.gameObject.CompareTag("Enemy"))
         {
             //Play sound when player hit enemy
