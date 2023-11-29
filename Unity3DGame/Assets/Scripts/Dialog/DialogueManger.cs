@@ -89,39 +89,32 @@ public class DialogueManger : MonoBehaviour
         {
             if (startDialogA)
             {
-                dialogIsActive = true; //Mark that game is in "Dialog mode"
                 OneOnOneDialog(dialogText.dilogLinesA);
             }
 
             else if (startDialogB)
             {
-                dialogIsActive = true;
                 OneOnOneDialog(dialogText.dilogLinesB);
             }
 
             else if (startDialogC)
             {
-                dialogIsActive = true;
                 OneOnOneDialog(dialogText.dilogLinesC);
             }
             else if (startDialogD)
             {
-                dialogIsActive = true;
                 OneOnOneDialog(dialogText.dilogLinesD);
             }
             else if (startDialogE)
             {
-                dialogIsActive = true;
                 OneOnOneDialog(dialogText.dilogLinesE);
             }
             else if (startDialogF)
             {
-                dialogIsActive = true;
                 OneOnOneDialog(dialogText.dilogLinesF);
             }
             else if (startDialogG)
             {
-                dialogIsActive = true;
                 OneOnOneDialog(dialogText.dilogLinesG);
             }
         }
@@ -194,8 +187,7 @@ public class DialogueManger : MonoBehaviour
         else
         {
             
-            //mark that game has left "Dialog Mode"
-            dialogIsActive = false;
+
             //Reset dialog bools
             startDialogA = false;
             startDialogB = false;
@@ -214,6 +206,9 @@ public class DialogueManger : MonoBehaviour
             }
             charakterDialog1.gameObject.SetActive(false);
             charakterDialog2.gameObject.SetActive(false);
+
+            //mark that game has left "Dialog Mode"
+            dialogIsActive = false;
         }
     }
     // Things that happen based on line/ dialog prograsion

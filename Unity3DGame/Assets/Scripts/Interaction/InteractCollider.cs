@@ -45,7 +45,7 @@ public class InteractCollider : MonoBehaviour
     void DialogInteraction(Collider other)
     {
         // if using interaktion
-        if (CharacterControl.Instance.interactionModeInteract)
+        if (CharacterControl.Instance.interactionModeInteract && !DialogueManger.Instance.dialogIsActive) // can not do inteartion in dialogMode
         {
             if (other.gameObject.CompareTag("Interactive1"))
             {
@@ -76,6 +76,8 @@ public class InteractCollider : MonoBehaviour
             // Player interact with npc
             if (other.gameObject.CompareTag("NPC1"))
             {
+                DialogueManger.Instance.dialogIsActive = true; //Mark that game is in "Dialog mode"
+
                 DialogueManger.Instance.startDialogA = false;
                 DialogueManger.Instance.startDialogC = false;
 
@@ -87,6 +89,8 @@ public class InteractCollider : MonoBehaviour
             //Sage
             if (other.gameObject.CompareTag("NPC2"))
             {
+                DialogueManger.Instance.dialogIsActive = true;
+
                 DialogueManger.Instance.startDialogA = false;
                 DialogueManger.Instance.startDialogB = false;
 
@@ -96,6 +100,8 @@ public class InteractCollider : MonoBehaviour
             }
             if (other.gameObject.CompareTag("NPC3"))
             {
+                DialogueManger.Instance.dialogIsActive = true;
+
                 DialogueManger.Instance.startDialogA = false;
                 DialogueManger.Instance.startDialogB = false;
 
@@ -105,6 +111,8 @@ public class InteractCollider : MonoBehaviour
             }
             if (other.gameObject.CompareTag("NPC4"))
             {
+                DialogueManger.Instance.dialogIsActive = true;
+
                 DialogueManger.Instance.startDialogA = false;
                 DialogueManger.Instance.startDialogB = false;
 
@@ -114,6 +122,8 @@ public class InteractCollider : MonoBehaviour
             }
             if (other.gameObject.CompareTag("NPC5"))
             {
+                DialogueManger.Instance.dialogIsActive = true;
+
                 DialogueManger.Instance.startDialogA = false;
                 DialogueManger.Instance.startDialogB = false;
 
@@ -121,9 +131,11 @@ public class InteractCollider : MonoBehaviour
                 DialogueManger.Instance.startDialogF = true; //Enambel dialogD
                 DialogueManger.Instance.OneOnOneDialog(DialogueManger.Instance.dialogText.dilogLinesF); //start dialogF
             }
-            //Beam Spell
+            //Beam Spell dialog
             if (other.gameObject.CompareTag("NPC6"))
             {
+                DialogueManger.Instance.dialogIsActive = true;
+
                 DialogueManger.Instance.startDialogA = false;
                 DialogueManger.Instance.startDialogB = false;
 
