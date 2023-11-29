@@ -79,7 +79,7 @@ public class DialogText : MonoBehaviour
         dilogLinesC.line.Add("You have something to offer me?");
         dilogLinesC.line.Add("I have a key to the barred restricted section of the library. If you were to find a spell, this is where it must have wandered, as they tend to do. I have not made the way myself, active guardians are in the path. And do not try anything funny! The key is hidden for now.");
         dilogLinesC.line.Add("What would you have of me?");
-        dilogLinesC.line.Add("In this library there is a room housing a mystical inscribed circle on the ground. I believe this could be a portal, a ritual to walk the astral plane. But I do not have the spell or power to make it function. I need the hand of a dead god and so I would like to make the journey. Would you make it in my stead?");
+        dilogLinesC.line.Add("In this library there is a room housing a mystical inscribed square tile, with a pattern, on the ground. I believe this could be a portal, a ritual to walk the astral plane. But I do not have the spell or power to make it function. I need the hand of a dead god and so I would like to make the journey. Would you make it in my stead?");
         dilogLinesC.line.Add("You ask a lot but it may be possible.");
         dilogLinesC.line.Add("And give me the name of the Moon-Man!");
         dilogLinesC.line.Add(" … You are being absurd. I can give you one of the names of the three kings of the 2001th Moon.");
