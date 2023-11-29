@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 9159485535148966088}
   - component: {fileID: 7302331240903617528}
   m_Layer: 0
-  m_Name: Spel1
+  m_Name: SpelMagicMissile
   m_TagString: Spell 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

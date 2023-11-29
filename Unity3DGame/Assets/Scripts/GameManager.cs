@@ -90,6 +90,11 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI gameOverText;
 
+    public GameObject spellUI1;
+    public GameObject spellUI2;
+    public GameObject spellUI3;
+    public GameObject spellUI4;
+
     [Header("PLAYER")]
 
     public int playerHP = 10;

@@ -180,15 +180,21 @@ public class CharacterControl : MonoBehaviour
             Debug.Log(missile[0].name + " selekted");
         }
 
-        if (Input.GetKeyDown(GameManager.Instance.hotKeyInput2) && playerHasSpel2)
+        if (Input.GetKeyDown(GameManager.Instance.hotKeyInput2) && playerHasSpel2) 
         {
             spellSelected = 1;
+
+            StartCoroutine(SelektedSpellUICheck(GameManager.Instance.spellUI2));
+
             Debug.Log(missile[1].name + " selekted");
         }
 
         if (Input.GetKeyDown(GameManager.Instance.hotKeyInput3) && playerHasSpel3)
         {
             spellSelected = 2;
+
+            StartCoroutine(SelektedSpellUICheck(GameManager.Instance.spellUI3));
+
             Debug.Log(missile[2].name + " selekted");
         }
 
@@ -198,6 +204,13 @@ public class CharacterControl : MonoBehaviour
             Debug.Log("HealSpell");
         }
 
+    }
+
+    IEnumerator SelektedSpellUICheck(GameObject spelToCheck) // spell UI will disiper after time
+    {
+        spelToCheck.SetActive(true);
+        yield return new WaitForSeconds(2);
+        spelToCheck.SetActive(false);
     }
 
     // Reset Missile pos and rotaion to that of missileattackPos gameobjekt
