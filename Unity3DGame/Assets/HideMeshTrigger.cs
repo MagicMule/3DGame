@@ -14,7 +14,7 @@ public class HideMeshTrigger : MonoBehaviour
 
     public virtual void ActivateAndDeactiveateObjekts(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("PlayerMeleeAttack"))
         {
             foreach (GameObject aG in gameOvjektsToDeActivate)
             {
