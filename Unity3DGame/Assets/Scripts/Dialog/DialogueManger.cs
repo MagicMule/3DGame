@@ -43,6 +43,7 @@ public class DialogueManger : MonoBehaviour
     public bool startDialogE = false;
     public bool startDialogF = false;
     public bool startDialogG = false;
+
     public bool dialogIsActive; // keep trank on witch bool is active
 
     private void Awake()
@@ -140,6 +141,7 @@ public class DialogueManger : MonoBehaviour
 
     public void NarativDialog(int dialogIndex)
     {
+        
         narativeTextBackGround.SetActive(true);
         narativDialog.gameObject.SetActive(false);
         narativDialog.GetComponent<TypeOutText>().textToTypeOut = dialogText.dialogLinesInteractives.line[dialogIndex];
@@ -207,10 +209,22 @@ public class DialogueManger : MonoBehaviour
             charakterDialog1.gameObject.SetActive(false);
             charakterDialog2.gameObject.SetActive(false);
 
+            CharacterControl.Instance.playerCanMove = true;
+            CharacterControl.Instance.StopPlayerCameraMovment();
             //mark that game has left "Dialog Mode"
-            dialogIsActive = false;
+            StartCoroutine(DialogColdown());
+
+            //restor player movement
+            
         }
     }
+
+    IEnumerator DialogColdown()
+    {
+        yield return new WaitForSeconds(1);
+        dialogIsActive = false;
+    }
+
     // Things that happen based on line/ dialog prograsion
     void DialogEvent()
     {

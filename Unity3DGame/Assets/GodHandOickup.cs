@@ -12,5 +12,10 @@ public class GodHandOickup : MonoBehaviour
             PlayerInventory.Instance.godHand = true;
             Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("PlayerMeleeAttack"))
+        {
+            PlayerInventory.Instance.godHand = true;
+            Destroy(gameObject);
+        }
     }
 }

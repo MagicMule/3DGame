@@ -49,11 +49,13 @@ public class InteractCollider : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Interactive1"))
             {
+                
                 Debug.Log("1");
                 DialogueManger.Instance.NarativDialog(0);
             }
             else if (other.gameObject.CompareTag("Interactive2"))
             {
+
                 Debug.Log("2");
                 DialogueManger.Instance.NarativDialog(1);
             }
@@ -76,6 +78,8 @@ public class InteractCollider : MonoBehaviour
             // Player interact with npc
             if (other.gameObject.CompareTag("NPC1"))
             {
+                CharacterControl.Instance.playerCanMove = false;
+                CharacterControl.Instance.StopPlayerCameraMovment();
                 DialogueManger.Instance.dialogIsActive = true; //Mark that game is in "Dialog mode"
 
                 DialogueManger.Instance.startDialogA = false;
@@ -89,6 +93,8 @@ public class InteractCollider : MonoBehaviour
             //Sage
             if (other.gameObject.CompareTag("NPC2"))
             {
+                CharacterControl.Instance.playerCanMove = false;
+                CharacterControl.Instance.StopPlayerCameraMovment();
                 DialogueManger.Instance.dialogIsActive = true;
 
                 DialogueManger.Instance.startDialogA = false;
@@ -100,6 +106,8 @@ public class InteractCollider : MonoBehaviour
             }
             if (other.gameObject.CompareTag("NPC3"))
             {
+                CharacterControl.Instance.playerCanMove = false;
+                CharacterControl.Instance.StopPlayerCameraMovment();
                 DialogueManger.Instance.dialogIsActive = true;
 
                 DialogueManger.Instance.startDialogA = false;
@@ -111,6 +119,8 @@ public class InteractCollider : MonoBehaviour
             }
             if (other.gameObject.CompareTag("NPC4"))
             {
+                CharacterControl.Instance.playerCanMove = false;
+                CharacterControl.Instance.StopPlayerCameraMovment();
                 DialogueManger.Instance.dialogIsActive = true;
 
                 DialogueManger.Instance.startDialogA = false;
@@ -122,6 +132,8 @@ public class InteractCollider : MonoBehaviour
             }
             if (other.gameObject.CompareTag("NPC5"))
             {
+                CharacterControl.Instance.playerCanMove = false;
+                CharacterControl.Instance.StopPlayerCameraMovment();
                 DialogueManger.Instance.dialogIsActive = true;
 
                 DialogueManger.Instance.startDialogA = false;
@@ -134,6 +146,8 @@ public class InteractCollider : MonoBehaviour
             //Beam Spell dialog
             if (other.gameObject.CompareTag("NPC6"))
             {
+                CharacterControl.Instance.playerCanMove = false;
+                CharacterControl.Instance.StopPlayerCameraMovment();
                 DialogueManger.Instance.dialogIsActive = true;
 
                 DialogueManger.Instance.startDialogA = false;

@@ -53,6 +53,8 @@ public class CharacterControl : MonoBehaviour
     Vector3 moveDirection; // direction player is to move
     Vector3 playerMomentum;
 
+    public bool playerCanMove = true; // if player can moove or not
+
     Rigidbody rB; // player rigeidbody
 
     public Vector3 customGravity = new Vector3(0f, 0f, 0f);
@@ -62,7 +64,7 @@ public class CharacterControl : MonoBehaviour
     /// </summary>
 
     public GameObject cameraMoveScript;
-    private bool cameraActive = true;
+    public bool cameraActive = true;
 
     private void Awake()
     {
@@ -90,15 +92,24 @@ public class CharacterControl : MonoBehaviour
         ShotMissile();
         StartInteraction();
         GetGravityDirektion();
-        StopPlayerCameraMovment();
         MyInput(); // Get imput from player
         SpeedControl(); // Contorl PlayerObj speed
         HandleDrag(); // Control playerObj drag
-        if (Input.GetKeyDown(GameManager.Instance.jumpKey) && IsGrounded())
+
+
+        if (Input.GetKeyDown(GameManager.Instance.jumpKey) && IsGrounded()) // Jump 
         {
             Jump();
         }
+
+        if(Input.GetKeyDown(GameManager.Instance.frezeCamera)) // Stop player camera by input (made for testing atm)
+        {
+            StopPlayerCameraMovment();
+        }
+
     }
+
+
 
     private void FixedUpdate()
     {
@@ -231,25 +242,28 @@ public class CharacterControl : MonoBehaviour
     // intercaton invlovs attack, talk to npc, open door and interact with objekt general
     void StartInteraction()
     {
-        if (Input.GetKey(GameManager.Instance.meleeAttackKey) && interactReady)
+        if (!DialogueManger.Instance.dialogIsActive)
         {
-            interactionModeAttack = true;
-            interactionModeInteract = false;
+            if (Input.GetKey(GameManager.Instance.meleeAttackKey) && interactReady) // When dialog interation can happen
+            {
+                interactionModeAttack = true;
+                interactionModeInteract = false;
 
-           spear.GetComponent<MeshRenderer>().enabled = true; // Make the spear visable
+                spear.GetComponent<MeshRenderer>().enabled = true; // Make the spear visable
 
-            interactAudioSource.PlayOneShot(interactAudioClip);
-            spear.GetComponent<Animator>().SetTrigger("AttackTrigger");
+                interactAudioSource.PlayOneShot(interactAudioClip);
+                spear.GetComponent<Animator>().SetTrigger("AttackTrigger");
 
-            StartCoroutine(DoInteraction());
+                StartCoroutine(DoInteraction());
 
-        }
-        if (Input.GetKey(GameManager.Instance.interactKey) && interactReady)
-        {
-            interactionModeInteract = true;
-            interactionModeAttack = false;
+            }
+            if (Input.GetKey(GameManager.Instance.interactKey) && interactReady)
+            {
+                interactionModeInteract = true;
+                interactionModeAttack = false;
 
-            StartCoroutine(DoInteraction());
+                StartCoroutine(DoInteraction());
+            }
         }
     }
 
@@ -285,18 +299,21 @@ public class CharacterControl : MonoBehaviour
     }
 
     //Start and stop player camera control
-    void StopPlayerCameraMovment()
+    public void StopPlayerCameraMovment()
     {
-        if (Input.GetKeyDown(GameManager.Instance.frezeCamera) && cameraActive)
+        if (cameraActive)
         {
-            Debug.Log("Stop player camera control");
             cameraMoveScript.GetComponent<PlayerCamera>().enabled = false;
+            Debug.Log("Stop player camera control");
             cameraActive = false;
+
         }
-        else if (Input.GetKeyDown(GameManager.Instance.frezeCamera))
+        else 
         {
-            Debug.Log("Start player camera control");
+            
+            
             cameraMoveScript.GetComponent<PlayerCamera>().enabled = true;
+            Debug.Log("Start player camera control");
             cameraActive = true;
         }
     }
@@ -304,14 +321,24 @@ public class CharacterControl : MonoBehaviour
 
     private void HandleDrag()
     {
-        if (IsGrounded())
+        if (playerCanMove == false)
         {
-            rB.drag = groundDrag;
+            rB.drag = 100;
         }
+
         else
         {
-            rB.drag = airDrag;
+            if (IsGrounded())
+            {
+                rB.drag = groundDrag;
+            }
+            else
+            {
+                rB.drag = airDrag;
+            }
         }
+
+
     }
 
     //Get input
