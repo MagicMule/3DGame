@@ -34,7 +34,7 @@ public class DialogueManger : MonoBehaviour
     private int dialogTextIndex = 0; //starting with the first line
     public List<GameObject> dilogInteractivObjekts; // things that spawn or other change based on dialog
 
-    private bool narativBoxOpen = false;
+    public bool narativBoxOpen = false;
 
     public bool startDialogA = false;
     public bool startDialogB = false;
@@ -149,7 +149,10 @@ public class DialogueManger : MonoBehaviour
 
         narativBoxOpen = true;
 
+  
+        /*
         StartCoroutine(DialogPrecistance( 20, narativDialog.gameObject)); // If player do not close, close text
+        */
     }
 
     public void OneOnOneDialog(DialogText.Dialog dialogListToStart)

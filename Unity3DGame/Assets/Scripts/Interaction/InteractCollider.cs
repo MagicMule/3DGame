@@ -47,19 +47,19 @@ public class InteractCollider : MonoBehaviour
         // if using interaktion
         if (CharacterControl.Instance.interactionModeInteract && !DialogueManger.Instance.dialogIsActive) // can not do inteartion in dialogMode
         {
-            if (other.gameObject.CompareTag("Interactive1"))
+            if (other.gameObject.CompareTag("Interactive1") && !DialogueManger.Instance.narativBoxOpen)
             {
-                
+
                 Debug.Log("1");
                 DialogueManger.Instance.NarativDialog(0);
             }
-            else if (other.gameObject.CompareTag("Interactive2"))
+            else if (other.gameObject.CompareTag("Interactive2") && !DialogueManger.Instance.narativBoxOpen)
             {
 
                 Debug.Log("2");
                 DialogueManger.Instance.NarativDialog(1);
             }
-            else if (other.gameObject.CompareTag("Interactive3"))
+            else if (other.gameObject.CompareTag("Interactive3") && !DialogueManger.Instance.narativBoxOpen)
             {
                 Debug.Log("3");
                 DialogueManger.Instance.NarativDialog(2);
@@ -69,7 +69,7 @@ public class InteractCollider : MonoBehaviour
             {
                 DialogueManger.Instance.SpellVerbalDialog(4);
             }
-            else if (other.gameObject.CompareTag("Interactive5"))
+            else if (other.gameObject.CompareTag("Interactive5") && !DialogueManger.Instance.narativBoxOpen)
             {
                 Debug.Log("5");
                 DialogueManger.Instance.NarativDialog(3);
