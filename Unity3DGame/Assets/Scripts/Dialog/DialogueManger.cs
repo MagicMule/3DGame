@@ -82,6 +82,7 @@ public class DialogueManger : MonoBehaviour
         {
             narativDialog.gameObject.SetActive(false);
             narativeTextBackGround.SetActive(false);
+            narativBoxOpen = false;
         }
     }
     void ProgresCharakterDialog()
