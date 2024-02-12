@@ -35,6 +35,7 @@ TagManager:
   - Key1
   - Destructable
   - Interactive5
+  - Interactive6
   layers:
   - Default
   - TransparentFX

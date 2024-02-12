@@ -49,7 +49,8 @@ public class DialogText : MonoBehaviour
         dilogLinesA.line.Add("Indeed. I have my contacts. Some are in me now and will follow me to Arums shores, others linger behind the moon and in the gleam of the stars. They will serve me as I have served them, by law.");
         dilogLinesA.line.Add("Laws, is it? Arum is a land where people make their own law. Are you sure a sneak will not cross and deny you?");
         dilogLinesA.line.Add("No, but that is the why of things. If in truth I have but my will and a drop of blood, it will have to do");
-        dilogLinesA.line.Add("Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl. You already know its name.");
+        dilogLinesA.line.Add("Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl.");
+        dilogLinesA.line.Add("....");
     }
 
     void DialogB()
@@ -136,7 +137,7 @@ public class DialogText : MonoBehaviour
         dialogLinesInteractives.line.Add("Pages corroded, scared thou time. But  from what is latigable it seems to be the remanence of an index of the library's stock. From A-Ö in subject and A-Ö in title.");
         dialogLinesInteractives.line.Add("Locked. A place in a place of itself. A restricted access to, presumably, more obscure unvented knowledge. Miscaractasitons, falsehood, or perceived such, of nature and character. And two; valuable, irreplaceable things of arcana and esoterica.");
         dialogLinesInteractives.line.Add("A wall has formed from the path I entered, I can not go back this way.");
-        dialogLinesInteractives.line.Add("5");
+        dialogLinesInteractives.line.Add("Immaterial chaotic text branches out on the wall. It tells a story of how Deimon and The Ally share a coup of hot pepper brew, having some discussion of the nature of fairness and men. It's but nonsensical dreg. The Yog-agi, the Devil is not but blood and death, and shalt be paid in kind");
     }
 
     void SpellVerbal()

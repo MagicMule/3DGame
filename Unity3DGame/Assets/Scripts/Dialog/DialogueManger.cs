@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueManger : MonoBehaviour
 {
@@ -124,10 +125,14 @@ public class DialogueManger : MonoBehaviour
 
     void CloseSpellText()
     {
-        if (spellVerbal.GetComponent<TypeOutText>().typeOutDone)
+        if (CharacterControl.Instance != null)
         {
-            spellVerbal.gameObject.SetActive(false);
+            if (spellVerbal.GetComponent<TypeOutText>().typeOutDone)
+            {
+                spellVerbal.gameObject.SetActive(false);
+            }
         }
+
     }
     // chose what inedect to use when spell is cast
     public void SpellVerbalDialog(int spelIndex)
@@ -210,15 +215,17 @@ public class DialogueManger : MonoBehaviour
             {
                 charakterDialogTextBackGround.SetActive(false);
             }
-            charakterDialog1.gameObject.SetActive(false);
-            charakterDialog2.gameObject.SetActive(false);
 
-            CharacterControl.Instance.playerCanMove = true;
-            CharacterControl.Instance.StopPlayerCameraMovment();
-            //mark that game has left "Dialog Mode"
-            StartCoroutine(DialogColdown());
 
-            //restor player movement
+
+            if (CharacterControl.Instance != null)
+            {
+                charakterDialog1.gameObject.SetActive(false);
+                charakterDialog2.gameObject.SetActive(false);
+                CharacterControl.Instance.playerCanMove = true;
+                CharacterControl.Instance.StopPlayerCameraMovment();
+                StartCoroutine(DialogColdown());
+            }
             
         }
     }
@@ -236,10 +243,18 @@ public class DialogueManger : MonoBehaviour
         // can only put in an indext that is less then or eqal to the total count of lines
         // if dilogTextIndex is greater then line.count it will not work
         if (!(dialogText.dilogLinesA.line.Count <= dialogTextIndex) 
-            && dialogText.dilogLinesA.line[dialogTextIndex] == "Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl. You already know its name." 
+            && dialogText.dilogLinesA.line[dialogTextIndex] == "Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl."
             && startDialogA)
         {
             dilogInteractivObjekts[0].SetActive(true);
+        }
+
+        //Cange scen when intro interkton is done
+        if (!(dialogText.dilogLinesA.line.Count <= dialogTextIndex)
+            && dialogText.dilogLinesA.line[dialogTextIndex] == "...."
+            && startDialogA)
+        {
+            SceneManager.LoadScene(0);
         }
 
         // desapwn Withround
@@ -282,6 +297,7 @@ public class DialogueManger : MonoBehaviour
             dilogInteractivObjekts[4].SetActive(false);
             dilogInteractivObjekts[5].SetActive(true);
         }
+        
 
     }
     //Set a timer on a dialog
