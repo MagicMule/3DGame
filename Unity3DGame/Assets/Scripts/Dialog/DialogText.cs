@@ -45,9 +45,9 @@ public class DialogText : MonoBehaviour
         dilogLinesA.line.Add("...");
         dilogLinesA.line.Add("How are you feeling?");
         dilogLinesA.line.Add("How should I feel? I'm as I have been. Don't worry, Im am but ready");
-        dilogLinesA.line.Add("Truly? I have not made that demand of you, only ask if you are willing. You have experience, friends and knowledge and power. But you will dwell in a place where flesh and blood is law.");
-        dilogLinesA.line.Add("Indeed. I have my contacts. Some are in me now and will follow me to Arums shores, others linger behind the moon and in the gleam of the stars. They will serve me as I have served them, by law.");
-        dilogLinesA.line.Add("Laws, is it? Arum is a land where people make their own law. Are you sure a sneak will not cross and deny you?");
+        dilogLinesA.line.Add("Truly? I have not made that demand of you, only ask if you are willing. You will dwell in a place where flesh and blood is law. Have a firm grasp on your allies");
+        dilogLinesA.line.Add("Indeed. Some are in me now and will follow me to Arums shores, others linger behind the moon and in the gleam of the stars. They will serve me as I have served them, by law.");
+        dilogLinesA.line.Add("Law is it? Arum is a land where people make their own law. Are you sure a sneak will not cross and deny you?");
         dilogLinesA.line.Add("No, but that is the why of things. If in truth I have but my will and a drop of blood, it will have to do");
         dilogLinesA.line.Add("Not to worry, I have some to give you. The tip of the spear were forged in the Diamond Spring. It is the arm against the Yog-agl.");
         dilogLinesA.line.Add("....");
@@ -127,9 +127,9 @@ public class DialogText : MonoBehaviour
         dilogLinesG.line.Add("I know only you were gone when I entered this place. My reverence for Odion extends to you.");
         dilogLinesG.line.Add("I was made a prisoner by agents of the Demon. It was not of my choosing.");
         dilogLinesG.line.Add("You are not a damsel. What manner made you so?");
-        dilogLinesG.line.Add("Do not jest me mage! There is no enemy I can not face! I pierce the mountain! I pierce the heart of the giant! I pearce the inner logic! I pearce the thought-stuf of tomorrow and the future! But. This place and its evils have weekend me, for the Tog-agl has acolytes of the dark spot, scum of the enemy.");
+        dilogLinesG.line.Add("Do not jest me mage! There is no enemy I can not face! I pierce the mountain! I pierce the heart of the giant! I pearce the inner logic! I pearce the thought-stuf of tomorrow and the future! But. This place and its evils have weekend me, for the Yog-agl has acolytes of the dark spot, scum of the enemy.");
         dilogLinesG.line.Add("… That is a possibility I tried not to consider. But it looks true. Come to me again. I need your grand force to break out of this library.");
-        dilogLinesG.line.Add("I saw where you entered. On the same low ground, at the end of the complex, there is rubble and instability. I know for true that my power is grand, that it is to clear a path there. Let's break forth!!");
+        dilogLinesG.line.Add("I saw where you entered. On the same low ground, at the end of the complex, there is rubble and instability. Select me with the (2) key and fire with right click. I know for true that my power is grand, that it is to clear a path there. Let's break forth!!");
     }
     void Interactives()
     {
@@ -137,7 +137,8 @@ public class DialogText : MonoBehaviour
         dialogLinesInteractives.line.Add("Pages corroded, scared thou time. But  from what is latigable it seems to be the remanence of an index of the library's stock. From A-Ö in subject and A-Ö in title.");
         dialogLinesInteractives.line.Add("Locked. A place in a place of itself. A restricted access to, presumably, more obscure unvented knowledge. Miscaractasitons, falsehood, or perceived such, of nature and character. And two; valuable, irreplaceable things of arcana and esoterica.");
         dialogLinesInteractives.line.Add("A wall has formed from the path I entered, I can not go back this way.");
-        dialogLinesInteractives.line.Add("Immaterial chaotic text branches out on the wall. It tells a story of how Deimon and The Ally share a coup of hot pepper brew, having some discussion of the nature of fairness and men. It's but nonsensical dreg. The Yog-agi, the Devil is not but blood and death, and shalt be paid in kind");
+        dialogLinesInteractives.line.Add("Immaterial chaotic text branches out on the wall. It tells a story of how the Deimon and The Ally share a coup of hot pepper brew, having some discussion of the nature of fairness and men. It's but nonsensical dreg. The Yog-agi, the Devil, is not but blood and death; shall be paid in kind");
+        dialogLinesInteractives.line.Add("The darkness in total, select a spell light by (1) key and activate with right click.");
     }
 
     void SpellVerbal()

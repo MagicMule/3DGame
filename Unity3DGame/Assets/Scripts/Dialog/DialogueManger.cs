@@ -63,6 +63,7 @@ public class DialogueManger : MonoBehaviour
     void Start()
     {
         dialogText = GetComponent<DialogText>();
+        //NarativDialog(6);
     }
     // Update is called once per frame
     void Update()
@@ -291,7 +292,7 @@ public class DialogueManger : MonoBehaviour
         //Spear of Odion interaction
         // deactivet npc and activeaete piuckupp
         if (!(dialogText.dilogLinesG.line.Count <= dialogTextIndex)
-            && dialogText.dilogLinesG.line[dialogTextIndex] == "I saw where you entered. On the same low ground, at the end of the complex, there is rubble and instability. I know for true that my power is grand, that it is to clear a path there. Let's break forth!!"
+            && dialogText.dilogLinesG.line[dialogTextIndex] == "I saw where you entered. On the same low ground, at the end of the complex, there is rubble and instability. Select me with the (2) key and fire with right click. I know for true that my power is grand, that it is to clear a path there. Let's break forth!!"
             && startDialogG)
         {
             dilogInteractivObjekts[4].SetActive(false);

@@ -102,11 +102,12 @@ public class CharacterControl : MonoBehaviour
             Jump();
         }
 
+        /*
         if(Input.GetKeyDown(GameManager.Instance.frezeCamera)) // Stop player camera by input (made for testing atm)
         {
             StopPlayerCameraMovment();
         }
-
+        */
     }
 
 
