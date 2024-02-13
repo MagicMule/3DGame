@@ -10,8 +10,9 @@ public class InputInteractions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             //Return to start
-
-            SceneManager.LoadScene(3);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(0);
         }
     }
 }

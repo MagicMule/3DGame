@@ -63,7 +63,11 @@ public class DialogueManger : MonoBehaviour
     void Start()
     {
         dialogText = GetComponent<DialogText>();
-        //NarativDialog(6);
+        if (CharacterControl.Instance != null)
+        {
+            NarativDialog(5);
+        }
+            
     }
     // Update is called once per frame
     void Update()
@@ -255,7 +259,7 @@ public class DialogueManger : MonoBehaviour
             && dialogText.dilogLinesA.line[dialogTextIndex] == "...."
             && startDialogA)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
 
         // desapwn Withround
